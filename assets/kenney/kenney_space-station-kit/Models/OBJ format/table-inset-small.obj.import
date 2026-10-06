@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7i2pcgh5oudk"
+path="res://.godot/imported/table-inset-small.obj-a94e10207a553abf7089c0ed9b80556e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table-inset-small.obj-a94e10207a553abf7089c0ed9b80556e.mesh"]
+
+source_file="res://assets/kenney/kenney_space-station-kit/Models/OBJ format/table-inset-small.obj"
+dest_files=["res://.godot/imported/table-inset-small.obj-a94e10207a553abf7089c0ed9b80556e.mesh", "res://.godot/imported/table-inset-small.obj-a94e10207a553abf7089c0ed9b80556e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bkmhltqbpp701"]
+
+[ext_resource type="Script" uid="uid://bqb3cy0ekk685" path="res://addons/godot-xr-tools/objects/climbable.gd" id="1_8h7gy"]
+[ext_resource type="PackedScene" uid="uid://g7aholnfjim2" path="res://assets/me/handlebar.fbx" id="2_jx7ks"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7nxc4"]
+height = 1.206665
+radius = 0.22558594
+
+[node name="Handlebar" type="StaticBody3D" unique_id=1187435484]
+script = ExtResource("1_8h7gy")
+
+[node name="handlebar" parent="." unique_id=334228738 instance=ExtResource("2_jx7ks")]
+transform = Transform3D(-1.37690845e-08, 0, 0.31499997, -0.315, -1.3769087e-08, -1.3769086e-08, 1.3769085e-08, -0.31499997, 6.018659e-16, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=329592758]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.007385254, -3.2282016e-10, -0.24723566)
+shape = SubResource("CylinderShape3D_7nxc4")

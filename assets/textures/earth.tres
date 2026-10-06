@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://v6ob87jpnn1d"]
+
+[ext_resource type="Texture2D" uid="uid://c5q7qppq86oii" path="res://assets/textures/8k_earth_daymap.jpg" id="1_jpqqr"]
+
+[resource]
+albedo_texture = ExtResource("1_jpqqr")

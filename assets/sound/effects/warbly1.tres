@@ -1,0 +1,12 @@
+[gd_resource type="AudioEffectChorus" format=3 uid="uid://vbf5irnltmdm"]
+
+[resource]
+resource_name = "Chorus"
+voice_count = 1
+dry = 0.3
+wet = 0.71
+voice/1/delay_ms = 34.61
+voice/1/rate_hz = 17.1
+voice/1/depth_ms = 10.64
+voice/1/level_db = -7.0
+voice/1/pan = -0.38

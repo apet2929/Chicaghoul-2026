@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://crrt6aayc327i"
+path="res://.godot/imported/desk_chair.obj-16d9f6253ecb62a7f675614bc5f1b85c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/desk_chair.obj-16d9f6253ecb62a7f675614bc5f1b85c.mesh"]
+
+source_file="res://assets/kenney/kenney_space-kit/Models/OBJ format/desk_chair.obj"
+dest_files=["res://.godot/imported/desk_chair.obj-16d9f6253ecb62a7f675614bc5f1b85c.mesh", "res://.godot/imported/desk_chair.obj-16d9f6253ecb62a7f675614bc5f1b85c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

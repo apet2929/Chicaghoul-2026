@@ -2,14 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_bprnf"]
 [ext_resource type="Script" uid="uid://bri0b13kmq3pg" path="res://scripts/intro_cutscene.gd" id="2_xeku4"]
+[ext_resource type="Script" uid="uid://dvwn4xr82rlbk" path="res://scripts/intro_cutscene_dialogue_manager.gd" id="3_flcbd"]
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="3_fxsd4"]
+[ext_resource type="Script" uid="uid://6btm0m758270" path="res://scripts/dialogue.gd" id="3_k5ksj"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_yx07r"]
+[ext_resource type="PackedScene" uid="uid://cmtmdlg5oc145" path="res://scenes/subtitle.tscn" id="5_flcbd"]
 [ext_resource type="Material" path="res://assets/wahooney.itch.io/green_grid_triplanar.tres" id="6_ndqjh"]
 [ext_resource type="PackedScene" uid="uid://cgft3n024muna" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_baseA.fbx" id="7_i4gpt"]
 [ext_resource type="PackedScene" uid="uid://crrjx7gvijm6q" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_finsA.fbx" id="8_2o38y"]
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="8_i4gpt"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="9_2o38y"]
 [ext_resource type="PackedScene" uid="uid://buxgmt4b6nghk" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_fuelA.fbx" id="9_k5ksj"]
 [ext_resource type="PackedScene" uid="uid://68scvmiujpic" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_sidesA.fbx" id="10_6psxe"]
+[ext_resource type="PackedScene" uid="uid://dydvgj3a2vgu8" path="res://scenes/title_card.tscn" id="10_ujkvu"]
 [ext_resource type="Shader" uid="uid://caax3xm5crmfl" path="res://assets/me/clouds.gdshader" id="11_2o38y"]
 [ext_resource type="PackedScene" uid="uid://dnnsv5mmebemx" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_topB.fbx" id="11_yx07r"]
 [ext_resource type="PackedScene" uid="uid://diru0ptnhxv2v" path="res://assets/kenney/kenney_space-kit/Models/FBX format/hangar_largeA.fbx" id="12_flcbd"]
@@ -30,9 +34,6 @@ sky_material = SubResource("ProceduralSkyMaterial_7nxc4")
 [sub_resource type="Environment" id="Environment_7nxc4"]
 background_mode = 2
 sky = SubResource("Sky_t65tg")
-ambient_light_source = 1
-ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.3
 
 [sub_resource type="Gradient" id="Gradient_kx81a"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
@@ -55,43 +56,6 @@ albedo_texture = SubResource("NoiseTexture2D_h1dum")
 [sub_resource type="QuadMesh" id="QuadMesh_7nxc4"]
 material = SubResource("StandardMaterial3D_bcj7h")
 size = Vector2(2, 2)
-
-[sub_resource type="Animation" id="Animation_6psxe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../XROrigin3D/Rocket/Parts:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_yx07r"]
-resource_name = "takeoff"
-length = 60.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../XROrigin3D/Rocket/Parts:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 8.033334, 59.733334),
-"transitions": PackedFloat32Array(3, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 50, 0), Vector3(0, 20000, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_flcbd"]
-_data = {
-&"RESET": SubResource("Animation_6psxe"),
-&"takeoff": SubResource("Animation_yx07r")
-}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t65tg"]
 render_priority = 0
@@ -117,16 +81,106 @@ height = 5000.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_7nxc4"]
 size = Vector3(200, 200, 200)
 
-[node name="Game" unique_id=981716421 instance=ExtResource("1_bprnf")]
+[sub_resource type="Animation" id="Animation_6psxe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Level/Rocket/Parts:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yx07r"]
+resource_name = "takeoff"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Level/Rocket/Parts:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8.033334, 59.733334),
+"transitions": PackedFloat32Array(3, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 50, 0), Vector3(0, 20000, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flcbd"]
+_data = {
+&"RESET": SubResource("Animation_6psxe"),
+&"takeoff": SubResource("Animation_yx07r")
+}
+
+[node name="IntroCutscene" unique_id=981716421 instance=ExtResource("1_bprnf")]
 
 [node name="IntroCutscene" type="Node" parent="." index="0" unique_id=1655460217]
 script = ExtResource("2_xeku4")
+
+[node name="DialogueManager" type="Node" parent="IntroCutscene" index="0" unique_id=801446155]
+script = ExtResource("3_flcbd")
+
+[node name="AudioListener3D" type="AudioStreamPlayer3D" parent="IntroCutscene/DialogueManager" index="0" unique_id=328386798]
+
+[node name="Dialogue" type="Node" parent="IntroCutscene/DialogueManager" index="1" unique_id=2103295928]
+script = ExtResource("3_k5ksj")
+subtitle = "And we are clear for takeoff in 3… 2… 1… "
+duration = 5.0
+on_end_callback_fn_name = "show_title_card"
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue2" type="Node" parent="IntroCutscene/DialogueManager" index="2" unique_id=843191584]
+script = ExtResource("3_k5ksj")
+subtitle = "*Cheering*"
+duration = 2.0
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue3" type="Node" parent="IntroCutscene/DialogueManager" index="3" unique_id=1477488216]
+script = ExtResource("3_k5ksj")
+subtitle = "Jay: Pretty cool we get to go to space, huh? "
+duration = 5.0
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue4" type="Node" parent="IntroCutscene/DialogueManager" index="4" unique_id=2110790304]
+script = ExtResource("3_k5ksj")
+subtitle = "Crewmate Allen: This your first rodeo kid? Space gigs are the worst. All that waiting, nothing to do but play cards, your body decaying with every passing day. Gets old fast. Nothing good ever comes from space."
+duration = 5.0
+metadata/_custom_type_script = "uid://6btm0m758270"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=1069104509]
 environment = SubResource("Environment_7nxc4")
 
 [node name="XROrigin3D" parent="." index="2"]
 transform = Transform3D(-0.005917201, 0, -0.9999825, 0, 1, 0, 0.9999825, 0, -0.005917201, 0, 0.122677565, 0)
+
+[node name="XRCamera3D" parent="XROrigin3D" index="0"]
+current = true
+
+[node name="Clouds" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D" index="0" unique_id=1596434179]
+unique_name_in_owner = true
+transform = Transform3D(0.9999999, 0, -4.656613e-10, 0, 1, 0, 4.656613e-10, 0, 0.9999999, -0.0066746534, 0, -1.1279889)
+mesh = SubResource("QuadMesh_7nxc4")
+skeleton = NodePath("")
+
+[node name="TitleCard" parent="XROrigin3D/XRCamera3D" index="1" unique_id=368011246 instance=ExtResource("4_yx07r")]
+transform = Transform3D(0.9999999, 0, -9.313226e-10, 0, 1, 0, 9.313226e-10, 0, 0.9999999, -0.011069534, 0, -1.8707057)
+scene = ExtResource("10_ujkvu")
+viewport_size = Vector2(1500, 1000)
+unshaded = true
+
+[node name="Subtitles" parent="XROrigin3D/XRCamera3D" index="2" unique_id=433281827 instance=ExtResource("4_yx07r")]
+unique_name_in_owner = true
+transform = Transform3D(-0.9950409, -0.0010979227, 0.09945174, -0.019526435, 0.98263496, -0.18451908, -0.09752217, -0.18554628, -0.9777833, -2.7529438, -2.6447945, -7.979947)
+scene = ExtResource("5_flcbd")
+viewport_size = Vector2(1500, 1000)
+unshaded = true
+scene_properties_keys = PackedStringArray("subtitle.gd")
 
 [node name="LeftHand" parent="XROrigin3D" index="1"]
 pose = &"grip"
@@ -137,39 +191,6 @@ pose = &"grip"
 pose = &"grip"
 
 [node name="RightHand" parent="XROrigin3D/RightHand" index="0" unique_id=1731380750 instance=ExtResource("8_i4gpt")]
-
-[node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=2132967254 instance=ExtResource("9_2o38y")]
-
-[node name="RocketCam" type="XRCamera3D" parent="XROrigin3D" index="4" unique_id=1129531442]
-transform = Transform3D(-0.9950419, -0.0010979265, 0.09945184, -0.019526454, 0.98263496, -0.18451922, -0.09752227, -0.1855463, -0.97778434, -2.6439133, -1.0599511, -9.120041)
-
-[node name="Clouds" type="MeshInstance3D" parent="XROrigin3D/RocketCam" index="0" unique_id=1596434179]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5622654)
-mesh = SubResource("QuadMesh_7nxc4")
-
-[node name="Rocket" type="Node3D" parent="XROrigin3D" index="5" unique_id=558595189]
-transform = Transform3D(-0.0059172017, 0, 0.9999826, 0, 1, 0, -0.9999826, 0, -0.0059172017, -1.3875378, -3.81267, -8.034686)
-
-[node name="Parts" type="Node3D" parent="XROrigin3D/Rocket" index="0" unique_id=323751811]
-
-[node name="rocket_baseA" parent="XROrigin3D/Rocket/Parts" index="0" unique_id=1718680349 instance=ExtResource("7_i4gpt")]
-
-[node name="rocket_finsA" parent="XROrigin3D/Rocket/Parts" index="1" unique_id=1372282430 instance=ExtResource("8_2o38y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0029497, 0)
-
-[node name="rocket_fuelA" parent="XROrigin3D/Rocket/Parts" index="2" unique_id=386671163 instance=ExtResource("9_k5ksj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.702975, 0)
-
-[node name="rocket_sidesA" parent="XROrigin3D/Rocket/Parts" index="3" unique_id=1921056886 instance=ExtResource("10_6psxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2033315, 0)
-
-[node name="rocket_topB" parent="XROrigin3D/Rocket/Parts" index="4" unique_id=1294544137 instance=ExtResource("11_yx07r")]
-transform = Transform3D(1.0011435, 0, 0, 0, 1.0011435, 0, 0, 0, 1.0011435, 0, 3.1971703, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="XROrigin3D/Rocket" index="1" unique_id=1433929548]
-root_node = NodePath("../../../IntroCutscene")
-libraries/ = SubResource("AnimationLibrary_flcbd")
 
 [node name="Level" type="Node3D" parent="." index="3" unique_id=1519969211]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
@@ -189,13 +210,37 @@ shape = SubResource("ConvexPolygonShape3D_dafp8")
 [node name="Planet" type="MeshInstance3D" parent="Level" index="1" unique_id=378176083]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.4539905, -0.89100635, 0, 0.89100647, 0.45399043, 180.77928, -4930.2715, 1445.0197)
 mesh = SubResource("SphereMesh_8ykqx")
-skeleton = NodePath("../../XROrigin3D/Rocket")
+skeleton = NodePath("../Rocket")
 
 [node name="Clouds" type="Area3D" parent="Level" index="2" unique_id=1552894952]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.772407, 1000, 21.714994)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Clouds" index="0" unique_id=1082175238]
 shape = SubResource("BoxShape3D_7nxc4")
+
+[node name="Rocket" type="Node3D" parent="Level" index="3" unique_id=558595189]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.042754, -3.6899924, -1.3399706)
+
+[node name="Parts" type="Node3D" parent="Level/Rocket" index="0" unique_id=323751811]
+
+[node name="rocket_baseA" parent="Level/Rocket/Parts" index="0" unique_id=1718680349 instance=ExtResource("7_i4gpt")]
+
+[node name="rocket_finsA" parent="Level/Rocket/Parts" index="1" unique_id=1372282430 instance=ExtResource("8_2o38y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0029497, 0)
+
+[node name="rocket_fuelA" parent="Level/Rocket/Parts" index="2" unique_id=386671163 instance=ExtResource("9_k5ksj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.702975, 0)
+
+[node name="rocket_sidesA" parent="Level/Rocket/Parts" index="3" unique_id=1921056886 instance=ExtResource("10_6psxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2033315, 0)
+
+[node name="rocket_topB" parent="Level/Rocket/Parts" index="4" unique_id=1294544137 instance=ExtResource("11_yx07r")]
+transform = Transform3D(1.0011435, 0, 0, 0, 1.0011435, 0, 0, 0, 1.0011435, 0, 3.1971703, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Rocket" index="1" unique_id=1433929548]
+root_node = NodePath("../../../IntroCutscene")
+libraries/ = SubResource("AnimationLibrary_flcbd")
 
 [node name="hangar_largeA" parent="." index="4" unique_id=663478385 instance=ExtResource("12_flcbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.757421, -5.9455986, 5.9033566)

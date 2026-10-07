@@ -18,7 +18,6 @@ config/name="Chicaghoul 2026"
 run/main_scene="uid://bsu5d0ki2hugg"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
-run/main_scene.pc="uid://dbeb7yij08a0k"
 
 [autoload]
 

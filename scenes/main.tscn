@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://bsu5d0ki2hugg"]
 
 [ext_resource type="PackedScene" uid="uid://bnqnnnet4dw12" path="res://addons/godot-xr-tools/staging/staging.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://ftrrxm7sxndi" path="res://assets/godot/splash.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://bw4c04ujk2o1q" path="res://scripts/main_camera.gd" id="2_sugp2"]
 
 [node name="Main" unique_id=593048028 instance=ExtResource("1_o5qli")]
 main_scene = "uid://yw601vc7jw3k"
+
+[node name="XRCamera3D" parent="XROrigin3D" index="0"]
+script = ExtResource("2_sugp2")
+
+[node name="LoadingScreen" parent="." index="2"]
+splash_screen = ExtResource("2_0wfyh")

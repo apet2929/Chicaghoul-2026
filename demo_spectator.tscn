@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dbeb7yij08a0k"]
 
 [ext_resource type="Script" uid="uid://wrj82keinrmg" path="res://demo_spectator.gd" id="1_8iyqg"]
-[ext_resource type="PackedScene" uid="uid://dkr1jkk3jerux" path="res://demo_staging.tscn" id="1_sk82w"]
 [ext_resource type="PackedScene" uid="uid://ss6ydhkwbtrl" path="res://demo_scenes/scenes/helpers/axis/axis.tscn" id="2_e6dq5"]
+[ext_resource type="PackedScene" uid="uid://bsu5d0ki2hugg" path="res://scenes/main.tscn" id="3_e6dq5"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8iyqg"]
 radius = 0.15
@@ -19,7 +19,7 @@ height = 0.2
 radial_segments = 32
 rings = 4
 
-[node name="DemoSpectator" type="Node2D" unique_id=1308545934]
+[node name="Spectator" type="Node2D" unique_id=1308545934]
 script = ExtResource("1_8iyqg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=510095619]
@@ -30,7 +30,7 @@ offset_bottom = 76.0
 
 [node name="CameraPosSelection" type="OptionButton" parent="VBoxContainer" unique_id=1085567594]
 layout_mode = 2
-selected = 0
+selected = 2
 item_count = 3
 popup/item_0/text = "Over shoulder"
 popup/item_0/id = 0
@@ -76,16 +76,13 @@ label = "XROrigin3D"
 layers = 4
 
 [node name="SpectatorCamera" type="Camera3D" parent="." unique_id=903957259]
-transform = Transform3D(0.994739, -0.0160048, 0.101187, 0, 0.987721, 0.156228, -0.102445, -0.155406, 0.982524, 0.5, 1.5, 1)
+transform = Transform3D(0.99473876, -0.01600477, 0.10118705, 0, 0.987721, 0.15622796, -0.10244498, -0.155406, 0.98252434, 0.31482685, 1.8250275, 1)
 cull_mask = 1048573
 
 [node name="HMDViewport" type="SubViewport" parent="." unique_id=613236262]
 
-[node name="DemoStaging" parent="HMDViewport" unique_id=1710981425 instance=ExtResource("1_sk82w")]
-
-[node name="XRCamera3D" parent="HMDViewport/DemoStaging/XROrigin3D" index="0"]
-cull_mask = 1048571
+[node name="Main" parent="HMDViewport" unique_id=593048028 instance=ExtResource("3_e6dq5")]
 
 [connection signal="toggled" from="VBoxContainer/ShowDebugAxis" to="." method="_on_show_debug_axis_toggled"]
 
-[editable path="HMDViewport/DemoStaging"]
+[editable path="HMDViewport/Main"]

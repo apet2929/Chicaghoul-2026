@@ -1,24 +1,28 @@
-extends Node
+extends DialogueManager
 
-
-func xr_origin() -> XROrigin3D:
-	return get_parent().find_child("XROrigin3D")
+@export var title_card: Node3D
+@export var clouds: Node3D
+@export var subtitles: Node3D
 
 func _ready() -> void:
 	print("Ready!")
-	%Clouds.visible = false
-	%RocketCam/TitleCard.visible = false
-	$DialogueManager.cutscene_ended.connect(on_cutscene_end)
+	clouds.visible = false
+	title_card.visible = false
+	self.cutscene_ended.connect(on_cutscene_end)
 	await get_tree().create_timer(0.5).timeout
-	self.start_cutscene.call_deferred()
-	
-func start_cutscene():
-	$DialogueManager.play()
-	%Rocket/AnimationPlayer.play("takeoff")
+	self.play.call_deferred()
+	Globals.set_camera($"../XROrigin3D/XRCamera3D")
+	subtitles.position = Globals.camera.position + Vector3(0,0,-1)
 
 func show_title_card():
-	%RocketCam.current = true
-	%RocketCam/TitleCard.visible = true
+	title_card.visible = true
+
+func goto_rocket_cam():
+	%Rocket.current = true
+	%Rocket/XRCamera3D.current = true
+	%Rocket/AnimationPlayer.play("takeoff")
+	Globals.set_camera(%Rocket/XRCamera3D)
+	
 	
 func on_cutscene_end() -> void:
 	# Works if main.tscn is the currently running scene

@@ -1,20 +1,18 @@
 [gd_scene format=3 uid="uid://yw601vc7jw3k"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_bprnf"]
-[ext_resource type="Script" uid="uid://bri0b13kmq3pg" path="res://scripts/intro_cutscene.gd" id="2_xeku4"]
-[ext_resource type="Script" uid="uid://dvwn4xr82rlbk" path="res://scripts/intro_cutscene_dialogue_manager.gd" id="3_flcbd"]
-[ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="3_fxsd4"]
 [ext_resource type="Script" uid="uid://6btm0m758270" path="res://scripts/dialogue.gd" id="3_k5ksj"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_yx07r"]
+[ext_resource type="PackedScene" uid="uid://cu6xpxw5585vv" path="res://scenes/clouds.tscn" id="5_6psxe"]
 [ext_resource type="PackedScene" uid="uid://cmtmdlg5oc145" path="res://scenes/subtitle.tscn" id="5_flcbd"]
 [ext_resource type="Material" path="res://assets/wahooney.itch.io/green_grid_triplanar.tres" id="6_ndqjh"]
 [ext_resource type="PackedScene" uid="uid://cgft3n024muna" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_baseA.fbx" id="7_i4gpt"]
 [ext_resource type="PackedScene" uid="uid://crrjx7gvijm6q" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_finsA.fbx" id="8_2o38y"]
-[ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="8_i4gpt"]
 [ext_resource type="PackedScene" uid="uid://buxgmt4b6nghk" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_fuelA.fbx" id="9_k5ksj"]
 [ext_resource type="PackedScene" uid="uid://68scvmiujpic" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_sidesA.fbx" id="10_6psxe"]
 [ext_resource type="PackedScene" uid="uid://dydvgj3a2vgu8" path="res://scenes/title_card.tscn" id="10_ujkvu"]
 [ext_resource type="Shader" uid="uid://caax3xm5crmfl" path="res://assets/me/clouds.gdshader" id="11_2o38y"]
+[ext_resource type="Script" uid="uid://bb2wam2qelee2" path="res://scripts/intro_cutscene_manager.gd" id="11_flcbd"]
 [ext_resource type="PackedScene" uid="uid://dnnsv5mmebemx" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_topB.fbx" id="11_yx07r"]
 [ext_resource type="PackedScene" uid="uid://diru0ptnhxv2v" path="res://assets/kenney/kenney_space-kit/Models/FBX format/hangar_largeA.fbx" id="12_flcbd"]
 [ext_resource type="Material" uid="uid://v6ob87jpnn1d" path="res://assets/textures/earth.tres" id="13_k5ksj"]
@@ -24,45 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://bmn4kv1iqaq2j" path="res://assets/kenney/kenney_space-kit/Models/FBX format/platform_low.fbx" id="16_475n0"]
 [ext_resource type="PackedScene" uid="uid://cekh0a5h63vsl" path="res://assets/kenney/kenney_space-kit/Models/FBX format/satelliteDish_detailed.fbx" id="17_y11t0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7nxc4"]
-sky_horizon_color = Color(0.64705884, 0.654902, 0.67058825, 1)
-ground_bottom_color = Color(0.38431373, 0.45490196, 0.54901963, 1)
-
-[sub_resource type="Sky" id="Sky_t65tg"]
-sky_material = SubResource("ProceduralSkyMaterial_7nxc4")
-
-[sub_resource type="Environment" id="Environment_7nxc4"]
-background_mode = 2
-sky = SubResource("Sky_t65tg")
-
-[sub_resource type="Gradient" id="Gradient_kx81a"]
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_oyqff"]
-noise_type = 3
-frequency = 0.0202
-offset = Vector3(173.91, 0, 0)
-domain_warp_fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h1dum"]
-noise = SubResource("FastNoiseLite_oyqff")
-color_ramp = SubResource("Gradient_kx81a")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcj7h"]
-transparency = 1
-shading_mode = 0
-albedo_texture = SubResource("NoiseTexture2D_h1dum")
-
-[sub_resource type="QuadMesh" id="QuadMesh_7nxc4"]
-material = SubResource("StandardMaterial3D_bcj7h")
-size = Vector2(2, 2)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t65tg"]
 render_priority = 0
 shader = ExtResource("11_2o38y")
 shader_parameter/opacity = 0.0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ixccy"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_kdjgy"]
 material = SubResource("ShaderMaterial_t65tg")
 top_radius = 70.0
 bottom_radius = 300.0
@@ -70,30 +35,53 @@ height = 50.0
 radial_segments = 14
 rings = 0
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dafp8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_212kg"]
 points = PackedVector3Array(86.6025, -25, 49.9804, 60.6116, 25, 34.9843, 0, -25, 100, 86.5856, -25, -50.0196, 60.6116, 25, -35.0039, 0, 25, 69.9883, -60.6286, 25, 34.9843, -86.6025, -25, 49.9804, 0, -25, -100, 0, 25, -70.0078, -60.6286, 25, -35.0039, -86.6025, -25, -50)
 
-[sub_resource type="SphereMesh" id="SphereMesh_8ykqx"]
+[sub_resource type="SphereMesh" id="SphereMesh_ntmyb"]
 material = ExtResource("13_k5ksj")
 radius = 5000.0
 height = 5000.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7nxc4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvsrn"]
 size = Vector3(200, 200, 200)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_212kg"]
+sky_horizon_color = Color(0.64705884, 0.654902, 0.67058825, 1)
+ground_bottom_color = Color(0.38431373, 0.45490196, 0.54901963, 1)
+
+[sub_resource type="Sky" id="Sky_t65tg"]
+sky_material = SubResource("ProceduralSkyMaterial_212kg")
+
+[sub_resource type="Environment" id="Environment_ntmyb"]
+background_mode = 2
+sky = SubResource("Sky_t65tg")
 
 [sub_resource type="Animation" id="Animation_6psxe"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Level/Rocket/Parts:position")
+tracks/0/path = NodePath("%Rocket/../Level:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(-6.008, 2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Clouds:mesh:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_yx07r"]
@@ -102,171 +90,172 @@ length = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Level/Rocket/Parts:position")
+tracks/0/path = NodePath("../Level:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 8.033334, 59.733334),
-"transitions": PackedFloat32Array(3, 1, 1),
+"times": PackedFloat32Array(0.033333335, 9.966666, 30.5),
+"transitions": PackedFloat32Array(1, 2.2191393, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 50, 0), Vector3(0, 20000, 0)]
+"values": [Vector3(-6.008, 2, 0), Vector3(-6.008, -100, 0), Vector3(-6.008, -500, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_flcbd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bppr1"]
 _data = {
 &"RESET": SubResource("Animation_6psxe"),
 &"takeoff": SubResource("Animation_yx07r")
 }
 
-[node name="IntroCutscene" unique_id=981716421 instance=ExtResource("1_bprnf")]
+[node name="IntroCutscene2" unique_id=240193231 instance=ExtResource("1_bprnf")]
 
-[node name="IntroCutscene" type="Node" parent="." index="0" unique_id=1655460217]
-script = ExtResource("2_xeku4")
-
-[node name="DialogueManager" type="Node" parent="IntroCutscene" index="0" unique_id=801446155]
-script = ExtResource("3_flcbd")
-
-[node name="AudioListener3D" type="AudioStreamPlayer3D" parent="IntroCutscene/DialogueManager" index="0" unique_id=328386798]
-
-[node name="Dialogue" type="Node" parent="IntroCutscene/DialogueManager" index="1" unique_id=2103295928]
-script = ExtResource("3_k5ksj")
-subtitle = "And we are clear for takeoff in 3… 2… 1… "
-duration = 5.0
-on_end_callback_fn_name = "show_title_card"
-metadata/_custom_type_script = "uid://6btm0m758270"
-
-[node name="Dialogue2" type="Node" parent="IntroCutscene/DialogueManager" index="2" unique_id=843191584]
-script = ExtResource("3_k5ksj")
-subtitle = "*Cheering*"
-duration = 2.0
-metadata/_custom_type_script = "uid://6btm0m758270"
-
-[node name="Dialogue3" type="Node" parent="IntroCutscene/DialogueManager" index="3" unique_id=1477488216]
-script = ExtResource("3_k5ksj")
-subtitle = "Jay: Pretty cool we get to go to space, huh? "
-duration = 5.0
-metadata/_custom_type_script = "uid://6btm0m758270"
-
-[node name="Dialogue4" type="Node" parent="IntroCutscene/DialogueManager" index="4" unique_id=2110790304]
-script = ExtResource("3_k5ksj")
-subtitle = "Crewmate Allen: This your first rodeo kid? Space gigs are the worst. All that waiting, nothing to do but play cards, your body decaying with every passing day. Gets old fast. Nothing good ever comes from space."
-duration = 5.0
-metadata/_custom_type_script = "uid://6btm0m758270"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=1069104509]
-environment = SubResource("Environment_7nxc4")
-
-[node name="XROrigin3D" parent="." index="2"]
-transform = Transform3D(-0.005917201, 0, -0.9999825, 0, 1, 0, 0.9999825, 0, -0.005917201, 0, 0.122677565, 0)
-
-[node name="XRCamera3D" parent="XROrigin3D" index="0"]
+[node name="XROrigin3D" parent="." index="0"]
 current = true
 
-[node name="Clouds" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D" index="0" unique_id=1596434179]
+[node name="XRCamera3D" parent="XROrigin3D" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(0.9999999, 0, -4.656613e-10, 0, 1, 0, 4.656613e-10, 0, 0.9999999, -0.0066746534, 0, -1.1279889)
-mesh = SubResource("QuadMesh_7nxc4")
-skeleton = NodePath("")
+current = true
 
-[node name="TitleCard" parent="XROrigin3D/XRCamera3D" index="1" unique_id=368011246 instance=ExtResource("4_yx07r")]
-transform = Transform3D(0.9999999, 0, -9.313226e-10, 0, 1, 0, 9.313226e-10, 0, 0.9999999, -0.011069534, 0, -1.8707057)
+[node name="Subtitles" parent="XROrigin3D/XRCamera3D" index="0" unique_id=17237637 instance=ExtResource("4_yx07r")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2109092)
+scene = ExtResource("5_flcbd")
+viewport_size = Vector2(1152, 768)
+unshaded = true
+scene_properties_keys = PackedStringArray("subtitle.gd")
+
+[node name="TitleCard" parent="XROrigin3D/XRCamera3D" index="1" unique_id=23973382 instance=ExtResource("4_yx07r")]
+unique_name_in_owner = true
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, -1)
+visible = false
 scene = ExtResource("10_ujkvu")
 viewport_size = Vector2(1500, 1000)
 unshaded = true
 
-[node name="Subtitles" parent="XROrigin3D/XRCamera3D" index="2" unique_id=433281827 instance=ExtResource("4_yx07r")]
+[node name="Clouds" parent="XROrigin3D/XRCamera3D" index="2" unique_id=407099195 instance=ExtResource("5_6psxe")]
 unique_name_in_owner = true
-transform = Transform3D(-0.9950409, -0.0010979227, 0.09945174, -0.019526435, 0.98263496, -0.18451908, -0.09752217, -0.18554628, -0.9777833, -2.7529438, -2.6447945, -7.979947)
-scene = ExtResource("5_flcbd")
-viewport_size = Vector2(1500, 1000)
-unshaded = true
-scene_properties_keys = PackedStringArray("subtitle.gd")
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, -1.4521565)
+visible = false
 
-[node name="LeftHand" parent="XROrigin3D" index="1"]
-pose = &"grip"
-
-[node name="LeftHand" parent="XROrigin3D/LeftHand" index="0" unique_id=1016074233 instance=ExtResource("3_fxsd4")]
-
-[node name="RightHand" parent="XROrigin3D" index="2"]
-pose = &"grip"
-
-[node name="RightHand" parent="XROrigin3D/RightHand" index="0" unique_id=1731380750 instance=ExtResource("8_i4gpt")]
-
-[node name="Level" type="Node3D" parent="." index="3" unique_id=1519969211]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
-
-[node name="GrassyKnoll" type="StaticBody3D" parent="Level" index="0" unique_id=127826930]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.999998, -55.9456, 14.999998)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/GrassyKnoll" index="0" unique_id=2025288230]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
-mesh = SubResource("CylinderMesh_ixccy")
-surface_material_override/0 = ExtResource("6_ndqjh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/GrassyKnoll" index="1" unique_id=640787068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
-shape = SubResource("ConvexPolygonShape3D_dafp8")
-
-[node name="Planet" type="MeshInstance3D" parent="Level" index="1" unique_id=378176083]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.4539905, -0.89100635, 0, 0.89100647, 0.45399043, 180.77928, -4930.2715, 1445.0197)
-mesh = SubResource("SphereMesh_8ykqx")
-skeleton = NodePath("../Rocket")
-
-[node name="Clouds" type="Area3D" parent="Level" index="2" unique_id=1552894952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.772407, 1000, 21.714994)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Clouds" index="0" unique_id=1082175238]
-shape = SubResource("BoxShape3D_7nxc4")
-
-[node name="Rocket" type="Node3D" parent="Level" index="3" unique_id=558595189]
+[node name="Rocket" type="Node3D" parent="XROrigin3D" index="3" unique_id=145448132]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.042754, -3.6899924, -1.3399706)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 2.0134397, -1.652113, -1.2389157)
 
-[node name="Parts" type="Node3D" parent="Level/Rocket" index="0" unique_id=323751811]
+[node name="Parts" type="Node3D" parent="XROrigin3D/Rocket" index="0" unique_id=1207599242]
 
-[node name="rocket_baseA" parent="Level/Rocket/Parts" index="0" unique_id=1718680349 instance=ExtResource("7_i4gpt")]
+[node name="rocket_baseA" parent="XROrigin3D/Rocket/Parts" index="0" unique_id=1718680349 instance=ExtResource("7_i4gpt")]
 
-[node name="rocket_finsA" parent="Level/Rocket/Parts" index="1" unique_id=1372282430 instance=ExtResource("8_2o38y")]
+[node name="rocket_finsA" parent="XROrigin3D/Rocket/Parts" index="1" unique_id=1372282430 instance=ExtResource("8_2o38y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0029497, 0)
 
-[node name="rocket_fuelA" parent="Level/Rocket/Parts" index="2" unique_id=386671163 instance=ExtResource("9_k5ksj")]
+[node name="rocket_fuelA" parent="XROrigin3D/Rocket/Parts" index="2" unique_id=386671163 instance=ExtResource("9_k5ksj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.702975, 0)
 
-[node name="rocket_sidesA" parent="Level/Rocket/Parts" index="3" unique_id=1921056886 instance=ExtResource("10_6psxe")]
+[node name="rocket_sidesA" parent="XROrigin3D/Rocket/Parts" index="3" unique_id=1921056886 instance=ExtResource("10_6psxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2033315, 0)
 
-[node name="rocket_topB" parent="Level/Rocket/Parts" index="4" unique_id=1294544137 instance=ExtResource("11_yx07r")]
+[node name="rocket_topB" parent="XROrigin3D/Rocket/Parts" index="4" unique_id=1294544137 instance=ExtResource("11_yx07r")]
 transform = Transform3D(1.0011435, 0, 0, 0, 1.0011435, 0, 0, 0, 1.0011435, 0, 3.1971703, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Rocket" index="1" unique_id=1433929548]
-root_node = NodePath("../../../IntroCutscene")
-libraries/ = SubResource("AnimationLibrary_flcbd")
+[node name="IntroCutsceneManager" type="Node" parent="XROrigin3D" index="4" unique_id=1662688085]
+script = ExtResource("11_flcbd")
 
-[node name="hangar_largeA" parent="." index="4" unique_id=663478385 instance=ExtResource("12_flcbd")]
+[node name="AudioListener3D" type="AudioStreamPlayer3D" parent="XROrigin3D/IntroCutsceneManager" index="0" unique_id=1547588949]
+
+[node name="Dialogue" type="Node" parent="XROrigin3D/IntroCutsceneManager" index="1" unique_id=1870508156]
+script = ExtResource("3_k5ksj")
+subtitle = "And we are clear for takeoff in 3… 2… 1… "
+duration = 5.0
+on_end_callback_fn_name = "takeoff"
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue2" type="Node" parent="XROrigin3D/IntroCutsceneManager" index="2" unique_id=923471180]
+script = ExtResource("3_k5ksj")
+subtitle = "*Cheering*"
+duration = 2.0
+on_end_callback_fn_name = "show_clouds"
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue3" type="Node" parent="XROrigin3D/IntroCutsceneManager" index="3" unique_id=2045686437]
+script = ExtResource("3_k5ksj")
+subtitle = "Jay: Pretty cool we get to go to space, huh? "
+duration = 5.0
+on_end_callback_fn_name = "show_title_card"
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue4" type="Node" parent="XROrigin3D/IntroCutsceneManager" index="4" unique_id=636055476]
+script = ExtResource("3_k5ksj")
+subtitle = "Allen: This your first rodeo kid? Space gigs are the worst. All that waiting, nothing to do but play cards, your body decaying with every passing day. Gets old fast."
+duration = 5.0
+on_end_callback_fn_name = "show_title_card"
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Dialogue5" type="Node" parent="XROrigin3D/IntroCutsceneManager" index="5" unique_id=2032587346]
+script = ExtResource("3_k5ksj")
+subtitle = "Allen: Nothing good ever comes from space."
+duration = 5.0
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="Level" type="Node3D" parent="XROrigin3D" index="5" unique_id=1076281337]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -6.008, 2, 0)
+
+[node name="GrassyKnoll" type="StaticBody3D" parent="XROrigin3D/Level" index="0" unique_id=1100341876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.999998, -55.9456, 14.999998)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Level/GrassyKnoll" index="0" unique_id=2118013199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+mesh = SubResource("CylinderMesh_kdjgy")
+surface_material_override/0 = ExtResource("6_ndqjh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Level/GrassyKnoll" index="1" unique_id=1779381754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+shape = SubResource("ConvexPolygonShape3D_212kg")
+
+[node name="Planet" type="MeshInstance3D" parent="XROrigin3D/Level" index="1" unique_id=371894829]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.4539905, -0.89100635, 0, 0.89100647, 0.45399043, 180.77928, -4930.2715, 1445.0197)
+mesh = SubResource("SphereMesh_ntmyb")
+skeleton = NodePath("../../Rocket")
+
+[node name="Clouds" type="Area3D" parent="XROrigin3D/Level" index="2" unique_id=1850304041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.772407, 1000, 21.714994)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Level/Clouds" index="0" unique_id=1595275469]
+shape = SubResource("BoxShape3D_tvsrn")
+
+[node name="Environment" type="Node3D" parent="XROrigin3D/Level" index="3" unique_id=1141749183]
+
+[node name="hangar_largeA" parent="XROrigin3D/Level/Environment" index="0" unique_id=663478385 instance=ExtResource("12_flcbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.757421, -5.9455986, 5.9033566)
 
-[node name="hangar_roundGlass" parent="." index="5" unique_id=568990910 instance=ExtResource("13_ujkvu")]
+[node name="hangar_roundGlass" parent="XROrigin3D/Level/Environment" index="1" unique_id=568990910 instance=ExtResource("13_ujkvu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.295107, -5.9455986, 1.3307629)
 
-[node name="Platform" type="Node3D" parent="." index="6" unique_id=2147301854]
+[node name="Platform" type="Node3D" parent="XROrigin3D/Level/Environment" index="2" unique_id=801536852]
 
-[node name="platform_high" parent="Platform" index="0" unique_id=692399253 instance=ExtResource("14_8onrj")]
+[node name="platform_high" parent="XROrigin3D/Level/Environment/Platform" index="0" unique_id=692399253 instance=ExtResource("14_8onrj")]
 transform = Transform3D(2.2679067, 0, 0, 0, 2.2679067, 0, 0, 0, 2.2679067, 10.540122, -5.9455986, 0.4961021)
 
-[node name="platform_large" parent="Platform" index="1" unique_id=1962118284 instance=ExtResource("15_o5aua")]
+[node name="platform_large" parent="XROrigin3D/Level/Environment/Platform" index="1" unique_id=1962118284 instance=ExtResource("15_o5aua")]
 transform = Transform3D(2.2679067, 0, 0, 0, 2.2679067, 0, 0, 0, 2.2679067, 10.371638, -5.9455986, 0.19529803)
 
-[node name="platform_low" parent="." index="7" unique_id=92829289 instance=ExtResource("16_475n0")]
+[node name="platform_low" parent="XROrigin3D/Level/Environment" index="3" unique_id=92829289 instance=ExtResource("16_475n0")]
 transform = Transform3D(1.4001303, 0, 0, 0, 1.4001303, 0, 0, 0, 1.4001303, 13.14516, -5.9455986, 0.04049912)
 
-[node name="satelliteDish_detailed" parent="." index="8" unique_id=1655704974 instance=ExtResource("17_y11t0")]
+[node name="satelliteDish_detailed" parent="XROrigin3D/Level/Environment" index="4" unique_id=1655704974 instance=ExtResource("17_y11t0")]
 transform = Transform3D(0.1119505, 0, -0.9937138, 0, 1, 0, 0.9937138, 0, 0.1119505, 14.718133, -5.916024, -2.6855993)
 
-[node name="satelliteDish_detailed2" parent="." index="9" unique_id=164270510 instance=ExtResource("17_y11t0")]
+[node name="satelliteDish_detailed2" parent="XROrigin3D/Level/Environment" index="5" unique_id=651725559 instance=ExtResource("17_y11t0")]
 transform = Transform3D(-0.33974785, 0, -0.94051653, 0, 1, 0, 0.94051653, 0, -0.33974785, 13.62388, -5.916024, -2.5585432)
 
-[node name="satelliteDish_detailed3" parent="." index="10" unique_id=1306509928 instance=ExtResource("17_y11t0")]
+[node name="satelliteDish_detailed3" parent="XROrigin3D/Level/Environment" index="6" unique_id=1552010156 instance=ExtResource("17_y11t0")]
 transform = Transform3D(0.1119505, 0, -0.9937138, 0, 1, 0, 0.9937138, 0, 0.1119505, 14.718133, -5.916024, -0.6855993)
 
-[node name="satelliteDish_detailed4" parent="." index="11" unique_id=806846794 instance=ExtResource("17_y11t0")]
+[node name="satelliteDish_detailed4" parent="XROrigin3D/Level/Environment" index="7" unique_id=581930095 instance=ExtResource("17_y11t0")]
 transform = Transform3D(0.7818227, 0, -0.6235008, 0, 1, 0, 0.6235008, 0, 0.7818227, 14.569953, -5.916024, -2.0796032)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=1360232429]
+environment = SubResource("Environment_ntmyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1163537178]
+unique_name_in_owner = true
+root_node = NodePath("../XROrigin3D/Rocket")
+libraries/ = SubResource("AnimationLibrary_bppr1")

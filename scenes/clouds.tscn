@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cu6xpxw5585vv"]
+
+[ext_resource type="Script" uid="uid://euuvp888wsc" path="res://scripts/clouds.gd" id="1_p445k"]
+
+[sub_resource type="Gradient" id="Gradient_ntmyb"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.56078434)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tvsrn"]
+noise_type = 3
+frequency = 0.0202
+offset = Vector3(173.91, 0, 0)
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bppr1"]
+noise = SubResource("FastNoiseLite_tvsrn")
+color_ramp = SubResource("Gradient_ntmyb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocbqe"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_bppr1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_aovhs"]
+material = SubResource("StandardMaterial3D_ocbqe")
+size = Vector2(5, 5)
+
+[node name="Clouds" type="MeshInstance3D" unique_id=407099195]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("QuadMesh_aovhs")
+skeleton = NodePath("")
+script = ExtResource("1_p445k")

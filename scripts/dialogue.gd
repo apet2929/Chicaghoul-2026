@@ -1,18 +1,20 @@
 class_name Dialogue
 extends Node
 
-@export var subtitle: String = ""
-@export var duration: float = 0.0
+@export var subtitles: Array[String] = []
+@export var durations: Array[float] = []
 @export var source: AudioStreamPlayer # optional
-@export var on_end_callback_fn_name: String = ""
+@export var line_end_callbacks: Array[String] = []
 
 func play():
 	if source:
 		source.play(0.0)
-	Globals.subtitle_inst.set_line(self.subtitle)
+		
+	for i in range(subtitles.size()):
+		Globals.subtitle_inst.set_line(self.subtitles[i])
+		await get_tree().create_timer(durations[i]).timeout
 	
-	await get_tree().create_timer(duration).timeout
-	if on_end_callback_fn_name != "":
-		get_parent().call(on_end_callback_fn_name)
+		if line_end_callbacks[i] != "":
+			get_parent().call(line_end_callbacks[i])
 	get_parent().next_line.emit()
 	

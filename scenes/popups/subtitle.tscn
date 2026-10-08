@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmtmdlg5oc145"]
 
-[ext_resource type="Script" uid="uid://ck1ehjhdoeow0" path="res://scripts/subtitle.gd" id="1_pd1pj"]
+[ext_resource type="Script" uid="uid://ck1ehjhdoeow0" path="res://scripts/subtitle.gd" id="1_6xbkn"]
 
 [node name="Subtitle" type="Control" unique_id=1853644968]
 layout_mode = 3
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_pd1pj")
+script = ExtResource("1_6xbkn")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=452678086]
 layout_mode = 1

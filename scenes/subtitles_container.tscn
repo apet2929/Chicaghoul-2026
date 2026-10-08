@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://74v55igxv6bw"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_tln7c"]
+[ext_resource type="PackedScene" uid="uid://cmtmdlg5oc145" path="res://scenes/popups/subtitle.tscn" id="2_opa60"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tln7c"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_opa60"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1khs"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_opa60")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wojwg"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[node name="SubtitlesContainer" unique_id=1750260639 instance=ExtResource("1_tln7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7368264)
+scene = ExtResource("2_opa60")
+viewport_size = Vector2(1152, 768)
+scene_properties_keys = PackedStringArray("subtitle.gd")
+
+[node name="Viewport" parent="." index="0"]
+size = Vector2i(1152, 768)
+
+[node name="Screen" parent="." index="1"]
+mesh = SubResource("QuadMesh_tln7c")
+surface_material_override/0 = SubResource("StandardMaterial3D_g1khs")
+
+[node name="StaticBody3D" parent="." index="2"]
+viewport_size = Vector2(1152, 768)
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_wojwg")

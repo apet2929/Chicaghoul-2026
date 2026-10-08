@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://drwpesrqm70f4"]
+
+[node name="TutorialUI" type="Control" unique_id=1853644968]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=646254045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 120
+text = "Press the button"
+horizontal_alignment = 1
+vertical_alignment = 1

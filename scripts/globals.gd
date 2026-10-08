@@ -1,6 +1,7 @@
 extends Node
 
 signal camera_change(new_camera: XRCamera3D)
+signal button_pressed(button)
 
 var subtitle_inst: Subtitle = null
 var camera: XRCamera3D = null

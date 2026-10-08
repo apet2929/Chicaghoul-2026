@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://6btm0m758270" path="res://scripts/dialogue.gd" id="3_k5ksj"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_yx07r"]
 [ext_resource type="PackedScene" uid="uid://cu6xpxw5585vv" path="res://scenes/clouds.tscn" id="5_6psxe"]
-[ext_resource type="PackedScene" uid="uid://cmtmdlg5oc145" path="res://scenes/subtitle.tscn" id="5_flcbd"]
+[ext_resource type="PackedScene" uid="uid://cmtmdlg5oc145" path="res://scenes/popups/subtitle.tscn" id="5_flcbd"]
 [ext_resource type="Material" path="res://assets/wahooney.itch.io/green_grid_triplanar.tres" id="6_ndqjh"]
 [ext_resource type="PackedScene" uid="uid://cgft3n024muna" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_baseA.fbx" id="7_i4gpt"]
 [ext_resource type="PackedScene" uid="uid://crrjx7gvijm6q" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_finsA.fbx" id="8_2o38y"]
 [ext_resource type="PackedScene" uid="uid://buxgmt4b6nghk" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_fuelA.fbx" id="9_k5ksj"]
 [ext_resource type="PackedScene" uid="uid://68scvmiujpic" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_sidesA.fbx" id="10_6psxe"]
-[ext_resource type="PackedScene" uid="uid://dydvgj3a2vgu8" path="res://scenes/title_card.tscn" id="10_ujkvu"]
+[ext_resource type="PackedScene" uid="uid://dydvgj3a2vgu8" path="res://scenes/popups/title_card.tscn" id="10_ujkvu"]
 [ext_resource type="Shader" uid="uid://caax3xm5crmfl" path="res://assets/me/clouds.gdshader" id="11_2o38y"]
 [ext_resource type="Script" uid="uid://bb2wam2qelee2" path="res://scripts/intro_cutscene_manager.gd" id="11_flcbd"]
 [ext_resource type="PackedScene" uid="uid://dnnsv5mmebemx" path="res://assets/kenney/kenney_space-kit/Models/FBX format/rocket_topB.fbx" id="11_yx07r"]
@@ -62,7 +62,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Rocket/../Level:position")
+tracks/0/path = NodePath("../Level:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,7 +74,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%Clouds:mesh:material:albedo_color")
+tracks/1/path = NodePath("../XRCamera3D/Clouds:mesh:material:albedo_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,7 +106,7 @@ _data = {
 &"takeoff": SubResource("Animation_yx07r")
 }
 
-[node name="IntroCutscene2" unique_id=240193231 instance=ExtResource("1_bprnf")]
+[node name="IntroCutscene" unique_id=240193231 instance=ExtResource("1_bprnf")]
 
 [node name="XROrigin3D" parent="." index="0"]
 current = true

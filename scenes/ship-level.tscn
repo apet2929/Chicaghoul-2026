@@ -215,7 +215,7 @@ shadow_mesh = SubResource("ArrayMesh_uj630")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0597, 0, 0.9790249)
 
 [node name="desk_computerScreen" type="Node3D" parent="Base/Cockpit" unique_id=2125989798]
-transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -1, 0, -0.11626053)
+transform = Transform3D(-1.9670125e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.9670125e-07, 0.7063322, 0, -0.5754292)
 
 [node name="desk_computerScreen" type="MeshInstance3D" parent="Base/Cockpit/desk_computerScreen" unique_id=1501313712]
 transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 0.3999977, 0, 2.8905802)
@@ -226,7 +226,7 @@ transform = Transform3D(1, 4.371139e-08, 4.3711395e-08, -4.3711392e-08, -4.37113
 mesh = SubResource("PlaneMesh_h28et")
 
 [node name="desk_computerCorner" type="Node3D" parent="Base/Cockpit" unique_id=1085213158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 1)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6.706332, 2, 0.5408313)
 
 [node name="desk_computerCorner" type="MeshInstance3D" parent="Base/Cockpit/desk_computerCorner" unique_id=379451409]
 transform = Transform3D(6.556709e-07, 0, -5, 0, 5, 0, 5, 0, 6.556709e-07, 7.225189, -2, -2.6689148)

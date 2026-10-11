@@ -1,0 +1,19 @@
+[gd_resource type="Environment" format=3 uid="uid://bnqbx0koec7de"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hy3pm"]
+load_path = "res://.godot/imported/skybox-space-nebula.png-3b9d411c4d35cbd929b07ac5f44b5cfa.s3tc.ctex"
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hjofc"]
+panorama = SubResource("CompressedTexture2D_hy3pm")
+energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_uamgn"]
+sky_material = SubResource("PanoramaSkyMaterial_hjofc")
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 2.68
+sky = SubResource("Sky_uamgn")
+ambient_light_source = 2
+ambient_light_color = Color(0.779255, 0.77064013, 0.87655014, 1)
+ambient_light_energy = 0.39

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c35v2q37uuidb"]
+
+[ext_resource type="Theme" uid="uid://5wqbceq3t6p" path="res://assets/me/ship_ui_theme.tres" id="1_crgvg"]
+[ext_resource type="Script" uid="uid://cphft3cjjqtrh" path="res://scripts/ship_main_monitor_ui.gd" id="2_77ovk"]
+
+[sub_resource type="Gradient" id="Gradient_77ovk"]
+colors = PackedColorArray(0.2467123, 0.30684516, 0.45121974, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t65tg"]
+gradient = SubResource("Gradient_77ovk")
+width = 132
+fill = 1
+fill_from = Vector2(0.525641, 0.055555556)
+
+[node name="MonitorUI" type="Control" unique_id=1509242354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_crgvg")
+script = ExtResource("2_77ovk")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1610064563]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_t65tg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1145236087]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello world!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2091400666]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

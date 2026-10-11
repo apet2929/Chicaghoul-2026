@@ -14,10 +14,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Chicaghoul 2026"
-run/main_scene="uid://bsu5d0ki2hugg"
+config/name="Chicaghoul2026"
+run/main_scene="uid://dkr1jkk3jerux"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
+
+[audio]
+
+buses/default_bus_layout="uid://cea3dmdl2ydnh"
 
 [autoload]
 
@@ -94,5 +98,6 @@ environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 openxr/enabled=true
 openxr/foveation_level=3
 openxr/foveation_dynamic=true
+openxr/extensions/debug_utils=3
 openxr/extensions/hand_interaction_profile=true
 shaders/enabled=true

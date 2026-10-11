@@ -6,3 +6,11 @@ func _ready():
 	
 func show_tutorial_ui():
 	%PopupContainer.scene = load("res://scenes/popups/tutorial_ui.tscn")
+
+func enter_alien():
+	pass
+	
+
+
+func play_sfx(node: AudioStreamPlayer, name):
+	node.play(name)

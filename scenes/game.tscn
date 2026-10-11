@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c6j03gjh8odfp"]
+[gd_scene format=4 uid="uid://c6j03gjh8odfp"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://1dv53a8qddem" path="res://assets/textures/skybox-space-nebula.png" id="2_iywne"]
@@ -20,83 +20,180 @@
 [ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="14_bhx41"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="16_bhx41"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="16_qnb83"]
+[ext_resource type="Texture2D" uid="uid://dcod5pawts70t" path="res://assets/me/plaque.png" id="20_e1j6l"]
 [ext_resource type="PackedScene" uid="uid://d8hasetukei5" path="res://scenes/xr_button_container.tscn" id="21_5newe"]
+[ext_resource type="ArrayMesh" uid="uid://j8u4xo5gr1wa" path="res://assets/me/button_top.tres" id="22_bt5mj"]
+[ext_resource type="ArrayMesh" uid="uid://txuj1upvplrf" path="res://assets/me/button_base.tres" id="23_e1j6l"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bcj7h"]
 panorama = ExtResource("2_iywne")
 energy_multiplier = 0.3
 
-[sub_resource type="Sky" id="Sky_t65tg"]
+[sub_resource type="Sky" id="Sky_bt5mj"]
 sky_material = SubResource("PanoramaSkyMaterial_bcj7h")
 
 [sub_resource type="Environment" id="Environment_7nxc4"]
 background_mode = 2
-sky = SubResource("Sky_t65tg")
+sky = SubResource("Sky_bt5mj")
 ambient_light_source = 1
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.3
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5newe"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e1j6l"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_37s47"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pl11u"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bt5mj"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bhx41"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e1j6l"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qnb83"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pl11u"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_sww3w"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhx41"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_suyxu"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_5newe")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_e1j6l")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_37s47")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_pl11u")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_bt5mj")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_bhx41")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_e1j6l")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_qnb83")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_pl11u")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_sww3w")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qnb83"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sgl2t"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sww3w"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qouja"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_suyxu"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_wljb1"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sgl2t"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v2yb1"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qouja"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_js0lu"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wljb1"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gxtfn"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_qnb83")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_sgl2t")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_sww3w")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_qouja")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_suyxu")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_wljb1")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_sgl2t")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_v2yb1")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_qouja")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_js0lu")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryyf7"]
+resource_name = "metal"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9276, 0.9408053, 0.9592555, 1)
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4xv1"]
+resource_name = "metalRed"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.8144006, 0.48769736, 1)
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spbd7"]
+resource_name = "metalDark"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8406653, 0.8597078, 0.8929763, 1)
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m1g6l"]
+_surfaces = [{
+"aabb": AABB(-0.075, 0, -0.075, 0.15, 0.11875, 0.15),
+"format": 34359742465,
+"index_count": 150,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAwACAAQABQAAAAMABAAFAAMAAgAGAAQABQAEAAYABgACAAEAAAAFAAcAAQAAAAcACAAFAAYABQAIAAkACgAFAAkACAAKAAkACgAHAAUACgAIAAsABgALAAgADAAKAAsACwAGAAwACgAMAA0ADQAHAAoADgAMAAYABgAPAA4ADwAGAAEADAAOABAAAQARAA8AEgAQABEAEQABABIAEAASAAwABwATAAEAEwASAAEAEwAHABQAFAAVABMAEgATABUAFQAUABYAFgASABUAFAAXABYAFwAUAAcAEgAWABcAFwAHAA0AFwAYABIAGAAXABkAGgASABgAGQAaABgAEgAaAAwAFwAbABkAGwAXAA0AGgAZABsADAAbAA0AGwAMABoA"),
+"name": "metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("zcxMvQAAAACamZm9AAAAAJqZGT3NzMy8zcxMvZqZmTyamZm9mpmZvQAAAADNzEy9mpmZvZqZmTzNzEy9zczMvAAAAAAAAAAAzczMvJqZGT0AAAAAAAAAAAAAAADNzMy8mpmZvZqZmTzNzEw9mpmZvQAAAADNzEw9zcxMvQAAAACamZk9zcxMvZqZmTyamZk9AAAAAJqZGT3NzMw8AAAAAAAAAADNzMw8zczMvDMz8z0AAAAAAAAAADMz8z3NzMy8AAAAADMz8z3NzMw8zczMPDMz8z0AAAAAzczMPJqZGT0AAAAAzcxMPZqZmTyamZm9zcxMPQAAAACamZm9mpmZPZqZmTzNzEy9mpmZPa4TUCPNzEy9zczMPK4TUCMAAAAAmpmZPZqZmTzNzEw9mpmZPa4TUCPNzEw9zcxMPZqZmTyamZk9zcxMPQAAAACamZk9")
+}, {
+"aabb": AABB(-0.125, 0.11875, -0.075, 0.25, 0.225, 0.15),
+"format": 34359742465,
+"index_count": 186,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAQAAAAQAAwABAAUABAAFAAEAAAAGAAQABQAEAAYABgAAAAcACAAFAAYABgAHAAgAAwAFAAkABQAIAAkACQAKAAMAAwAKAAsACAAMAAkACgAJAAwADQAIAAcADQAHAA4ADAAPAAoACAANABAADAAIABAADwARAAoADAAQABIADQATABAAFAATAA0AFQAQABMAEAAVABIAEwAUABYAEwAXABUAFwATABYAGAAWABQAFgAYABcADQAYABQAGAAVABcAGAANABkAFQAYABkAFQAZABIAGQAaABIAGgAZABsAGwAZABwAHQASABoADAASAB0AHgAaABsAHAAeABsAHgAcAB8AGgAeACAAHQAaACAAEQAeAB8AEQAgAB4AIAARAB0AHQAhAAwAEQAiAB0AIQAdACIAIgARACMADwAMACEAEQAPACMAIgAjACQADwAkACMAJAAhACIADwAhACUAIQAkACUAJAAPACUA"),
+"name": "metalRed",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("mpmZPTMz8z2amZm9mpmZvTMzEz6amZm9mpmZvTMz8z2amZm9mpmZvTMz8z3NzEw9mpmZPTMzEz6amZm9mpmZvc3MLD7NzEy9mpmZPc3MLD7NzEy9mpmZPTMz8z3NzEw9mpmZPc3MLD7NzMw8mpmZvc3MLD7NzMw8mpmZvWZmRj6amZk9mpmZvTMzEz6amZk9mpmZvWZmRj7NzMw8mpmZPWZmRj6amZk9mpmZPTMzEz6amZk9AAAAvmZmRj6amZk9mpmZPWZmRj7NzMw8mpmZvQAAYD6amZk9mpmZPQAAYD7NzMw8mpmZPWZmRj7NzEy9AAAAPmZmRj6amZk9mpmZPQAAYD7NzEy9AAAAPmZmRj7NzEy9AAAAPgAAYD7NzEy9AAAAPgAAYD6amZk9mpmZPQAAYD6amZk9mpmZPTMzoz7NzMw8mpmZPQAAsD7NzEw9mpmZPQAAsD6amZk9mpmZvQAAYD7NzMw8mpmZvQAAsD7NzEw9mpmZvQAAsD6amZk9mpmZvTMzoz7NzMw8mpmZvWZmRj7NzEy9mpmZvQAAYD7NzEy9AAAAvgAAYD6amZk9AAAAvgAAYD7NzEy9AAAAvmZmRj7NzEy9")
+}, {
+"aabb": AABB(-0.075, 0.11875, -0.075, 0.15, 0.225, 0.15),
+"format": 34359742465,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABAADAAUABAAFAAYABgAFAAcABwAAAAYAAQAAAAcACAABAAcAAQAIAAkACgAJAAgACQAKAAsACwAKAAwADAAKAA0ADAANAA4ADgANAA8A"),
+"name": "metalDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAADMz8z3NzMw8mpmZPTMz8z3NzEw9zczMPDMz8z0AAAAAmpmZPTMz8z2amZm9AAAAADMz8z3NzMy8mpmZvTMz8z2amZm9zczMvDMz8z0AAAAAmpmZvTMz8z3NzEw9mpmZvTMzEz6amZk9mpmZPTMzEz6amZk9mpmZvWZmRj6amZk9mpmZPWZmRj6amZk9mpmZPQAAYD6amZk9mpmZvQAAYD6amZk9mpmZPQAAsD6amZk9mpmZvQAAsD6amZk9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_js0lu"]
+resource_name = "desk_chairArms"
+_surfaces = [{
+"aabb": AABB(-0.075, 0, -0.075, 0.15, 0.11875, 0.15),
+"attribute_data": PackedByteArray("9rVeQAAAgD8tKzI/0Ofzvva1XkAYDIY+LSsyPwAAgD8tKzK/bjZrwC0rMj9uNmvALSsyv9Dn874tKzK/AACAP/a1XsAYDIY+9rVewAAAgD/2tV7AGAyGPi0rMr8AAIA/9rVewAAAgD8tKzK/0Ofzvi0rMr9uNmvALSsyP9Dn874tKzI/bjZrwPa1XkAYDIY+LSsyPwAAgD/2tV5AAACAP/a1XsAAAIA/LSsyv9Dn874tKzK/AACAP/a1XsAYDIY+LSsyv242a8AtKzI/0Ofzvi0rMj9uNmvA9rVeQAAAgD8tKzI/AACAP/a1XkAYDIY+LSsyP9Dn8772tV5AAACAPy0rMj8AAIA/9rVeQBgMhj4tKzK/bjZrwC0rMj9uNmvALSsyv9Dn874tKzK/AACAP/a1XsAYDIY+9rVewAAAgD/w93s/AACAP/D3+z/o8/m/9Pk8QODvd78AAAAAAAKBPPD3+z/0+XxA9Pk8QPj7PUAAAAAA+Pv9P/D3+7/o8/m/8Pd7vwAAgD/0+TzA4O93v/D3+7/0+XxA9Pk8wPj7PUAtKzK/GAyGPi0rMj8AAIA/LSsyvwAAgD8tKzI/GAyGPisrMr8YDIY+LSsyPwAAgD8rKzK/AACAPy0rMj8YDIY+LSsyvxgMhj4tKzI/AACAPy0rMr8AAIA/LSsyPxgMhj4tKzK/JqylPy0rMj/ElIVALSsyv8SUhUAtKzI/JqylPy0rMj8AAIA/LSsyvxgMhj4tKzI/GAyGPi0rMr8AAIA/LSsyv8SUhUAtKzI/JqylPysrMj/ElIVALSsyvyaspT8tKzI/xJSFQC0rMr8mrKU/LSsyPyaspT8tKzK/xJSFQC0rMj8mrKU/LSsyv8SUhUAtKzK/JqylPy0rMj/ElIVA"),
+"format": 34359742487,
+"index_count": 150,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAQAEAAUABAABAAYABwAIAAYACAAHAAkACgALAAwACwAKAA0ADgAPAA0ADwAOABAAEQASAA8AEgARABMAFAAVABYAFQAUABcAGAAZABUAGQAYABoAGQAbABwAGwAZAB0AHgAfACAAHwAeACEAHgAiACMAIgAeACQAJQAmACQAJgAlACcAKAApACoAKQAoACsALAAoAC0AKAAsAC4AKAAuACsAKwAuAC8ALwAuADAALwAwADEAMgAwAC4AMAAyADMANAA1ADYANQA0ADcAOAA5ADoAOQA4ADsAPAA9AD4APQA8AD8AQABBAEIAQQBAAEMARABFAEYARQBEAEcASABJAEoASQBIAEsATABNAE4ATQBMAE8AUABRAFIAUQBQAFMA"),
+"material": SubResource("StandardMaterial3D_ryyf7"),
+"name": "metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("zcxMvQAAAACamZm9AAAAAJqZGT3NzMy8zcxMvZqZmTyamZm9AAAAAAAAAADNzMy8zczMPDMz8z0AAAAAAAAAADMz8z3NzMy8zczMPJqZGT0AAAAAzczMPK4TUCMAAAAAmpmZPZqZmTzNzEw9mpmZPa4TUCPNzEw9zcxMPZqZmTyamZm9AAAAAAAAAADNzMy8zcxMPQAAAACamZm9AAAAAJqZGT3NzMy8AAAAADMz8z3NzMy8zczMvJqZGT0AAAAAzczMvDMz8z0AAAAAmpmZvZqZmTzNzEw9zczMvAAAAAAAAAAAmpmZvQAAAADNzEw9zcxMvQAAAACamZk9AAAAAJqZGT3NzMw8AAAAAAAAAADNzMw8zcxMvZqZmTyamZk9AAAAADMz8z3NzMw8zczMPJqZGT0AAAAAzczMPDMz8z0AAAAAmpmZPa4TUCPNzEy9zczMPK4TUCMAAAAAmpmZPZqZmTzNzEy9AAAAAJqZGT3NzMw8zcxMPQAAAACamZk9AAAAAAAAAADNzMw8zcxMPZqZmTyamZk9zczMvDMz8z0AAAAAAAAAADMz8z3NzMw8zczMvJqZGT0AAAAAzczMvAAAAAAAAAAAmpmZvZqZmTzNzEy9mpmZvQAAAADNzEy9zczMPK4TUCMAAAAAzcxMPQAAAACamZk9mpmZPa4TUCPNzEw9AAAAAAAAAADNzMw8zcxMPQAAAACamZm9mpmZPa4TUCPNzEy9AAAAAAAAAADNzMy8zcxMvQAAAACamZk9zczMvAAAAAAAAAAAmpmZvQAAAADNzEw9zcxMvQAAAACamZm9mpmZvQAAAADNzEy9zcxMvZqZmTyamZm9mpmZvQAAAADNzEy9zcxMvQAAAACamZm9mpmZvZqZmTzNzEy9mpmZvZqZmTzNzEw9zcxMvQAAAACamZk9mpmZvQAAAADNzEw9zcxMvZqZmTyamZk9zcxMPZqZmTyamZk9mpmZPa4TUCPNzEw9zcxMPQAAAACamZk9mpmZPZqZmTzNzEw9zczMPJqZGT0AAAAAzcxMPZqZmTyamZm9mpmZPZqZmTzNzEy9AAAAAJqZGT3NzMy8zcxMPQAAAACamZm9mpmZPZqZmTzNzEy9zcxMPZqZmTyamZm9mpmZPa4TUCPNzEy9zcxMPZqZmTyamZk9zczMPJqZGT0AAAAAmpmZPZqZmTzNzEw9AAAAAJqZGT3NzMw8zcxMvZqZmTyamZk9zczMvJqZGT0AAAAAAAAAAJqZGT3NzMw8mpmZvZqZmTzNzEw9zczMvJqZGT0AAAAAzcxMvZqZmTyamZm9AAAAAJqZGT3NzMy8mpmZvZqZmTzNzEy9////vwAA/9////+/AAD/3////78AAP/f////vwAA/9////+/AAD/3////78AAP/f////vwAA/9////+/AAD/3////78AAP/f////vwAA/98AAP+//z//vwAA/7//P/+/AAD/v/8//78AAP+//z//vwAA/7//P/+/AAD/v/8//78AAP+//z//vwAA/7//P/+/AAD/v/8//78AAP+//z//v/+//3/////f/7//f////9//v/9/////3/+//3/////f/7//f////9//v/9/////3/+//3/////f/7//f////9//v/9/////3/+//3/////f/z//f/+//7//P/9//7//v/8//3//v/+//z//f/+//7//P/9//7//v/8//3//v/+//z//f/+//7//P/9//7//v/8//3//v/+//z//f/+//7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP7//7//fwAA////v/9/AAD///+//38AAP///7//fwAA/v//v/9/AAD///+//38AAP///78AAP+//z//vwAA/7//P/+/AAD/v/8//78AAP+//z//v/8//3//v/+//z//f/+//7//P/9//7//v/8//3//v/+//7//f////9//v/9/////3/+//3/////f/7//f////9/oooruAAD/3+iiiu4AAP/f6KKK7gAA/9/oooruAAD/3////78AAP/f////vwAA/9////+/AAD/3////78AAP/fc5EW3f///99zkRbd////33ORFt3////fc5EW3f///9+Lbhbd/7//v4tuFt3/v/+/i24W3f+//7+Lbhbd/7//vxZdiu7/P/+/Fl2K7v8//78WXYru/z//vxZdiu7/P/+/")
+}, {
+"aabb": AABB(-0.125, 0.11875, -0.075, 0.25, 0.225, 0.15),
+"attribute_data": PackedByteArray("9Pk8wG42a8D0+TxANRqVwPT5PEBuNmvA9Pk8wDUalcD0+TzA6PP5v/T5PEDg73e/9Pk8wODvd7/0+TxA6PP5v/D3e78zmbTA9Pk8wDEY1MDw93u/MRjUwPD3+79uNmvA9Pk8wDUalcDw9/s/M5m0wPT5PEBuNmvA9Pk8QDUalcD0+TzAM5m0wPT5PEAxGNTA9Pk8QDOZtMD0+TzAMRjUwPT5PMAul/PA9Pk8QC6X88D0+TzAkMk4wfT5PECQyTjB9Pk8wAACgTz0+TxA+Ps9QPT5PMD4+z1A9Pk8QAACgTzw93s/kMk4wfT5PEAul/PA8Pd7Py6X88Dw9/s/DYlIwfT5PEANiUjB9Pk8QEKTE8D0+TzAuvZpv/T5PMBCkxPA9Pk8QLr2ab/0+TxAgmIfwfT5PMAaHQnB9Pk8wIJiH8H0+TxAGh0JwfT5PED4+z1A9nqdQOjz+b/2ep1A+Ps9QPT5PEDo8/m/9Pk8QAACgTz2ep3ALpfzwPT5PMAxGNTA9nqdwDEY1MD0+TzALpfzwPD3+78ul/PA8Pd7PzEY1MDw9/u/MRjUwPD3ez8ul/PA9Pk8wC6X88Dw93u/kMk4wfD3e78ul/PA8Pf7vw2JSMH0+TzADYlIwfD3+z8xGNTA8Pd7vy6X88Dw9/s/LpfzwPD3e78xGNTA9Pk8QDEY1MD2ep1ALpfzwPZ6nUAxGNTA9Pk8QC6X88D0+TzAAAKBPPZ6ncDo8/m/9Pk8wOjz+b/0+TzA+Ps9QPZ6ncD4+z1A9Pk8wDUalcDw9/s/bjZrwPT5PMBuNmvA8Pf7vzOZtMDw93s/M5m0wPT5PEAxGNTA9Pk8QDUalcDw93s/MRjUwPT5PEDo8/m/9Pk8QPj7PUD0+TxAAAKBPPZ6nUDo8/m/9nqdQPj7PUDw9/u/LpfzwPT5PEAxGNTA8Pf7vzEY1MD0+TxALpfzwPZ6ncAxGNTA9Pk8wC6X88D0+TzAMRjUwPZ6ncAul/PA9nqdwOjz+b/0+TzA+Ps9QPZ6ncD4+z1A9Pk8wOjz+b/0+TzAAAKBPPT5PEAxGNTA9nqdQC6X88D2ep1AMRjUwPT5PEAul/PA8Pf7PzEY1MD0+TzALpfzwPD3+z8ul/PA9Pk8wDEY1MA="),
+"format": 34359742487,
+"index_count": 186,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAcACAAJAAoACQAIAAsACQALAAwADQALAAgADQAOAAsADgANAA8AEAARABIAEQAQABMAEQATABQAEQAUABUAFQAUABYAFQAWABcAGAAZABoAGQAYABsAHAAdAB4AHQAcAB8AHQAfACAAIQAiACMAIgAhACQAJQAmACcAJgAlACgAKQAqACsAKgApACwALAApAC0ALgAvADAALwAuADEAMgAzADQAMwAyADUANgA3ADgANwA2ADkAOQA2ADoAOwA8AD0APAA7AD4APwBAAEEAQAA/AEIAQwBEAEUARABDAEYARABGAEcASABJAEoASQBIAEsASQBLAEwATABNAEkASQBNAE4ATQBMAE8AUABRAFIAUQBQAFMAUQBTAFQAVQBWAFcAVgBVAFgAWQBaAFsAWgBZAFwAXQBeAF8AXgBdAGAAXgBgAGEAYgBjAGQAYwBiAGUAZgBnAGgAZwBmAGkA"),
+"material": SubResource("StandardMaterial3D_f4xv1"),
+"name": "metalRed",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 106,
+"vertex_data": PackedByteArray("mpmZPTMz8z2amZm9mpmZvTMzEz6amZm9mpmZvTMz8z2amZm9mpmZPTMzEz6amZm9mpmZPQAAsD6amZk9mpmZvQAAsD7NzEw9mpmZPQAAsD7NzEw9mpmZvQAAsD6amZk9mpmZPc3MLD7NzMw8mpmZPWZmRj6amZk9mpmZPWZmRj7NzMw8mpmZPTMz8z3NzEw9mpmZPTMzEz6amZk9mpmZPc3MLD7NzEy9mpmZPTMz8z2amZm9mpmZPTMzEz6amZm9mpmZPc3MLD7NzMw8mpmZvWZmRj7NzMw8mpmZvc3MLD7NzMw8mpmZPWZmRj7NzMw8mpmZPQAAYD7NzMw8mpmZvQAAYD7NzMw8mpmZPTMzoz7NzMw8mpmZvTMzoz7NzMw8mpmZPc3MLD7NzMw8mpmZvc3MLD7NzEy9mpmZPc3MLD7NzEy9mpmZvc3MLD7NzMw8mpmZvTMzoz7NzMw8mpmZvQAAYD6amZk9mpmZvQAAYD7NzMw8mpmZvQAAsD7NzEw9mpmZvQAAsD6amZk9mpmZvc3MLD7NzEy9mpmZPTMzEz6amZm9mpmZPc3MLD7NzEy9mpmZvTMzEz6amZm9mpmZvQAAsD7NzEw9mpmZPTMzoz7NzMw8mpmZPQAAsD7NzEw9mpmZvTMzoz7NzMw8mpmZPWZmRj7NzEy9AAAAPmZmRj6amZk9AAAAPmZmRj7NzEy9mpmZPWZmRj6amZk9mpmZPWZmRj7NzMw8AAAAPgAAYD7NzEy9mpmZPWZmRj7NzEy9AAAAPmZmRj7NzEy9mpmZPQAAYD7NzEy9mpmZPQAAYD7NzEy9mpmZPWZmRj7NzMw8mpmZPWZmRj7NzEy9mpmZPQAAYD7NzMw8mpmZPQAAYD6amZk9mpmZPTMzoz7NzMw8mpmZPQAAYD7NzMw8mpmZPQAAsD7NzEw9mpmZPQAAsD6amZk9mpmZvWZmRj7NzEy9mpmZvQAAYD7NzMw8mpmZvQAAYD7NzEy9mpmZvWZmRj7NzMw8mpmZvWZmRj7NzEy9AAAAvgAAYD7NzEy9AAAAvmZmRj7NzEy9mpmZvQAAYD7NzEy9mpmZvWZmRj7NzMw8AAAAvmZmRj6amZk9mpmZvWZmRj6amZk9mpmZvWZmRj7NzEy9AAAAvmZmRj7NzEy9mpmZvTMzEz6amZm9mpmZvTMz8z3NzEw9mpmZvTMz8z2amZm9mpmZvc3MLD7NzEy9mpmZvc3MLD7NzMw8mpmZvWZmRj6amZk9mpmZvTMzEz6amZk9mpmZvWZmRj7NzMw8mpmZvQAAYD6amZk9mpmZvQAAYD7NzEy9mpmZvQAAYD7NzMw8AAAAvgAAYD6amZk9AAAAvgAAYD7NzEy9AAAAvgAAYD7NzEy9AAAAvmZmRj6amZk9AAAAvmZmRj7NzEy9AAAAvgAAYD6amZk9AAAAvmZmRj6amZk9mpmZvQAAYD6amZk9mpmZvWZmRj6amZk9AAAAvgAAYD6amZk9AAAAPgAAYD6amZk9mpmZPQAAYD7NzEy9AAAAPgAAYD7NzEy9mpmZPQAAYD6amZk9mpmZPQAAYD7NzMw8mpmZPWZmRj6amZk9AAAAPgAAYD6amZk9AAAAPmZmRj6amZk9mpmZPQAAYD6amZk9AAAAPmZmRj7NzEy9AAAAPgAAYD6amZk9AAAAPgAAYD7NzEy9AAAAPmZmRj6amZk9/////wAA/7//////AAD/v/////8AAP+//////wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v////3//////////f/7///////9//////////3//////////f/////////9///8AgP///3///wCA////f/7/AID/////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//7///wAA/7//v///AAD/v/+///8AAP+//7///wAA/7//v///AAD/v/+///8AAP+//7///wAA/7//v///AAD/v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//////AAD/v/////8AAP+//////wAA/7//////AAD/vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/////f/7/AID///9//v8AgP///3//////////f/7/AID///9//////////3//////////f/////////9//////////3///////////wAA/7//////AAD/v/////8AAP+//////wAA/7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9///8AAP+//3///wAA/7//f///////v/9///8AAP+//3///wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///////v/9//3////+//3//f////7//f/9/////v/9//3////+/////f/////////9//////////3//////////f/////8=")
+}, {
+"aabb": AABB(-0.075, 0.11875, -0.075, 0.15, 0.225, 0.15),
+"attribute_data": PackedByteArray("BmHZrQACgTz0+TxA4O93v/D3ez8AAIA/9Pk8QPT5fED0+TzA4O93vwZh2a34+/0/8Pd7vwAAgD/0+TzA9Pl8QPT5PMAxGNTA9Pk8QDUalcD0+TzANRqVwPT5PEAxGNTA9Pk8QC6X88D0+TzALpfzwPT5PEANiUjB9Pk8wA2JSMH0+TxA2qhswPT5PMA336LA9Pk8QDffosD0+TzA2qhswA=="),
+"format": 34359742487,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAQAAAAQAAwAFAAIABAAAAAYABQADAAcABgAHAAQABQAHAAYACAAJAAoACQAIAAsACwAIAAwADAAIAA0ADAANAA4ADgANAA8AEAARABIAEQAQABMA"),
+"material": SubResource("StandardMaterial3D_spbd7"),
+"name": "metalDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAADMz8z3NzMw8mpmZPTMz8z3NzEw9zczMPDMz8z0AAAAAmpmZPTMz8z2amZm9mpmZvTMz8z3NzEw9AAAAADMz8z3NzMy8zczMvDMz8z0AAAAAmpmZvTMz8z2amZm9mpmZvWZmRj6amZk9mpmZPTMzEz6amZk9mpmZvTMzEz6amZk9mpmZPWZmRj6amZk9mpmZPQAAYD6amZk9mpmZvQAAYD6amZk9mpmZPQAAsD6amZk9mpmZvQAAsD6amZk9mpmZPTMz8z3NzEw9mpmZvTMzEz6amZk9mpmZPTMzEz6amZk9mpmZvTMz8z3NzEw9/38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/8/////v/9//z////+//3//P////7//f/8/////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_m1g6l")
 
 [node name="Game" unique_id=981716421 instance=ExtResource("1_uwrxv")]
 script = ExtResource("2_kvuet")
@@ -105,11 +202,11 @@ script = ExtResource("2_kvuet")
 script = ExtResource("3_ir15t")
 metadata/_custom_type_script = "uid://b4wi2imswuwib"
 
-[node name="ChristiLines1" type="Node" parent="DialogueManager" index="0" unique_id=839944764]
+[node name="TutorialLines1" type="Node" parent="DialogueManager" index="0" unique_id=839944764]
 script = ExtResource("4_ca42v")
 subtitles = Array[String](["Christi: <codename>, this is Christi. Great work making that pickup, you’re all superstars, really. Now,", "who’s excited to head back!!", "", "Christi:*clears throat* well, um.", "Christi: Oh! If you didn’t get the message, it’s looking like we’re running a *bit* lower on fuel than expected. So, we’re extending your trip by 2 months to save fuel. So sorry about that.", "Christi: Alexey, could you make that update to the ship trajectory for me?", "Christi: Should be on your dashboard, should be the center-left button with the Snail label on it. Thanks!"])
 durations = Array[float]([4.0, 2.0, 5.0, 3.0, 7.0, 5.0, 2.0])
-line_end_callbacks = Array[String](["", "", "", "", "show_tutorial_ui", "", "wait_until_button_pressed"])
+line_end_callbacks = Array[String](["", "", "", "", "show_tutorial_ui", "", ""])
 metadata/_custom_type_script = "uid://6btm0m758270"
 
 [node name="ButtonPressManager" type="Node" parent="DialogueManager" index="1" unique_id=1695114365]
@@ -130,17 +227,27 @@ durations = Array[float]([4.0])
 line_end_callbacks = Array[String](["restart"])
 metadata/_custom_type_script = "uid://6btm0m758270"
 
-[node name="ChristiLines2" type="Node" parent="DialogueManager" index="2" unique_id=403937503]
+[node name="TutorialLines2" type="Node" parent="DialogueManager" index="2" unique_id=403937503]
 script = ExtResource("4_ca42v")
-subtitles = Array[String](["Christi: Awesome,  thank you so much"])
-line_end_callbacks = Array[String](["", "", "", "", "show_tutorial_ui", "wait_until_button_pressed"])
+subtitles = Array[String](["Allen: You gotta be kidding me, another 2 months before I see my wife and kids?", "Christi: I understand you’re disappointed, guys, and I feel your pain. That’s why I put in a word with Bleemo and we got you a party at the office when you get back! ", "Christi: We’ll have free pizza and soda!", "Allen: Great", ""])
+durations = Array[float]([5.0, 5.0, 5.0, 3.0, 5.0])
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="EnterAlien" type="Node" parent="DialogueManager" index="3" unique_id=2136678722]
+script = ExtResource("4_ca42v")
+subtitles = Array[String](["Christi: I’m picking up something here-", ""])
+durations = Array[float]([0.0, 0.0])
+line_end_callbacks = Array[String](["enter_alien"])
 metadata/_custom_type_script = "uid://6btm0m758270"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=1069104509]
 environment = SubResource("Environment_7nxc4")
 
 [node name="XROrigin3D" parent="." index="2"]
-transform = Transform3D(-0.005917201, 0, -0.9999825, 0, 1, 0, 0.9999825, 0, -0.005917201, 4.366213, -0.3349972, -1.303568)
+transform = Transform3D(-0.005917201, 0, -0.9999825, 0, 1, 0, 0.9999825, 0, -0.005917201, 4.366213, -0.009722412, -1.303568)
+
+[node name="XRCamera3D" parent="XROrigin3D" index="0"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 1.7473629, 0)
 
 [node name="SubtitlesContainer" parent="XROrigin3D/XRCamera3D" index="0" unique_id=1750260639 instance=ExtResource("3_dinhu")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -1.7368264)
@@ -249,7 +356,7 @@ bone_idx = 9
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/LeftPhysicsHand" index="1"]
 root_node = NodePath("../Hand_Nails_L")
-tree_root = SubResource("AnimationNodeBlendTree_bhx41")
+tree_root = SubResource("AnimationNodeBlendTree_suyxu")
 
 [node name="XRToolsMovementClimb" type="Node3D" parent="XROrigin3D/LeftHand" index="1" unique_id=703727549 groups=["movement_providers"]]
 script = ExtResource("4_0tnpc")
@@ -362,7 +469,7 @@ bone_idx = 9
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/RightPhysicsHand" index="1"]
 root_node = NodePath("../Hand_Nails_R")
-tree_root = SubResource("AnimationNodeBlendTree_wljb1")
+tree_root = SubResource("AnimationNodeBlendTree_gxtfn")
 
 [node name="MovementTurn" parent="XROrigin3D/RightHand" index="1" unique_id=1088511353 instance=ExtResource("16_bhx41")]
 
@@ -407,6 +514,11 @@ transform = Transform3D(0.85523826, 0.42266378, -0.29987183, -0.026209816, -0.54
 spot_range = 9.180907
 spot_angle = 19.139124
 
+[node name="Decal" type="Decal" parent="Level/Environment" index="9" unique_id=769981365]
+transform = Transform3D(1.1920929e-07, 0, -1, 0, 1, 0, 1, 0, 1.1920929e-07, 8.706143, 1.4679384, -1.3308017)
+size = Vector3(1, 0.42230225, 0.28173828)
+texture_albedo = ExtResource("20_e1j6l")
+
 [node name="Handlebar" parent="Level" index="1" unique_id=1187435484 instance=ExtResource("8_gee14")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8362336, 1.3914932, 2.2877352)
 
@@ -446,6 +558,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.353548, 1.0328269, -2.10210
 
 [node name="IncorrectTutorialButton" parent="Level" index="13" unique_id=1557565226 instance=ExtResource("21_5newe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.353548, 1.0328269, -2.4136899)
+
+[node name="MeshInstance3D" parent="Level/IncorrectTutorialButton/ButtonBase" parent_id_path=PackedInt32Array(1557565226, 1690186882) index="1" unique_id=1047105472]
+transform = Transform3D(4, 0, 0, 0, -2.1855695e-07, -4, 0, 5, -1.7484555e-07, 0, 0, 0)
+mesh = ExtResource("23_e1j6l")
+
+[node name="button" type="Node3D" parent="Level/IncorrectTutorialButton" index="3" unique_id=331539293]
+transform = Transform3D(0.049999997, -0.086602546, 0, 0.086602546, 0.049999997, 0, 0, 0, 0.2, 0.35962343, 0.37622666, 0.28701615)
+
+[node name="Button" type="MeshInstance3D" parent="Level/IncorrectTutorialButton/button" index="0" unique_id=168121677]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+mesh = ExtResource("22_bt5mj")
+skeleton = NodePath("")
+
+[node name="ButtonBase" type="MeshInstance3D" parent="Level/IncorrectTutorialButton/button" index="1" unique_id=1782467419]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+mesh = ExtResource("23_e1j6l")
+skeleton = NodePath("")
+
+[node name="desk_chairArms" type="Node3D" parent="Level" index="14" unique_id=1618009687]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.365514, -1.1920929e-07, -1.3523546)
+
+[node name="desk_chairArms" type="MeshInstance3D" parent="Level/desk_chairArms" index="0" unique_id=270610845]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_js0lu")
+skeleton = NodePath("")
 
 [editable path="XROrigin3D/LeftHand/LeftPhysicsHand"]
 [editable path="XROrigin3D/LeftHand/LeftPhysicsHand/Hand_Nails_L"]

@@ -1,0 +1,17 @@
+[gd_resource type="Environment" format=3 uid="uid://li4cyuhoj167"]
+
+[ext_resource type="Texture2D" uid="uid://1dv53a8qddem" path="res://assets/textures/skybox-space-nebula.png" id="1_hqu1l"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hy3pm"]
+panorama = ExtResource("1_hqu1l")
+energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_t65tg"]
+sky_material = SubResource("PanoramaSkyMaterial_hy3pm")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_t65tg")
+ambient_light_source = 1
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.3

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://detj82cicc32c"]
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" unique_id=1120077853]
+transform = Transform3D(0.5408295, -0.8408129, 0.023173586, 0.08262676, 0.08052423, 0.99332196, -0.83706397, -0.53530306, 0.11302352, 0, 0, 0)
+bone_name = "Index_Tip_R"
+bone_idx = 9

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dpdw75iiwapi2"]
+
+[ext_resource type="Texture2D" uid="uid://0vp1gkuh1rqu" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/Textures/colormap.png" id="1_ts04c"]
+
+[resource]
+resource_name = "colormap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ts04c")
+emission_enabled = true

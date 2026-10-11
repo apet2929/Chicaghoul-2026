@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cfw4xivoirvhy"]
+
+[ext_resource type="Material" uid="uid://dpdw75iiwapi2" path="res://assets/shaders/kenney_colormap.tres" id="1_fbbnw"]
+[ext_resource type="Shader" uid="uid://caengpkwa40j7" path="res://assets/shaders/texel_space_quantization.gdshader" id="1_l8al4"]
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_fbbnw")
+shader = ExtResource("1_l8al4")
+shader_parameter/posterize_levels = 12
+shader_parameter/roughness = 0.2410000114475
+shader_parameter/metallic = 0.5390000256025
+shader_parameter/uv_tiling = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

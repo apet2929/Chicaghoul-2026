@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bk1xkvtypqtwk"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bk1xkvtypqtwk"]
 
 [ext_resource type="Shader" uid="uid://d4f0sv3c8yhgx" path="res://assets/maps/holodeck/materials/holodeck_map_floor_shader.tres" id="1_64ydx"]
 [ext_resource type="Texture2D" uid="uid://im7p7npaiu5y" path="res://assets/maps/holodeck/textures/arcade_floor_baseColor.png" id="2_1qqwn"]

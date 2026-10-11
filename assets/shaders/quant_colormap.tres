@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ckq3ei2tw3sio"]
+
+[ext_resource type="Texture2D" uid="uid://0vp1gkuh1rqu" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/Textures/colormap.png" id="1_eix38"]
+[ext_resource type="Material" uid="uid://cfw4xivoirvhy" path="res://assets/shaders/quant.tres" id="2_pam5v"]
+
+[resource]
+resource_name = "colormap"
+next_pass = ExtResource("2_pam5v")
+diffuse_mode = 2
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_eix38")
+emission_enabled = true

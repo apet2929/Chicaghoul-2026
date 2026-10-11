@@ -48,6 +48,8 @@ var _xr_origin: XROrigin3D
 func _ready() -> void:
 	_camera = $XROrigin3D/XRCamera3D
 	_xr_origin = $XROrigin3D
+	assert(_camera != null)
+	assert(_xr_origin != null)
 
 
 ## Centers the player on the [param p_transform] transform.

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bdc5q0ukskebn"]
+
+[ext_resource type="Script" uid="uid://54j48ym1udwx" path="res://scripts/teleport_target.gd" id="1_4s5a0"]
+[ext_resource type="Texture2D" uid="uid://cu4j1s8qr1rjq" path="res://addons/godot-xr-tools/images/teleport_target.png" id="1_25ium"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t65tg"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.2311264, 0.5704151, 0.6690306, 1)
+albedo_texture = ExtResource("1_25ium")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7nxc4"]
+material = SubResource("StandardMaterial3D_t65tg")
+orientation = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7nxc4"]
+height = 1.3964844
+radius = 0.5527344
+
+[node name="TeleportTarget" type="Area3D" unique_id=288386913]
+collision_layer = 131072
+collision_mask = 0
+script = ExtResource("1_4s5a0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1284920698]
+mesh = SubResource("QuadMesh_7nxc4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1978473100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3017578, 0)
+shape = SubResource("CylinderShape3D_7nxc4")

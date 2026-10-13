@@ -18,10 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://d078iaf38v008" path="res://assets/digitaln8m4r3/textures/godot_token_normal.png" id="11_b600h"]
 [ext_resource type="PackedScene" uid="uid://dg712iff21lan" path="res://assets/kenney/kenney_factory-kit_3.0/Models/FBX format/box-long.fbx" id="11_xshpo"]
 [ext_resource type="PackedScene" uid="uid://b2pp5h3j4gx84" path="res://assets/kenney/kenney_factory-kit_3.0/Models/FBX format/box-large.fbx" id="12_i4pon"]
+[ext_resource type="PackedScene" uid="uid://yqh0lkfkbkpj" path="res://scenes/garage_door.tscn" id="13_rfibj"]
 [ext_resource type="PackedScene" uid="uid://rv8fhcth2rwl" path="res://assets/kenney/kenney_factory-kit_3.0/Models/FBX format/catwalk-corner.fbx" id="16_4xq01"]
 [ext_resource type="Texture2D" uid="uid://cxgiqgmyvayd1" path="res://assets/kenney/kenney_modular-dungeon-kit_1.0/Models/FBX format/Textures/colormap.png" id="17_5seas"]
-[ext_resource type="PackedScene" uid="uid://bum3ql76dkofj" path="res://assets/kenney/kenney_factory-kit_3.0/Models/GLB format/door-wide-half.glb" id="18_rfibj"]
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="19_d7oaq"]
 [ext_resource type="Environment" uid="uid://bnqbx0koec7de" path="res://assets/me/bright_lighting_env.tres" id="19_n5i4k"]
 [ext_resource type="PackedScene" uid="uid://dl0plhh2mh3v1" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-half.fbx" id="22_b600h"]
 [ext_resource type="PackedScene" uid="uid://psmjyk1ipg3g" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-corner.fbx" id="24_d7oaq"]
@@ -125,103 +124,103 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uj630")
 
-[sub_resource type="QuadMesh" id="QuadMesh_b600h"]
+[sub_resource type="QuadMesh" id="QuadMesh_rfibj"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ng756"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_d7oaq"]
 viewport_path = NodePath("Base/Cockpit/Screens/computer-screen1/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfibj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc16m"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ng756")
+albedo_texture = SubResource("ViewportTexture_d7oaq")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d7oaq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0kpf"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_sc16m"]
+[sub_resource type="QuadMesh" id="QuadMesh_3s2qt"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_o0kpf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_etr7h"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3s2qt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omadc"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_o0kpf")
+albedo_texture = SubResource("ViewportTexture_etr7h")
 texture_filter = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_etr7h"]
+[sub_resource type="QuadMesh" id="QuadMesh_wgven"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_omadc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yrte7"]
 viewport_path = NodePath("Base/Cockpit/Screens/computer-screen2/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgven"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvlk3"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_omadc")
+albedo_texture = SubResource("ViewportTexture_yrte7")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yrte7"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_25btm"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_hvlk3"]
+[sub_resource type="QuadMesh" id="QuadMesh_5do3f"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_25btm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8fu5f"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5do3f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hebwy"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_25btm")
+albedo_texture = SubResource("ViewportTexture_8fu5f")
 texture_filter = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_8fu5f"]
+[sub_resource type="QuadMesh" id="QuadMesh_itl8g"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hebwy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xrd7w"]
 viewport_path = NodePath("Base/Cockpit/Screens/computer-screen3/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itl8g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlu6e"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_hebwy")
+albedo_texture = SubResource("ViewportTexture_xrd7w")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xrd7w"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mysb7"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_nlu6e"]
+[sub_resource type="QuadMesh" id="QuadMesh_6aohi"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mysb7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dwl5h"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6aohi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ver81"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_mysb7")
+albedo_texture = SubResource("ViewportTexture_dwl5h")
 texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7wwd"]
@@ -400,9 +399,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_7nxc4"]
 material = SubResource("StandardMaterial3D_i4pon")
 size = Vector2(64, 64)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_og0va"]
-size = Vector3(0.35835266, 0.4167328, 3.2915955)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtf5j"]
 resource_name = "metalDark"
@@ -936,11 +932,11 @@ script = ExtResource("2_4xq01")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.397759, 1.3958333, -4.249948)
 
 [node name="Screen" parent="Base/Cockpit/Screens/computer-screen1/UIView" parent_id_path=PackedInt32Array(98513756, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_b600h")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfibj")
+mesh = SubResource("QuadMesh_rfibj")
+surface_material_override/0 = SubResource("StandardMaterial3D_sc16m")
 
 [node name="CollisionShape3D" parent="Base/Cockpit/Screens/computer-screen1/UIView/StaticBody3D" parent_id_path=PackedInt32Array(98513756, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_d7oaq")
+shape = SubResource("BoxShape3D_o0kpf")
 
 [node name="SubViewport" parent="Base/Cockpit/Screens/computer-screen1/CameraView" parent_id_path=PackedInt32Array(98513756, 504934570) index="0" unique_id=572689086]
 size = Vector2i(1024, 512)
@@ -949,35 +945,35 @@ size = Vector2i(1024, 512)
 transform = Transform3D(0.9292897, 0.27279717, 0.24900238, -0.26350182, 0.9620714, -0.0706051, -0.25881898, 1.4901161e-08, 0.9659257, 0.6279408, 4.6153345, -3.3203304)
 
 [node name="Screen" parent="Base/Cockpit/Screens/computer-screen1/CameraView" parent_id_path=PackedInt32Array(98513756, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_sc16m")
-surface_material_override/0 = SubResource("StandardMaterial3D_3s2qt")
+mesh = SubResource("QuadMesh_3s2qt")
+surface_material_override/0 = SubResource("StandardMaterial3D_omadc")
 
 [node name="computer-screen2" parent="Base/Cockpit/Screens" unique_id=1768757514 instance=ExtResource("3_n5i4k")]
 transform = Transform3D(0.79415417, -0.2367383, -0.5597089, -0.041917376, 0.8974715, -0.439076, 0.6062689, 0.37215558, 0.7028073, 14.176822, 2.1248732, -4.38865)
 
 [node name="Screen" parent="Base/Cockpit/Screens/computer-screen2/UIView" parent_id_path=PackedInt32Array(1768757514, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_etr7h")
-surface_material_override/0 = SubResource("StandardMaterial3D_wgven")
+mesh = SubResource("QuadMesh_wgven")
+surface_material_override/0 = SubResource("StandardMaterial3D_hvlk3")
 
 [node name="CollisionShape3D" parent="Base/Cockpit/Screens/computer-screen2/UIView/StaticBody3D" parent_id_path=PackedInt32Array(1768757514, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_yrte7")
+shape = SubResource("BoxShape3D_25btm")
 
 [node name="SubViewport" parent="Base/Cockpit/Screens/computer-screen2/CameraView" parent_id_path=PackedInt32Array(1768757514, 504934570) index="0" unique_id=572689086]
 size = Vector2i(1024, 512)
 
 [node name="Screen" parent="Base/Cockpit/Screens/computer-screen2/CameraView" parent_id_path=PackedInt32Array(1768757514, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_hvlk3")
-surface_material_override/0 = SubResource("StandardMaterial3D_5do3f")
+mesh = SubResource("QuadMesh_5do3f")
+surface_material_override/0 = SubResource("StandardMaterial3D_hebwy")
 
 [node name="computer-screen3" parent="Base/Cockpit/Screens" unique_id=175161898 instance=ExtResource("3_n5i4k")]
 transform = Transform3D(-0.38671255, -0.4197831, -0.8211184, -0.041917365, 0.8974715, -0.439076, 0.9212471, -0.13537708, -0.36465973, 14.204406, 2.1248732, -0.31830615)
 
 [node name="Screen" parent="Base/Cockpit/Screens/computer-screen3/UIView" parent_id_path=PackedInt32Array(175161898, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_8fu5f")
-surface_material_override/0 = SubResource("StandardMaterial3D_itl8g")
+mesh = SubResource("QuadMesh_itl8g")
+surface_material_override/0 = SubResource("StandardMaterial3D_nlu6e")
 
 [node name="CollisionShape3D" parent="Base/Cockpit/Screens/computer-screen3/UIView/StaticBody3D" parent_id_path=PackedInt32Array(175161898, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_xrd7w")
+shape = SubResource("BoxShape3D_mysb7")
 
 [node name="turret_double2" parent="Base/Cockpit/Screens/computer-screen3/CameraView/SubViewport" parent_id_path=PackedInt32Array(175161898, 572689086) index="0" unique_id=197107271 instance=ExtResource("10_hy3pm")]
 transform = Transform3D(0.35807914, 0.029586442, -0.93322235, -0.26350188, 0.96207154, -0.0706051, 0.8957377, 0.27118802, 0.3522938, -1.4778371, 4.397524, 2.4910922)
@@ -989,8 +985,8 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0)
 transform = Transform3D(-0.82314885, -0.29365304, 0.485998, -0.56666845, 0.37020868, -0.7360929, 0.036235277, -0.88131356, -0.4711408, -0.14488125, 0.733607, -0.22435117)
 
 [node name="Screen" parent="Base/Cockpit/Screens/computer-screen3/CameraView" parent_id_path=PackedInt32Array(175161898, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_nlu6e")
-surface_material_override/0 = SubResource("StandardMaterial3D_6aohi")
+mesh = SubResource("QuadMesh_6aohi")
+surface_material_override/0 = SubResource("StandardMaterial3D_ver81")
 
 [node name="computer-screen4" parent="Base/Cockpit/Screens" unique_id=1639188860 instance=ExtResource("3_n5i4k")]
 transform = Transform3D(-0.024614563, -0.45597696, -0.8896511, -0.012611003, 0.8899916, -0.45580253, 0.9996175, 1.3038516e-08, -0.02765708, 14.585435, 3.2199512, -2.3643186)
@@ -1245,18 +1241,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5807047, 0)
 
 [node name="Closet" type="Node3D" parent="Base" unique_id=1385300984]
 
-[node name="Node3D" type="Node3D" parent="Base" unique_id=949925226]
+[node name="DoorFIXME" parent="Base" unique_id=1590820719 instance=ExtResource("13_rfibj")]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -5.708826, 0.8509847, 6.7266674)
-
-[node name="PickableObject" parent="Base/Node3D" unique_id=399613128 instance=ExtResource("19_d7oaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18456459, 1.2829707, 0.44138813)
-
-[node name="CollisionShape3D" parent="Base/Node3D/PickableObject" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20351458, 0, 0.22050476)
-shape = SubResource("BoxShape3D_og0va")
-
-[node name="door-wide-half2" parent="Base/Node3D/PickableObject" unique_id=1837714374 instance=ExtResource("18_rfibj")]
-transform = Transform3D(-8.482162e-08, 0, -1.5523939, 0, 1.5523939, 0, 1.9404924, 0, -6.785729e-08, 0.5520673, -1.1636193, 0.19526052)
+visible = false
 
 [node name="Walls" type="Node3D" parent="Base" unique_id=904993191]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 1.8959322, 0, 0)
@@ -1673,7 +1660,7 @@ spot_angle = 19.139124
 environment = ExtResource("19_n5i4k")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1772873958]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.9384375, 2.0025148, -1.5179145)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.682704, 1.8123772, -1.5179145)
 current = true
 
 [node name="catwalk-corner" parent="." unique_id=516146942 instance=ExtResource("16_4xq01")]
@@ -1730,4 +1717,3 @@ transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9
 [editable path="Base/Cockpit/Screens/computer-screen3"]
 [editable path="Base/Cockpit/Screens/computer-screen3/CameraView/SubViewport/turret_double2"]
 [editable path="Base/Floor/template-floor-detail-a4"]
-[editable path="Base/Node3D/PickableObject"]

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://f60mwcd1x3o4"]
+
+[ext_resource type="Script" uid="uid://nsnivf7ahwr4" path="res://scripts/alarm.gd" id="1_aj4iq"]
+[ext_resource type="PackedScene" uid="uid://bm4nyu24r0hah" path="res://scenes/indicator_light.tscn" id="1_y63g5"]
+[ext_resource type="Texture2D" uid="uid://23th3keeygpn" path="res://assets/Metal062C_1K-JPG/Metal062C.png" id="2_aj4iq"]
+[ext_resource type="Environment" uid="uid://li4cyuhoj167" path="res://assets/me/moody_lighting_env.tres" id="4_atdqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymhr1"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.45882353)
+metallic = 0.86
+metallic_specular = 0.96
+roughness = 0.4
+roughness_texture = ExtResource("2_aj4iq")
+roughness_texture_channel = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_27d7j"]
+material = SubResource("StandardMaterial3D_ymhr1")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atdqw"]
+albedo_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+metallic = 1.0
+metallic_specular = 0.72
+metallic_texture = ExtResource("2_aj4iq")
+roughness = 0.38
+roughness_texture = ExtResource("2_aj4iq")
+roughness_texture_channel = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_27d7j"]
+material = SubResource("StandardMaterial3D_atdqw")
+size = Vector3(2.2, 1, 2.2)
+
+[node name="Alarm" type="Node3D" unique_id=233698494]
+script = ExtResource("1_aj4iq")
+
+[node name="IndicatorLight" parent="." unique_id=827362570 instance=ExtResource("1_y63g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13323426, 0)
+mode = 2
+
+[node name="BlinkTimer" parent="IndicatorLight" index="1" unique_id=985043070]
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=603642002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31586623, 0.04575181)
+mesh = SubResource("SphereMesh_27d7j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=823261411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015156984, -5.9604645e-08, 0.042562068)
+mesh = SubResource("BoxMesh_27d7j")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1498607694]
+transform = Transform3D(1, 0, 0, 0, 0.9464403, 0.32287887, 0, -0.32287887, 0.9464403, 0.6844624, 1.2546555, 3.9319878)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=862547036]
+environment = ExtResource("4_atdqw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=518494673]
+transform = Transform3D(0.25881907, 0.42238382, -0.8686798, 0, 0.8993236, 0.43728387, 0.9659258, -0.11317742, 0.23276208, 0, 2.103795, 0.82195234)
+
+[editable path="IndicatorLight"]

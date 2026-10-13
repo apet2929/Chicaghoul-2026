@@ -1,15 +1,6 @@
 @tool
 extends Node3D
-
-#@export var indicator_emissive_color: Color = Color(0, 1, 1, 1):
-		#set(new_val):
-			#indicator_emissive_color = new_val
-			#set_emissive_color()
-#
-#@export var indicator_albedo_color: Color = Color(0, 1, 1, 1):
-		#set(new_val):
-			#indicator_emissive_color = new_val
-			#set_emissive_color()
+class_name IndicatorLight
 
 enum Mode {
 	OFF,
@@ -29,51 +20,59 @@ const WARNING_ALBEDO = Color("f1d542")
 const WARNING_EMISSION = Color("f1d542")
 const OK_ALBEDO = Color("54eef3")
 const OK_EMISSION = Color("54eef3")
-const OFF_ALBEDO = Color("363932ff")
+const OFF_ALBEDO = Color("9ba094")
 const OFF_EMISSION = Color("000000")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(get_children())
 	set_mode()
 	set_blink(blink_duration)
-	
-@export var blink_duration: float = 0
-var blink_timer: SceneTreeTimer = null
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func set_blink(blink_duration):
-	self.blink_duration = blink_duration
-	blink_timer.stop()
-	blink_timer.timeout.emit()
-	if blink_duration > 0:
-		blink_timer = get_tree().create_timer(blink_duration)
+	$BlinkTimer.timeout.connect(_blink)
+	if blink_running:
 		run_blink()
-	
+
+@export var blink_duration: float = 1.0
+@onready var blink_timer: Timer = $BlinkTimer
+@export var blink_running = false
+var _blink_on: bool = false
+
+
+func set_blink(blink_duration: float):
+	self.blink_duration = blink_duration
+	assert(blink_duration > 0)
+	blink_timer.wait_time = blink_duration
+
 func run_blink():
-	var blink_dur = blink_duration
-	while true:
-		await blink_timer.timeout
-		if blink_duration == blink_dur:  # check has new blink duration been set
-			blink_timer.start()
-		else:
-			break
-			
+	blink_running = true
+	blink_timer.start()
+
+func pause_blink():
+	blink_running = false
+	if blink_timer != null:
+		blink_timer.stop()
+		blink_timer.timeout.emit()
+		
+
+func _blink():
+	_blink_on = !_blink_on
+	if _blink_on:
+		set_mode()
+	else:
+		set_colors(OFF_ALBEDO, OFF_EMISSION)
 
 func set_colors(albedo, emissive):
+	if not is_inside_tree():
+		return
 	var mat = $Tip.get_active_material(0)
 	mat.albedo_color = albedo
 	mat.emission = emissive
 
 func set_mode():
+	if not is_inside_tree():
+		return
 	var emissive_color: Color = OFF_EMISSION
 	var albedo_color: Color = OFF_ALBEDO
-	#var mode_key = Mode.keys()[mode]
-	#print(typeof(mode_key))
-	#print(mode_key)
 	
 	if mode == Mode.OFF:
 		set_colors(OFF_ALBEDO, OFF_EMISSION)

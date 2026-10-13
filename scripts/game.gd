@@ -6,7 +6,7 @@ extends XRToolsSceneBase
 
 func _ready() -> void:
 	super._ready()
-	if Globals.has_method("set_camera"): # is in tool mode or are we actualyl running
+	if !Engine.is_editor_hint(): # is in tool mode or are we actualyl running
 		Globals.on_teleport.connect(teleport_player)
 	
 func _process(delta: float) -> void:

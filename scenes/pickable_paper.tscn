@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cvnlx7lp5lqa6"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_3q2o6"]
+[ext_resource type="Texture2D" uid="uid://ortcmqt4lb0u" path="res://assets/me/paper.png" id="2_3qepm"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_g27x0"]
+[ext_resource type="Animation" uid="uid://bi1l6lre2w2lp" path="res://addons/godot-xr-tools/hands/animations/left/Hold.res" id="3_cyqec"]
+[ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="3_v0m1j"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_ojsnk"]
+[ext_resource type="Animation" uid="uid://bv5tuc1kjv0k5" path="res://addons/godot-xr-tools/hands/animations/right/Hold.res" id="6_1f4nb"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="6_wejij"]
+[ext_resource type="PackedScene" uid="uid://dqhs3w7mvp2tb" path="res://scenes/glow_mesh.tscn" id="9_7ty7j"]
+
+[sub_resource type="Resource" id="Resource_g27x0"]
+script = ExtResource("4_ojsnk")
+closed_pose = ExtResource("3_cyqec")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="Resource" id="Resource_7ncrc"]
+script = ExtResource("4_ojsnk")
+closed_pose = ExtResource("6_1f4nb")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymhr1"]
+size = Vector3(0.2, 0.01, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q2o6"]
+albedo_texture = ExtResource("2_3qepm")
+metallic_specular = 0.04
+roughness_texture = ExtResource("3_v0m1j")
+
+[sub_resource type="BoxMesh" id="BoxMesh_27d7j"]
+material = SubResource("StandardMaterial3D_3q2o6")
+size = Vector3(0.2, 0.005, 0.3)
+
+[node name="PickablePaper" unique_id=1641758308 instance=ExtResource("1_3q2o6")]
+
+[node name="GrabPointHandLeft" parent="." index="0" unique_id=1393310200 instance=ExtResource("6_wejij")]
+transform = Transform3D(0.8191313, -0.573606, 0, 0.573606, 0.8191313, 0, 0, 0, 1, -0.09973521, 0, -0.07392683)
+hand_pose = SubResource("Resource_g27x0")
+
+[node name="GrabPointHandRight" parent="." index="1" unique_id=774860143 instance=ExtResource("2_g27x0")]
+transform = Transform3D(0.92179286, 0.38768274, 0, -0.38768274, 0.92179286, 0, 0, 0, 1, 0.0957029, 0, -0.06252717)
+hand_pose = SubResource("Resource_7ncrc")
+
+[node name="CollisionShape3D" parent="." index="2"]
+shape = SubResource("BoxShape3D_ymhr1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=11828320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.002404213, 0)
+mesh = SubResource("BoxMesh_27d7j")
+
+[node name="GlowOutline" parent="." index="4" unique_id=1717128241 instance=ExtResource("9_7ty7j")]
+
+[node name="GlowMesh" parent="GlowOutline" index="0" unique_id=2126028921 node_paths=PackedStringArray("copied_mesh")]
+copied_mesh = NodePath("../../MeshInstance3D")
+
+[editable path="GlowOutline"]

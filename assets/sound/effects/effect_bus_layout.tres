@@ -46,9 +46,85 @@ band_db/4000_hz = 0.8
 band_db/8000_hz = 2.4
 band_db/16000_hz = -1.6
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_vo444"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_vo444"]
+resource_name = "Distortion"
+pre_gain = 22.57
+keep_hf_hz = 11230.0
+drive = 0.69
+post_gain = -19.05
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_vo444"]
+resource_name = "EQ6"
+band_db/32_hz = 23.1
+band_db/100_hz = 14.0
+band_db/320_hz = -12.0
+band_db/1000_hz = -28.3
+band_db/3200_hz = -48.5
+band_db/10000_hz = -60.0
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_05t8x"]
+resource_name = "Distortion"
+mode = 2
+pre_gain = 2.38
+keep_hf_hz = 4127.0
+drive = 1.0
+post_gain = -20.07
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_05t8x"]
+resource_name = "EQ6"
+band_db/32_hz = 24.0
+band_db/100_hz = 13.3
+band_db/320_hz = -19.0
+band_db/1000_hz = -28.7
+band_db/3200_hz = -37.7
+band_db/10000_hz = -54.9
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_vo444"]
+resource_name = "Limiter"
+ceiling_db = -13.1
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_vo444"]
+resource_name = "Amplify"
+volume_db = -4.45
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_05t8x"]
+resource_name = "Chorus"
+voice_count = 4
+dry = 0.49
+wet = 0.66
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 12.0
+voice/4/rate_hz = 13.3
+voice/4/depth_ms = 4.48
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_uof5o"]
+resource_name = "Distortion"
+mode = 3
+pre_gain = 40.99
+keep_hf_hz = 10047.0
+drive = 0.26
+post_gain = -22.14
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_05t8x"]
+resource_name = "PitchShift"
+pitch_scale = 0.53
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_vo444"]
+resource_name = "Phaser"
+
 [resource]
 bus/0/volume_db = -2.1147432
-bus/0/send = &"Deeper"
 bus/1/name = &"Authority"
 bus/1/solo = false
 bus/1/mute = false
@@ -68,18 +144,52 @@ bus/2/bypass_fx = false
 bus/2/volume_db = -9.637614
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectDelay_vo444")
-bus/2/effect/0/enabled = false
+bus/2/effect/0/enabled = true
 bus/2/effect/1/effect = SubResource("AudioEffectLowShelfFilter_vo444")
 bus/2/effect/1/enabled = false
 bus/2/effect/2/effect = SubResource("AudioEffectChorus_vo444")
 bus/2/effect/2/enabled = false
 bus/2/effect/3/effect = SubResource("AudioEffectPitchShift_vo444")
-bus/2/effect/3/enabled = false
+bus/2/effect/3/enabled = true
 bus/2/effect/4/effect = SubResource("AudioEffectEQ10_vo444")
-bus/2/effect/4/enabled = false
-bus/3/name = &"New Bus"
+bus/2/effect/4/enabled = true
+bus/3/name = &"Distorted"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_vo444")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectDistortion_vo444")
+bus/3/effect/1/enabled = true
+bus/4/name = &"New Bus"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectEQ6_vo444")
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectDistortion_05t8x")
+bus/4/effect/1/enabled = false
+bus/4/effect/2/effect = SubResource("AudioEffectEQ6_05t8x")
+bus/4/effect/2/enabled = true
+bus/4/effect/3/effect = SubResource("AudioEffectLimiter_vo444")
+bus/4/effect/3/enabled = false
+bus/4/effect/4/effect = SubResource("AudioEffectAmplify_vo444")
+bus/4/effect/4/enabled = true
+bus/5/name = &"aLIEN WArbly"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectChorus_05t8x")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectDistortion_uof5o")
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource("AudioEffectPitchShift_05t8x")
+bus/5/effect/2/enabled = true
+bus/5/effect/3/effect = SubResource("AudioEffectPhaser_vo444")
+bus/5/effect/3/enabled = true

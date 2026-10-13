@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=19 format=3 uid="uid://d4f0sv3c8yhgx"]
+[gd_resource type="VisualShader" format=3 uid="uid://d4f0sv3c8yhgx"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ubn70"]
 default_input_values = [0, 0.0, 1, 0.7]
@@ -68,106 +68,6 @@ default_value_enabled = true
 default_value = Vector2(200, 200)
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform vec2 uv_scale = vec2(200.000000, 200.000000);
-uniform vec4 base_color : source_color;
-uniform sampler2D texture_base : source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D texture_decal : source_color, filter_linear_mipmap, repeat_enable;
-
-
-
-void vertex() {
-// Input:2
-	vec2 n_out2p0 = UV;
-
-
-// Vector2Parameter:4
-	vec2 n_out4p0 = uv_scale;
-
-
-// VectorOp:3
-	vec2 n_out3p0 = n_out2p0 * n_out4p0;
-
-
-// Output:0
-	UV = n_out3p0;
-
-
-}
-
-void fragment() {
-// ColorParameter:8
-	vec4 n_out8p0 = base_color;
-
-
-// Input:4
-	vec2 n_out4p0 = UV;
-
-
-	vec4 n_out3p0;
-// Texture2D:3
-	n_out3p0 = texture(texture_base, n_out4p0);
-
-
-// VectorOp:7
-	vec3 n_out7p0 = vec3(n_out8p0.xyz) * vec3(n_out3p0.xyz);
-
-
-	vec4 n_out12p0;
-// Texture2D:12
-	n_out12p0 = texture(texture_decal, n_out4p0);
-
-
-// VectorDecompose:13
-	float n_out13p0 = n_out12p0.x;
-	float n_out13p1 = n_out12p0.y;
-	float n_out13p2 = n_out12p0.z;
-	float n_out13p3 = n_out12p0.w;
-
-
-// Mix:15
-	vec3 n_out15p0 = mix(vec3(n_out3p0.xyz), vec3(n_out12p0.xyz), vec3(n_out13p3));
-
-
-// FloatOp:16
-	float n_out16p0 = max(n_out13p0, n_out13p1);
-
-
-// FloatOp:17
-	float n_out17p0 = max(n_out16p0, n_out13p2);
-
-
-// Mix:14
-	vec3 n_out14p0 = mix(n_out7p0, n_out15p0, vec3(n_out17p0));
-
-
-// FloatConstant:11
-	float n_out11p0 = 0.000000;
-
-
-// VectorDecompose:6
-	float n_out6p0 = vec3(n_out3p0.xyz).x;
-	float n_out6p1 = vec3(n_out3p0.xyz).y;
-	float n_out6p2 = vec3(n_out3p0.xyz).z;
-
-
-// FloatOp:10
-	float n_in10p1 = 0.70000;
-	float n_out10p0 = n_out6p0 * n_in10p1;
-
-
-// Output:0
-	ALBEDO = n_out14p0;
-	METALLIC = n_out11p0;
-	ROUGHNESS = n_out10p0;
-	SPECULAR = n_out11p0;
-
-
-}
-"
-graph_offset = Vector2(-426.416, -49.6533)
 nodes/vertex/0/position = Vector2(660, 80)
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_u6j1b")
 nodes/vertex/2/position = Vector2(40, 80)

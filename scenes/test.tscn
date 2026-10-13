@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dvyqtpkwemx5j" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall.fbx" id="1_bl13t"]
 [ext_resource type="Material" uid="uid://cfw4xivoirvhy" path="res://assets/shaders/quant.tres" id="2_iyx0m"]
 [ext_resource type="Environment" uid="uid://li4cyuhoj167" path="res://assets/me/moody_lighting_env.tres" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://bdc5q0ukskebn" path="res://scenes/teleport_target.tscn" id="4_74lek"]
+[ext_resource type="PackedScene" uid="uid://0kvgq4huxkok" path="res://scenes/teleport_raycast.tscn" id="5_j5jx5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ubf7j"]
 _surfaces = [{
@@ -40,6 +42,7 @@ shadow_mesh = SubResource("ArrayMesh_ubf7j")
 [node name="template-wall" unique_id=1178759511 instance=ExtResource("1_bl13t")]
 
 [node name="template-wall" parent="." index="0" unique_id=1930118563]
+visible = false
 mesh = SubResource("ArrayMesh_74lek")
 surface_material_override/0 = ExtResource("2_iyx0m")
 
@@ -54,3 +57,12 @@ spot_angle = 10.067799
 
 [node name="Camera3D" type="Camera3D" parent="." index="3" unique_id=586584658]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.03371191, 1.9140472, -4.0917287)
+
+[node name="TeleportTarget" parent="." index="4" unique_id=288386913 instance=ExtResource("4_74lek")]
+collision_mask = 131072
+
+[node name="TeleportRaycast" parent="." index="5" unique_id=696261466 instance=ExtResource("5_j5jx5")]
+transform = Transform3D(0.99993944, -0.0040793605, -0.010203289, 0.0040793605, -0.72437406, 0.68939507, -0.010203289, -0.68939507, -0.72431386, 0, 1.841641, 1.7779084)
+target_position = Vector3(0, 1000000, 0)
+
+[editable path="TeleportTarget"]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://0kvgq4huxkok"]
+
+[ext_resource type="Script" uid="uid://cs0rlemxyoqc4" path="res://scripts/teleport.gd" id="1_amgc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nk7y"]
+transparency = 1
+cull_mode = 1
+albedo_color = Color(0.5148438, 0.82636213, 0.9072408, 0.43529412)
+
+[sub_resource type="BoxMesh" id="BoxMesh_twgab"]
+material = SubResource("StandardMaterial3D_1nk7y")
+size = Vector3(0.05, 51.70926, 0.05)
+
+[node name="TeleportRaycast" type="RayCast3D" unique_id=696261466]
+transform = Transform3D(0.99993944, -0.0040793605, -0.010203289, 0.0040793605, -0.72437406, 0.68939507, -0.010203289, -0.68939507, -0.72431386, 0, 0, 0)
+target_position = Vector3(0, 100000, 0)
+collision_mask = 131072
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("1_amgc4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=979307393]
+transform = Transform3D(1, -2.9802322e-08, 2.2351742e-08, 2.9802322e-08, 1, -3.7252903e-09, 7.450581e-09, 3.7252903e-09, 1, -3.8146973e-06, 25.850079, 1.0728836e-06)
+mesh = SubResource("BoxMesh_twgab")

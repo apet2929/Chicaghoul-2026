@@ -10,7 +10,7 @@ func show_tutorial_ui():
 
 func enter_alien():
 	pass
-	
+
 
 
 func play_sfx(node: AudioStreamPlayer, name):

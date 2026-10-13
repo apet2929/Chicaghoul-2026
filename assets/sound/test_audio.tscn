@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0jcler63a7bi"]
+
+[ext_resource type="Texture2D" uid="uid://23th3keeygpn" path="res://assets/Metal062C_1K-JPG/Metal062C.png" id="1_ajyt0"]
+[ext_resource type="Script" uid="uid://dcwwxustjfnyf" path="res://scripts/audio_tester.gd" id="1_u8wc3"]
+[ext_resource type="AudioStream" uid="uid://doktsqywagsws" path="res://assets/sound/scream_test_randomizer_stream.tres" id="2_gtn1l"]
+
+[node name="TestAudio" type="TextureRect" unique_id=1082560101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ajyt0")
+script = ExtResource("1_u8wc3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1990392824]
+stream = ExtResource("2_gtn1l")
+autoplay = true
+bus = &"aLIEN WArbly"

@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://doktsqywagsws"]
+
+[ext_resource type="AudioStream" uid="uid://hyo3oxrfvy3s" path="res://assets/sound/sacre_bleu.mp3" id="1_38ehl"]
+[ext_resource type="AudioStream" uid="uid://dttkjmigsyvvl" path="res://assets/sound/voice-message.mp3" id="2_el7pi"]
+[ext_resource type="AudioStream" uid="uid://dmdpw71clqyh" path="res://assets/sound/sound/AIIIEEEE.mp3" id="3_dyyhe"]
+[ext_resource type="AudioStream" uid="uid://dbeutgvy3eemi" path="res://assets/sound/sound/OUUUGHH.mp3" id="4_28bdb"]
+[ext_resource type="AudioStream" uid="uid://bxck2qr71jgvy" path="res://assets/sound/sound/yelp.mp3" id="5_acx5q"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_38ehl")
+stream_1/stream = ExtResource("2_el7pi")
+stream_2/stream = ExtResource("3_dyyhe")
+stream_3/stream = ExtResource("4_28bdb")
+stream_4/stream = ExtResource("5_acx5q")

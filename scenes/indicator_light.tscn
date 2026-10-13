@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bm4nyu24r0hah"]
+
+[ext_resource type="Script" uid="uid://dt75buco8ra3e" path="res://scripts/indicator_light.gd" id="1_xcp2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymhr1"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.6509804, 0.3254902, 0.34901962, 1)
+metallic = 0.95
+metallic_specular = 0.94
+roughness = 0.08
+emission_enabled = true
+emission = Color(1, 0, 0.24705882, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_27d7j"]
+material = SubResource("StandardMaterial3D_ymhr1")
+height = 1.0288086
+
+[node name="IndicatorLight" type="Node3D" unique_id=827362570]
+script = ExtResource("1_xcp2h")
+mode = 3
+blink_duration = 1.0
+
+[node name="Tip" type="MeshInstance3D" parent="." unique_id=2090160775]
+transform = Transform3D(0.9999154, 0, 0.013005519, 0, 1, 0, -0.013005519, 0, 0.9999154, 0, 0.4855957, 0)
+mesh = SubResource("CapsuleMesh_27d7j")

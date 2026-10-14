@@ -1,18 +1,26 @@
-[gd_scene format=3 uid="uid://6pmfdvag6ny2"]
+[gd_scene format=3 uid="uid://bqpi4loeosqwl"]
 
-[ext_resource type="Script" uid="uid://bc2a7afqef24b" path="res://scripts/microphone.gd" id="1_mq7fj"]
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_neh3t"]
-[ext_resource type="PackedScene" uid="uid://bm4nyu24r0hah" path="res://scenes/indicator_light.tscn" id="3_7tc00"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_f4ttw"]
-[ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="4_f4ttw"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_jvhcy"]
-[ext_resource type="Animation" uid="uid://dg4v7rqiaje2h" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Flat.res" id="5_jvhcy"]
-[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_u283h"]
-[ext_resource type="PackedScene" uid="uid://dqhs3w7mvp2tb" path="res://scenes/glow_mesh.tscn" id="9_u283h"]
+[ext_resource type="Script" uid="uid://bc2a7afqef24b" path="res://scripts/microphone.gd" id="1_5p4jn"]
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_erbfv"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_f84gd"]
+[ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="4_ahljw"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_vjqgm"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_n0vnq"]
+[ext_resource type="PackedScene" uid="uid://bm4nyu24r0hah" path="res://scenes/indicator_light.tscn" id="7_63h5i"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="7_ahljw"]
+[ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="8_1223i"]
+[ext_resource type="PackedScene" uid="uid://dqhs3w7mvp2tb" path="res://scenes/glow_mesh.tscn" id="9_ctqj4"]
+
+[sub_resource type="Resource" id="Resource_j3pel"]
+script = ExtResource("6_n0vnq")
+open_pose = ExtResource("4_ahljw")
+closed_pose = ExtResource("4_ahljw")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
 [sub_resource type="Resource" id="Resource_u283h"]
-script = ExtResource("6_u283h")
-closed_pose = ExtResource("5_jvhcy")
+script = ExtResource("6_n0vnq")
+open_pose = ExtResource("7_ahljw")
+closed_pose = ExtResource("7_ahljw")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jvhcy"]
@@ -22,7 +30,7 @@ size = Vector3(0.17156982, 0.049438477, 0.27337646)
 albedo_color = Color(0.5749978, 0.57499784, 0.57499784, 1)
 metallic = 0.34
 metallic_specular = 0.71
-metallic_texture = ExtResource("4_f4ttw")
+metallic_texture = ExtResource("8_1223i")
 
 [sub_resource type="BoxMesh" id="BoxMesh_27d7j"]
 material = SubResource("StandardMaterial3D_27d7j")
@@ -39,39 +47,57 @@ height = 0.05
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_27d7j"]
 
-[node name="Microphone" unique_id=1398128572 instance=ExtResource("1_neh3t")]
-script = ExtResource("1_mq7fj")
+[sub_resource type="BoxMesh" id="BoxMesh_u283h"]
+material = SubResource("StandardMaterial3D_27d7j")
+flip_faces = true
+size = Vector3(0.16, 0.06, 0.26)
 
-[node name="GrabPointHandLeft" parent="." index="0" unique_id=513329526 instance=ExtResource("3_f4ttw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.078593716, 0, -0.089203924)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahljw"]
+shading_mode = 0
+albedo_color = Color(1, 0.9055, 0.19, 1)
+grow_amount = 0.02
+
+[node name="Microphone" type="Node3D" unique_id=467874620]
+script = ExtResource("1_5p4jn")
+
+[node name="Microphone" type="RigidBody3D" parent="." unique_id=1398128572]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("2_erbfv")
+
+[node name="GrabPointHandLeft" parent="Microphone" unique_id=513329526 instance=ExtResource("3_f84gd")]
+transform = Transform3D(0.21730019, -0.9761048, 0, 0.9761048, 0.21730019, 0, 0, 0, 1, -0.085585594, -0.047136933, -0.089203924)
 visible = true
+hand_pose = SubResource("Resource_j3pel")
 
-[node name="GrabPointHandRight" parent="." index="1" unique_id=1305960658 instance=ExtResource("4_jvhcy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06758645, 0.038365558, -0.014841974)
+[node name="GrabPointHandRight" parent="Microphone" unique_id=1305960658 instance=ExtResource("4_vjqgm")]
+transform = Transform3D(0.0741305, 0.99724853, 0, -0.99724853, 0.0741305, 0, 0, 0, 1, 0.06758645, -0.01356779, -0.014841974)
 visible = true
 hand_pose = SubResource("Resource_u283h")
 
-[node name="IndicatorLight" parent="." index="2" unique_id=827362570 instance=ExtResource("3_7tc00")]
+[node name="IndicatorLight" parent="Microphone" unique_id=827362570 instance=ExtResource("7_63h5i")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, -0.0061234385, -0.072208725)
 
-[node name="CollisionShape3D" parent="." index="3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Microphone" unique_id=1066036435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009460449, 0.002304107, 0.002105713)
 shape = SubResource("BoxShape3D_jvhcy")
 
-[node name="Body" type="MeshInstance3D" parent="." index="4" unique_id=897382561]
+[node name="Body" type="MeshInstance3D" parent="Microphone" unique_id=897382561]
 mesh = SubResource("BoxMesh_27d7j")
 
-[node name="RecordButton" type="MeshInstance3D" parent="." index="5" unique_id=844854433]
+[node name="RecordButton" type="MeshInstance3D" parent="Microphone" unique_id=844854433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017053932, 0.011578247, 0.039429754)
 mesh = SubResource("CylinderMesh_27d7j")
 skeleton = NodePath("../Body")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." index="6" unique_id=415869561]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Microphone" unique_id=415869561]
 stream = SubResource("AudioStreamMicrophone_27d7j")
 
-[node name="GlowOutline" parent="." index="7" unique_id=1717128241 instance=ExtResource("9_u283h")]
+[node name="GlowOutline" parent="Microphone" unique_id=1717128241 instance=ExtResource("9_ctqj4")]
 
-[node name="GlowMesh" parent="GlowOutline" index="0" unique_id=2126028921 node_paths=PackedStringArray("copied_mesh")]
-copied_mesh = NodePath("../../Body")
+[node name="GlowMesh" parent="Microphone/GlowOutline" index="0" unique_id=2126028921]
+mesh = SubResource("BoxMesh_u283h")
+surface_material_override/0 = SubResource("StandardMaterial3D_ahljw")
 
-[editable path="GlowOutline"]
+[editable path="Microphone/GlowOutline"]

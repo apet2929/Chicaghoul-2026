@@ -1,9 +1,8 @@
-@tool
-extends XRToolsPickable
-
+extends Node3D
 var effect
 
-var controller: XRController3D
+@export var controller: XRController3D
+var ax_button_pressed = false
 
 func _ready():
 	# We get the index of the "Record" bus.
@@ -13,23 +12,27 @@ func _ready():
 	effect = AudioServer.get_bus_effect(idx, 0)
 
 func _process(delta: float) -> void:
-	if self.is_picked_up():
-		if controller == null:
-			controller = XRHelpers.get_xr_controller(self)
+	if $Microphone.is_picked_up():
 		if controller != null:
-			if controller.is_button_pressed("button"):
-				_on_record_button_pressed()
-				print("Record button pressed!")
-				print("TODO: Play hand animation")
+			if controller.is_button_pressed("ax_button"):
+				ax_button_pressed = true
+			else:
+				if ax_button_pressed:
+					ax_button_pressed = false
+					# AX BUTTON RELEASE
+					_on_record_button_pressed()
+					print("Record button pressed!")
+					print("TODO: Play hand animation")
+
 
 func _on_record_button_pressed():
 	if effect.is_recording_active():
 		var recording = effect.get_recording()
-		$IndicatorLight.mode = IndicatorLight.Mode.OFF
+		$Microphone/IndicatorLight.mode = IndicatorLight.Mode.OFF
 		effect.set_recording_active(false)
 		Globals.recording_finished.emit(recording)
 		print("Finished recording!")
 	else:
-		$IndicatorLight.mode = IndicatorLight.Mode.ERROR
+		$Microphone/IndicatorLight.mode = IndicatorLight.Mode.ERROR
 		effect.set_recording_active(true)
 		print("Recording!")

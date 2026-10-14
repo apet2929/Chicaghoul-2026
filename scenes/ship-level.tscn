@@ -1242,8 +1242,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5807047, 0)
 [node name="Closet" type="Node3D" parent="Base" unique_id=1385300984]
 
 [node name="DoorFIXME" parent="Base" unique_id=1590820719 instance=ExtResource("13_rfibj")]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -5.708826, 0.8509847, 6.7266674)
-visible = false
+transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -6.5242887, 1.5127802, 7.7946568)
 
 [node name="Walls" type="Node3D" parent="Base" unique_id=904993191]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 1.8959322, 0, 0)

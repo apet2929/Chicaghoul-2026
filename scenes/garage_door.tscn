@@ -1,74 +1,167 @@
-[gd_scene format=3 uid="uid://yqh0lkfkbkpj"]
+[gd_scene format=4 uid="uid://yqh0lkfkbkpj"]
 
-[ext_resource type="PackedScene" uid="uid://dsstvanwd58r0" path="res://addons/godot-xr-tools/objects/snap_path.tscn" id="1_vkw1a"]
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="2_ddxvv"]
-[ext_resource type="Script" uid="uid://colsb5moktl1e" path="res://addons/godot-xr-tools/objects/hand_pose_area.gd" id="3_8hnpw"]
-[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="4_o1er1"]
+[ext_resource type="Script" uid="uid://3yuna37paf3k" path="res://scripts/garage_door.gd" id="1_8hnpw"]
+[ext_resource type="Texture2D" uid="uid://ypvj7x8p34n" path="res://assets/kenney/kenney_factory-kit_3.0/Models/GLB format/Textures/colormap.png" id="3_8hnpw"]
+[ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="5_8hnpw"]
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_74das"]
-[ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="6_i7b8e"]
-[ext_resource type="PackedScene" uid="uid://bum3ql76dkofj" path="res://assets/kenney/kenney_factory-kit_3.0/Models/GLB format/door-wide-half.glb" id="7_3rug7"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_uc3v7"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="9_l2yto"]
+[ext_resource type="PackedScene" uid="uid://dc5t2qgmhb2nf" path="res://addons/godot-xr-tools/objects/hand_pose_area.tscn" id="8_74das"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="8_o1er1"]
+[ext_resource type="PackedScene" uid="uid://dqhs3w7mvp2tb" path="res://scenes/glow_mesh.tscn" id="10_i7b8e"]
+[ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="11_3rug7"]
+
+[sub_resource type="Resource" id="Resource_7nxc4"]
+script = ExtResource("5_74das")
+open_pose = ExtResource("5_8hnpw")
+closed_pose = ExtResource("5_8hnpw")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="Resource" id="Resource_t65tg"]
+script = ExtResource("5_74das")
+open_pose = ExtResource("8_o1er1")
+closed_pose = ExtResource("8_o1er1")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_og0va"]
-size = Vector3(0.35835266, 0.4167328, 3.2915955)
+size = Vector3(3.8961678, 0.17076826, 0.1734848)
 
-[sub_resource type="Resource" id="Resource_27d7j"]
-script = ExtResource("5_74das")
-open_pose = ExtResource("4_o1er1")
-closed_pose = ExtResource("4_o1er1")
-metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27d7j"]
+albedo_color = Color(0.5749978, 0.57499784, 0.57499784, 1)
+metallic = 0.34
+metallic_specular = 0.71
+metallic_texture = ExtResource("11_3rug7")
 
-[sub_resource type="Resource" id="Resource_25btm"]
-script = ExtResource("5_74das")
-open_pose = ExtResource("6_i7b8e")
-closed_pose = ExtResource("6_i7b8e")
-metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+[sub_resource type="BoxMesh" id="BoxMesh_pgnop"]
+material = SubResource("StandardMaterial3D_27d7j")
+flip_faces = true
+size = Vector3(0.0031347647, 0.1605078, 3.4950275)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hvlk3"]
-size = Vector3(0.35835266, 0.4167328, 3.2915955)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmauj"]
+shading_mode = 0
+albedo_color = Color(1, 0.9055, 0.19, 1)
+grow_amount = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te4e5"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("3_8hnpw")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k5k1h"]
+_surfaces = [{
+"aabb": AABB(-0.9, 0.3562358, 0.4, 1.8, 1.2437642, 0.30000004),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABgAHAAgACAAJAAYABgAJAAoACgALAAYADAANAA4ADAAOAA8ADwAQAAwAEQAMABAAEAASABEAEwAOABIAEgAUABMAEgAVABEAEgAOABUADQAVAA4AFQANABYAFgAXABUA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAejwAAAAAAAGlfAAAAAP//aV8AAAAA//8ejwAAAAAAANO+AAAAAP//074AAAAAAAAk6LNdAAAAANO+AAAAAP//074AAAAA//8k6LNdAAD///////8AAAAA/////wAAO28dDgAAAAA7b5chAAAAAAAAtC8AAAAAAAAAAAAAAAD//wAAAAAAAMOQHQ4AAAAA//+0LwAAAAAAAGlfAAAAAP//aV8AAAAAw5CXIQAAAAA7bx0OAAAAAMOQHQ4AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_joed2"]
+resource_name = "door-wide-half_door-wide-half"
+_surfaces = [{
+"aabb": AABB(-0.9, 0.3562358, 0.4, 1.8, 1.2437642, 0.30000004),
+"attribute_data": PackedByteArray("/9dR1f/XUN3/11Dd/9dR1f/XZcb/11LN/9dSzf/XZcb/1/Dq/9et5//XT+X/163n/9dO7f/XT+X/107t/9fw6v/Xduf/13bn/9cd5f/XHeX/1+f0/9eY+f/XmPn/1+f0/9eG6//XNvD/1zbw/9eG6/9XmPn/V5j5/1eY+f9XmPk="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACQALAAoACAAKAAwADQAKAAsADAAOAAgADQALAA8ADwAIAA4ADgANAA8AEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwA"),
+"material": SubResource("StandardMaterial3D_te4e5"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("AAAejwAA//8AAGlfAAD/////aV8AAP////8ejwAA//8AACTos13//wAA074AAP/////TvgAA/////yTos13//ztvHQ4AAP//O2+XIQAA//8AALQvAAD//8OQlyEAAP//AAAAAAAA/////7QvAAD/////AAAAAP//w5AdDgAA//8AACTos13/////JOizXf////////////8AAP///////wAAaV8AAP//AAC0LwAA/////7QvAAD/////aV8AAP//AADTvgAA//8AAB6PAAD/////Ho8AAP/////TvgAA//87bx0OAAD//8OQHQ4AAP//w5CXIQAA//87b5chAAD///9/////f////3////9/////f+/l/3/v5f9/7+X/f+/l/3////9/////f////3////9/////f////3////9/////f/XR/3/10f9/9dH/f/XR/3////9/////f////3////9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k5k1h")
+
+[sub_resource type="Animation" id="Animation_8hnpw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o1er1"]
+resource_name = "up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.29, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74das"]
+_data = {
+&"RESET": SubResource("Animation_8hnpw"),
+&"up": SubResource("Animation_o1er1")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5nhw"]
+size = Vector3(3.6034331, 2.437787, 0.172)
 
 [node name="Door" type="Node3D" unique_id=1590820719]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_8hnpw")
 
-[node name="SnapPath" parent="." unique_id=256329370 instance=ExtResource("1_vkw1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18456459, 1.2829708, 0.44138813)
-snap_mode = 1
-initial_object = NodePath("../DoorPickableObject")
+[node name="HandPoseArea" parent="." unique_id=1435357508 instance=ExtResource("8_74das")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03251344, 0.27189124, 0.86838496)
+left_pose = SubResource("Resource_7nxc4")
+right_pose = SubResource("Resource_t65tg")
 
-[node name="DoorPickableObject" parent="." unique_id=2117052837 instance=ExtResource("2_ddxvv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18456459, 1.2829707, 0.44138813)
-
-[node name="CollisionShape3D" parent="DoorPickableObject" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20351458, -0.40452766, 0.22050476)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandPoseArea" unique_id=197253139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_og0va")
 
-[node name="XRToolsHandPoseArea" type="Area3D" parent="DoorPickableObject" unique_id=502055615]
-script = ExtResource("3_8hnpw")
-left_pose = SubResource("Resource_27d7j")
-right_pose = SubResource("Resource_25btm")
-metadata/_custom_type_script = "uid://colsb5moktl1e"
+[node name="GlowOutline" parent="." unique_id=1717128241 instance=ExtResource("10_i7b8e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27744704, 0.89976263, 0.7084546)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPickableObject/XRToolsHandPoseArea" unique_id=199571107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20351458, -0.40452766, 0.22050476)
-shape = SubResource("BoxShape3D_hvlk3")
+[node name="GlowMesh" parent="GlowOutline" index="0" unique_id=2126028921]
+transform = Transform3D(1, 0, -9.947598e-14, 0, 1, 0, 0, 0, 1, -0.15662366, -0.6101758, 0.18771988)
+mesh = SubResource("BoxMesh_pgnop")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_cmauj")
 
-[node name="door-wide-half2" parent="DoorPickableObject" unique_id=1149585992 instance=ExtResource("7_3rug7")]
-transform = Transform3D(-8.482162e-08, 0, -1.5523939, 0, 1.5523939, 0, 1.9404924, 0, -6.785729e-08, 0.5520673, -1.1636193, 0.19526052)
+[node name="door-wide-half" type="MeshInstance3D" parent="." unique_id=1107214321]
+transform = Transform3D(-1.9404924, 0, -1.357146e-07, 0, 1.5523938, 0, 1.6964324e-07, 0, -1.5523938, -0.11639309, -0.3158375, 1.4858044)
+mesh = SubResource("ArrayMesh_joed2")
+skeleton = NodePath("")
 
-[node name="GrabPointHandLeft" parent="DoorPickableObject" unique_id=1411665522 instance=ExtResource("8_uc3v7")]
-transform = Transform3D(-0.0412479, 0.99089, -0.128202, -5.60865e-09, 0.128311, 0.991734, 0.999149, 0.040907, -0.00529256, -0.026769638, -0.61174273, 0.567255)
-mode = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1840237119]
+libraries/ = SubResource("AnimationLibrary_74das")
 
-[node name="GrabPointHandRight" parent="DoorPickableObject" unique_id=221632916 instance=ExtResource("9_l2yto")]
-transform = Transform3D(0.0412479, 0.99089, -0.128202, 0, 0.128311, 0.991734, 0.999149, -0.0409069, 0.00529256, -0.02699995, -0.6121657, -0.2839861)
-mode = 1
+[node name="CollisionBody" type="StaticBody3D" parent="." unique_id=1209932083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13256216, 1.4220307, 0.86957)
+collision_layer = 2
+collision_mask = 655367
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
-[node name="GrabPointGripLeft" parent="DoorPickableObject" unique_id=1832382964 instance=ExtResource("8_uc3v7")]
-transform = Transform3D(0.0412478, -0.99089, 0.128202, -5.60865e-09, 0.128311, 0.991734, -0.999149, -0.0409069, 0.00529255, -0.13686323, -0.6121657, 0.5073147)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CollisionBody" unique_id=1839385310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035366893, -0.023563623, -0.0075519085)
+shape = SubResource("BoxShape3D_s5nhw")
 
-[node name="GrabPointGripRight" parent="DoorPickableObject" unique_id=824093978 instance=ExtResource("9_l2yto")]
-transform = Transform3D(-0.041248, -0.99089, 0.128202, 0, 0.128311, 0.991734, -0.999149, 0.040907, -0.00529257, -0.13700008, -0.6121657, -0.28004122)
+[connection signal="body_entered" from="HandPoseArea" to="." method="_on_hand_pose_area_body_entered"]
+[connection signal="body_exited" from="HandPoseArea" to="." method="_on_hand_pose_area_body_exited"]
 
-[editable path="SnapPath"]
-[editable path="DoorPickableObject"]
+[editable path="GlowOutline"]

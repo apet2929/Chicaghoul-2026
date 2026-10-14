@@ -69,7 +69,7 @@ func set_colors(albedo, emissive):
 	mat.emission = emissive
 
 func set_mode():
-	if not is_inside_tree():
+	if not is_inside_tree() or $Tip == null:
 		return
 	var emissive_color: Color = OFF_EMISSION
 	var albedo_color: Color = OFF_ALBEDO

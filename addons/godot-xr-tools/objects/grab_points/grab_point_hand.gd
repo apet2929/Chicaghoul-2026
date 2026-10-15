@@ -175,13 +175,13 @@ func _is_valid_hand_grab(current: XRToolsGrabPoint) -> bool:
 
 func _set_editor_preview_mode(new_value: PreviewMode) -> void:
 	editor_preview_mode = new_value
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and is_inside_tree():
 		_update_editor_preview()
 
 
 func _set_hand(new_value: Hand) -> void:
 	hand = new_value
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and is_inside_tree():
 		_update_editor_preview()
 
 

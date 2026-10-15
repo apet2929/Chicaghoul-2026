@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b0dneywfxcfer"]
+
+[ext_resource type="PackedScene" uid="uid://dvyqtpkwemx5j" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall.fbx" id="1_2ish1"]
+
+[node name="CombinedWall" type="Node3D" unique_id=2072457439]
+
+[node name="template-wall25" parent="." unique_id=1178759511 instance=ExtResource("1_2ish1")]
+transform = Transform3D(-2.1855696e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855695e-07, -0.43979073, 0, 0.007756233)
+
+[node name="template-wall43" parent="." unique_id=132247361 instance=ExtResource("1_2ish1")]
+transform = Transform3D(-4.371139e-08, -8.742278e-08, -1, 7.642742e-15, -1, 8.742278e-08, -1, -3.821371e-15, 4.371139e-08, -0.45386696, 8, 0.0077638626)

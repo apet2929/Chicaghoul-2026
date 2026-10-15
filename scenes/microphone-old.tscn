@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://6pmfdvag6ny2"]
+[gd_scene format=3 uid="uid://coeehrf76f7sh"]
 
 [ext_resource type="Script" uid="uid://bc2a7afqef24b" path="res://scripts/microphone.gd" id="1_mq7fj"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_neh3t"]

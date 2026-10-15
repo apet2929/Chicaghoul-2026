@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bbbbxcxb2y882"]
+
+[ext_resource type="Script" uid="uid://vcciw4eavs1u" path="res://scripts/passcode_buttons.gd" id="1_uy2lc"]
+[ext_resource type="PackedScene" uid="uid://cwyhb0bqriu3l" path="res://scenes/passcode_button.tscn" id="2_yye2s"]
+
+[node name="PasscodeButtons" type="Node3D" unique_id=333682295]
+script = ExtResource("1_uy2lc")
+
+[node name="LeftButton" parent="." unique_id=311593662 instance=ExtResource("2_yye2s")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.22605257, 0, 0)
+
+[node name="UpButton" parent="." unique_id=1168574554 instance=ExtResource("2_yye2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07605256, 0, 0)
+
+[node name="DownButton" parent="." unique_id=936189750 instance=ExtResource("2_yye2s")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.073947445, 0, 0)
+
+[node name="RightButton" parent="." unique_id=622755180 instance=ExtResource("2_yye2s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.22394745, 0, 0)

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cwyhb0bqriu3l"]
 
+[ext_resource type="Script" uid="uid://dhncpuvk36jjm" path="res://scripts/passcode_button.gd" id="1_b25eo"]
 [ext_resource type="ArrayMesh" uid="uid://txuj1upvplrf" path="res://assets/me/button_base.tres" id="1_gt4ox"]
 [ext_resource type="Material" path="res://assets/wahooney.itch.io/blue_grid.tres" id="2_b25eo"]
 [ext_resource type="ArrayMesh" uid="uid://j8u4xo5gr1wa" path="res://assets/me/button_top.tres" id="3_lfd5n"]
@@ -39,6 +40,7 @@ radius = 0.04
 radius = 0.05
 
 [node name="PasscodeButton" type="Node3D" unique_id=311593662]
+script = ExtResource("1_b25eo")
 
 [node name="ButtonBase" type="StaticBody3D" parent="." unique_id=201312896]
 

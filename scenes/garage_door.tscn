@@ -135,7 +135,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.2
 [node name="GlowMesh" parent="GlowOutline" index="0" unique_id=2126028921]
 transform = Transform3D(1, 0, -9.947598e-14, 0, 1, 0, 0, 0, 1, -0.15662366, -0.6101758, 0.18771988)
 mesh = SubResource("BoxMesh_pgnop")
-skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_cmauj")
 
 [node name="door-wide-half" type="MeshInstance3D" parent="." unique_id=1107214321]

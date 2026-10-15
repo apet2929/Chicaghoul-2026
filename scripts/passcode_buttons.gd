@@ -19,9 +19,7 @@ func _ready() -> void:
 	up_button.on_pressed.connect(button_pressed, ConnectFlags.CONNECT_APPEND_SOURCE_OBJECT)
 	down_button.on_pressed.connect(button_pressed, ConnectFlags.CONNECT_APPEND_SOURCE_OBJECT)
 
-
 func button_pressed(button):
-	
 	if button == left_button:
 		current_input += LEFT
 	if button == right_button:

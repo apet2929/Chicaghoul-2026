@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bfbu7dnwyndir"]
+
+[ext_resource type="Script" uid="uid://cvf0cjcb0d4b5" path="res://scripts/trigger_audio.gd" id="1_j5j1p"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_27d7j"]
+random_pitch = 1.0594631
+
+[node name="TriggerAudio" type="Node3D" unique_id=880076171]
+script = ExtResource("1_j5j1p")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=249439271]
+stream = SubResource("AudioStreamRandomizer_27d7j")

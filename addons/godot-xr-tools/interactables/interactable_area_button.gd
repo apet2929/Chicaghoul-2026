@@ -67,6 +67,7 @@ func _ready():
 func _on_button_entered(item: Node3D) -> void:
 	# Add to the dictionary of trigger items
 	_trigger_items[item] = item
+	
 
 	# Detect transition to pressed
 	if !pressed:

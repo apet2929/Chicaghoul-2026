@@ -10,7 +10,6 @@ script = ExtResource("1_7ddre")
 
 [node name="PickablePaper" parent="." unique_id=1641758308 instance=ExtResource("1_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8570208, 0, 0)
-visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1375507800]
 environment = ExtResource("1_g7g4h")

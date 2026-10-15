@@ -8,7 +8,7 @@ func _ready() -> void:
 	super._ready()
 	if !Engine.is_editor_hint(): # is in tool mode or are we actualyl running
 		Globals.on_teleport.connect(teleport_player)
-	
+
 func _process(delta: float) -> void:
 	if left_controller.is_button_pressed("trigger"):
 		print("hi!")

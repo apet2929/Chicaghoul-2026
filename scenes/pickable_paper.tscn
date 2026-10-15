@@ -9,6 +9,9 @@
 [ext_resource type="Animation" uid="uid://bv5tuc1kjv0k5" path="res://addons/godot-xr-tools/hands/animations/right/Hold.res" id="6_1f4nb"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="6_wejij"]
 [ext_resource type="PackedScene" uid="uid://dqhs3w7mvp2tb" path="res://scenes/glow_mesh.tscn" id="9_7ty7j"]
+[ext_resource type="PackedScene" uid="uid://bfbu7dnwyndir" path="res://scenes/trigger_audio.tscn" id="10_ojsnk"]
+[ext_resource type="AudioStream" uid="uid://dxsvkgcg6ev3r" path="res://assets/me/audio/paper_rustle_1.mp3" id="11_1f4nb"]
+[ext_resource type="AudioStream" uid="uid://b3siepmv1nxoo" path="res://assets/me/audio/paper_rustle_2.mp3" id="12_7ncrc"]
 
 [sub_resource type="Resource" id="Resource_g27x0"]
 script = ExtResource("4_ojsnk")
@@ -53,5 +56,13 @@ mesh = SubResource("BoxMesh_27d7j")
 
 [node name="GlowMesh" parent="GlowOutline" index="0" unique_id=2126028921 node_paths=PackedStringArray("copied_mesh")]
 copied_mesh = NodePath("../../MeshInstance3D")
+
+[node name="TriggerAudio" parent="." index="5" unique_id=880076171 instance=ExtResource("10_ojsnk")]
+trigger_signal_name = "picked_up"
+sfx = ExtResource("11_1f4nb")
+
+[node name="TriggerAudio2" parent="." index="6" unique_id=100349254 instance=ExtResource("10_ojsnk")]
+trigger_signal_name = "dropped"
+sfx = ExtResource("12_7ncrc")
 
 [editable path="GlowOutline"]

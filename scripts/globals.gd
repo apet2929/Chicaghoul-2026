@@ -13,6 +13,9 @@ var subtitle_inst: Subtitle = null
 var camera: XRCamera3D = null
 var teleporting = false # Poor man's mutex
 
+@onready var button_down_audio = load("res://assets/me/audio/button-down.mp3")
+@onready var button_up_audio = load("res://assets/me/audio/button-down.mp3")
+
 func set_camera(camera: XRCamera3D):
 	self.camera = camera
 	camera_change.emit(camera)

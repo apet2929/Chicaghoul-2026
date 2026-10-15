@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dbv1hvxufc1al"]
 
 [ext_resource type="Material" path="res://assets/wahooney.itch.io/blue_grid.tres" id="1"]
+[ext_resource type="ArrayMesh" uid="uid://txuj1upvplrf" path="res://assets/me/button_base.tres" id="1_ar7dg"]
 [ext_resource type="Script" uid="uid://dq042kibpfryy" path="res://addons/godot-xr-tools/interactables/interactable_area_button.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dc5t2qgmhb2nf" path="res://addons/godot-xr-tools/objects/hand_pose_area.tscn" id="3_2axcm"]
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="3_kg5ep"]
+[ext_resource type="ArrayMesh" uid="uid://j8u4xo5gr1wa" path="res://assets/me/button_top.tres" id="3_ql3k5"]
+[ext_resource type="Texture2D" uid="uid://ddoj6c345cb0c" path="res://addons/godot-xr-tools/images/teleport_arrow.png" id="4_ql3k5"]
 [ext_resource type="Resource" uid="uid://ciw0f7mg4ai0k" path="res://addons/godot-xr-tools/hands/poses/pose_point_left.tres" id="4_sgcw0"]
 [ext_resource type="Resource" uid="uid://brci6umrcd157" path="res://addons/godot-xr-tools/rumble/tap_rumble.tres" id="4_sq4bi"]
 [ext_resource type="Resource" uid="uid://bhvrpfo4ecbub" path="res://addons/godot-xr-tools/hands/poses/pose_point_right.tres" id="5_g2ih4"]
@@ -12,26 +15,21 @@
 height = 0.05
 radius = 0.05
 
-[sub_resource type="CylinderMesh" id="2"]
-top_radius = 0.05
-bottom_radius = 0.05
-height = 0.05
-radial_segments = 16
-rings = 0
-
 [sub_resource type="CylinderShape3D" id="3"]
 height = 0.04
 radius = 0.04
 
-[sub_resource type="CylinderMesh" id="4"]
-top_radius = 0.04
-bottom_radius = 0.04
-height = 0.04
-radial_segments = 16
-rings = 0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8y3ah"]
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(0.70853215, 0.46986967, 0.34459314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t65tg"]
+transparency = 1
+albedo_color = Color(0.44408095, 0.4785449, 0.517735, 1)
+albedo_texture = ExtResource("4_ql3k5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7nxc4"]
+material = SubResource("StandardMaterial3D_t65tg")
+size = Vector2(0.05, 0.05)
 
 [sub_resource type="CylinderShape3D" id="6"]
 height = 0.05
@@ -48,7 +46,8 @@ radius = 0.05
 shape = SubResource("1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ButtonBase" unique_id=1563211458]
-mesh = SubResource("2")
+transform = Transform3D(4, 0, 0, 0, -1.7484555e-07, 4, 0, -4, -1.7484555e-07, 0, 0, 0)
+mesh = ExtResource("1_ar7dg")
 surface_material_override/0 = ExtResource("1")
 
 [node name="Button" type="StaticBody3D" parent="." unique_id=1539590923]
@@ -58,8 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 shape = SubResource("3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Button" unique_id=108771569]
-mesh = SubResource("4")
+transform = Transform3D(4, 0, 0, 0, -1.7484555e-07, 4, 0, -4, -1.7484555e-07, 0, -0.018462162, 0)
+mesh = ExtResource("3_ql3k5")
 surface_material_override/0 = SubResource("StandardMaterial3D_8y3ah")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Button" unique_id=1430886852]
+transform = Transform3D(0.8806648, 0, 0, 0, -5.692254e-08, 1.302236, 0, -1.302236, -5.692254e-08, 0, 0.022867234, 0.0047309585)
+mesh = SubResource("QuadMesh_7nxc4")
 
 [node name="InteractableAreaButton" type="Area3D" parent="." unique_id=2106351299]
 collision_layer = 0

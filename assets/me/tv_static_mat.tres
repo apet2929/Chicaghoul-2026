@@ -1,0 +1,26 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://o7t57e5stfu6"]
+
+[sub_resource type="Gradient" id="Gradient_d7oaq"]
+offsets = PackedFloat32Array(0.105960265, 0.24503312, 0.40397352, 0.57284766, 0.8178808)
+colors = PackedColorArray(1, 1, 1, 1, 0.015686275, 0.015686275, 0.015686275, 0.10980392, 1, 1, 1, 1, 0.5803922, 0.5803922, 0.5803922, 0.79607844, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rfibj"]
+noise_type = 3
+frequency = 0.2077
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ng756"]
+width = 128
+noise = SubResource("FastNoiseLite_rfibj")
+color_ramp = SubResource("Gradient_d7oaq")
+bump_strength = 7.8
+
+[resource]
+transparency = 1
+blend_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_texture = SubResource("NoiseTexture2D_ng756")

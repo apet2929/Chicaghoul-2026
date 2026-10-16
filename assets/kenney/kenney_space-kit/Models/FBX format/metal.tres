@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dsr4rurc6a6si"]
+
+[resource]
+resource_name = "metal"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9276, 0.9408053, 0.9592555, 1)
+emission_enabled = true

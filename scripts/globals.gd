@@ -6,6 +6,7 @@ signal on_teleport(target: TeleportTarget)
 signal recording_finished(recording: AudioStreamWAV)
 signal passphrase_correct()
 signal passphrase_incorrect()
+signal teleport_middle # used to time when to move player during teleport, see game.gd
 
 var main_monitor_ui_inst: ShipMonitorUI = null
 var monitors: Array[ShipMonitorUI] = []

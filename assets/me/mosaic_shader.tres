@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d3gfgbtdb2bpm"]
+
+[ext_resource type="Shader" uid="uid://dqkae3n878l7q" path="res://assets/me/censor.gdshader" id="1_u4evp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u4evp")
+shader_parameter/size = 15.375

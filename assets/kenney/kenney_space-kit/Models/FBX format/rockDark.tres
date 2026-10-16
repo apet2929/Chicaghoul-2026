@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhv2g5ywl2ewy"]
+
+[resource]
+resource_name = "rockDark"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.85324365, 0.6441637, 0.5494939, 1)
+emission_enabled = true

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bb1olcoys2w6n"]
+
+[resource]
+resource_name = "rock"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9592555, 0.7468624, 0.65628237, 1)
+emission_enabled = true

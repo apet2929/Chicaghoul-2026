@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hbhs686eildc"]
+
+[resource]
+resource_name = "metalDark"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8406653, 0.8597078, 0.8929763, 1)
+emission_enabled = true

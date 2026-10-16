@@ -1,6 +1,9 @@
 extends Area3D
 class_name TeleportTarget
 
+@export var enabled = true
+# TODO: Enable and disable as needed
+
 const COLLISION_LAYER = 18
 func _ready() -> void:
 	self.set_collision_layer_value(COLLISION_LAYER, true)

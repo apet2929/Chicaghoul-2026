@@ -12,11 +12,9 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	print(self.is_colliding())
 	if _controller == null:
 		return
 	if _controller.get_float(trigger_action) > 0.5 and !Globals.teleporting:
-		print("Teleporting!")
 		if is_colliding():
 			var target = get_collider()
 			print("Collided with " + str(target))

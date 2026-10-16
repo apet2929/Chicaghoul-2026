@@ -17,17 +17,13 @@ func _process(delta: float) -> void:
 func teleport_player(teleport_target: TeleportTarget):
 	if !Globals.teleporting:  # Poor man's mutex
 		Globals.teleporting = true
-		print("Running teleport_player!")
-		var tween = get_tree().create_tween()
-		tween.tween_method(set_fade, 0.0, 1.0, 1.0)
-		await tween.finished
-		tween.kill()
-		$XROrigin3D.global_transform = teleport_target.global_transform
-		tween = get_tree().create_tween()
-		tween.tween_method(set_fade, 1.0, 0.0, 1.0)
-		await tween.finished
-		tween.kill()
+		Globals.teleport_middle.connect((func ():
+			$XROrigin3D.global_transform = teleport_target.global_transform
+		), ConnectFlags.CONNECT_ONE_SHOT)
+		$Fade/AnimationPlayer.play("teleport")
+		
 		Globals.teleporting = false
+		#set_fade(0)
 
 ## Sets the fade-alpha for scene transitions, allowing us to black out the
 ## screen for transitions.. The [param p_value] parameter must be in the range
@@ -37,3 +33,4 @@ func teleport_player(teleport_target: TeleportTarget):
 ## unless hidden.
 func set_fade(p_value: float) -> void:
 	XRToolsFade.set_fade("game", Color(0, 0, 0, p_value))
+	print("calling set_fade " + str(p_value))

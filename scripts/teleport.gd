@@ -17,6 +17,6 @@ func _process(delta: float) -> void:
 	if _controller.get_float(trigger_action) > 0.5 and !Globals.teleporting:
 		if is_colliding():
 			var target = get_collider()
-			print("Collided with " + str(target))
+			print("Trying to teleport to " + str(target))
 			assert(target is TeleportTarget)
 			Globals.teleport_to(target)

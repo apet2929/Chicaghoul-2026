@@ -1074,7 +1074,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D12" parent="Level/Environment/Lighting" parent_id_path=PackedInt32Array(1318367848, 355751096) index="10" unique_id=977019455]
-transform = Transform3D(-0.07926467, 0.73565406, -0.67270243, -0.0052785226, 0.67450595, 0.73824954, 0.99683785, 0.062068038, -0.04958145, -8.252447, 8.482285, 5.4299746)
+transform = Transform3D(-0.07926466, 0.735654, -0.67270243, -0.005278522, 0.6745059, 0.73824954, 0.99683774, 0.06206803, -0.04958145, -8.252447, 8.482285, 5.4299746)
 
 [node name="desk_chairArms" type="Node3D" parent="Level" index="2" unique_id=1618009687]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.365514, -1.1920929e-07, -1.3523546)
@@ -1259,6 +1259,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vgxg3")
 [editable path="Level/Buttons/EscapePodPasscodeButtons/LeftButton"]
 [editable path="Level/Buttons/AudioLureButtons/Plate"]
 [editable path="Level/Environment"]
+[editable path="Level/Environment/Base/Closet/PaperBox/PickablePaper"]
+[editable path="Level/Environment/Base/Closet/PaperBox/PickablePaper/GlowOutline"]
 [editable path="Level/Environment/Base/CockpitDoor"]
 [editable path="Level/Environment/Base/CockpitDoor/EscapePodRoomDoor"]
 [editable path="Level/Environment/Base/ClosetDoor2"]

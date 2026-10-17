@@ -1796,6 +1796,9 @@ skeleton = NodePath("../..")
 [node name="PickablePaper" parent="Base/Closet/PaperBox" unique_id=1641758308 groups=["paper"] instance=ExtResource("14_etr7h")]
 transform = Transform3D(1, 4.768372e-08, -3.5527143e-16, -4.768372e-08, 1, 3.7252916e-09, 5.329072e-16, -3.7252916e-09, 1, 0, 0, 0)
 
+[node name="MeshInstance3D" parent="Base/Closet/PaperBox/PickablePaper" index="3" unique_id=11828320]
+transform = Transform3D(0.9998533, 0.017144755, 0.00014640391, 0.017144054, -0.9996433, -0.020487238, -0.00020494312, 0.020486671, -0.9997896, 0.0051469803, -0.023098946, 0.0060715675)
+
 [node name="TODOPin" type="MeshInstance3D" parent="Base/Closet/PaperBox" unique_id=345139652]
 transform = Transform3D(1, -1.4901161e-08, -1.1920929e-07, -4.4703484e-08, 1, 2.2351742e-08, 7.450581e-09, -4.0978193e-08, 1, 0.006658554, -0.022143364, 0.10728955)
 mesh = SubResource("TorusMesh_7nxc4")
@@ -2354,7 +2357,7 @@ light_bake_mode = 1
 spot_range = 2.2946332
 
 [node name="DirectionalLight3D12" type="SpotLight3D" parent="Lighting" unique_id=977019455]
-transform = Transform3D(-0.07926476, 0.7356546, -0.67270243, -0.005278528, 0.6745064, 0.73824954, 0.9968389, 0.062068082, -0.04958145, -8.252447, 8.482285, 5.4299746)
+transform = Transform3D(-0.079264745, 0.73565453, -0.67270243, -0.0052785277, 0.6745064, 0.73824954, 0.9968388, 0.06206808, -0.04958145, -8.252447, 8.482285, 5.4299746)
 light_energy = 4.132
 light_volumetric_fog_energy = 2.354
 light_specular = 12.69
@@ -4183,6 +4186,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7378171, 0.02834891, -0.831
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015502896, -0.03458942, 0.0039975643)
 shape = SubResource("BoxShape3D_7nxc4")
 
+[editable path="Base/Closet/PaperBox/PickablePaper"]
+[editable path="Base/Closet/PaperBox/PickablePaper/GlowOutline"]
 [editable path="Base/CockpitDoor"]
 [editable path="Base/CockpitDoor/EscapePodRoomDoor"]
 [editable path="Base/ClosetDoor2"]

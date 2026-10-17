@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://brg8arr5301qe"]
+
+[ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_wqhvx"]
+[ext_resource type="Script" uid="uid://bkfk0a1mhsts1" path="res://scripts/game_over.gd" id="2_7m3ot"]
+[ext_resource type="PackedScene" uid="uid://cc6ngdqie8o8c" path="res://addons/godot-xr-tools/effects/vignette.tscn" id="2_racf3"]
+[ext_resource type="Environment" uid="uid://li4cyuhoj167" path="res://assets/me/moody_lighting_env.tres" id="2_tbwuq"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_racf3"]
+[ext_resource type="PackedScene" uid="uid://cuocwioutvgqc" path="res://scenes/game_over_ui.tscn" id="6_v3hpu"]
+
+[sub_resource type="TextMesh" id="TextMesh_t65tg"]
+text = "I'm Spooky"
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_wqhvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tbwuq"]
+resource_name = "jumpscare"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9666667),
+"transitions": PackedFloat32Array(3.2490087, 4.2870927, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.1235506e-06, 0, 7.44094), Vector3(0, 0, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_racf3"]
+_data = {
+&"RESET": SubResource("Animation_wqhvx"),
+&"jumpscare": SubResource("Animation_tbwuq")
+}
+
+[node name="GameOver" unique_id=171209958 node_paths=PackedStringArray("left_hand", "right_hand") instance=ExtResource("1_wqhvx")]
+script = ExtResource("2_7m3ot")
+left_hand = NodePath("XROrigin3D/LeftHand")
+right_hand = NodePath("XROrigin3D/RightHand")
+
+[node name="XROrigin3D" parent="." index="0"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Vignette" parent="XROrigin3D/XRCamera3D" index="0" unique_id=1018808852 instance=ExtResource("2_racf3")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=83135250]
+environment = ExtResource("2_tbwuq")
+
+[node name="Jumpscare" type="Node3D" parent="." index="2" unique_id=1975148262]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 1.9703519, 5.047845)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Jumpscare" index="0" unique_id=1130543958]
+mesh = SubResource("TextMesh_t65tg")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jumpscare" index="1" unique_id=104816961]
+libraries/ = SubResource("AnimationLibrary_racf3")
+
+[node name="GameOverUI" parent="." index="3" unique_id=116501860 instance=ExtResource("4_racf3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.5973939, 1.6535158)
+visible = false
+scene = ExtResource("6_v3hpu")
+viewport_size = Vector2(1152, 648)

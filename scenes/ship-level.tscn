@@ -22,7 +22,6 @@
 [ext_resource type="Script" uid="uid://kgg0juo56ek8" path="res://scripts/flicker_light.gd" id="20_o0kpf"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="21_omadc"]
 [ext_resource type="PackedScene" uid="uid://dl0plhh2mh3v1" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-half.fbx" id="22_b600h"]
-[ext_resource type="AudioStream" uid="uid://bxck2qr71jgvy" path="res://assets/sound/sound/yelp.mp3" id="22_dwl5h"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="23_ver81"]
 [ext_resource type="PackedScene" uid="uid://psmjyk1ipg3g" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-corner.fbx" id="24_d7oaq"]
 [ext_resource type="PackedScene" uid="uid://bqyoxoakx22ig" path="res://assets/me/xyz-hw-details-sci-fi-capsule/source/Capsule.fbx" id="24_rfibj"]
@@ -1779,7 +1778,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.20525505, -0.7727406, -0.027244471, -0.03953305, -0.045693252, 0.99817294, -0.9657173, -0.25475362, -0.049909413, -8.546445, 1.4067941, 6.1412325)
 
 [node name="SnapZone" parent="Base/Closet/PaperBox" unique_id=1998900079 instance=ExtResource("21_omadc")]
-stash_sound = ExtResource("22_dwl5h")
+grab_distance = 1000.0
 snap_mode = 1
 snap_require = "paper"
 initial_object = NodePath("../PickablePaper")
@@ -1805,9 +1804,10 @@ mesh = SubResource("TorusMesh_7nxc4")
 transform = Transform3D(0.01790355, 0.15161867, -0.98493236, 0.11551, -0.78020513, -0.16680744, -0.98114187, -0.1800193, -0.04081691, -7.812013, 0.3748598, 8.325638)
 
 [node name="SnapZone" parent="Base/Closet/PaperBox2" unique_id=1424591751 instance=ExtResource("21_omadc")]
-stash_sound = ExtResource("22_dwl5h")
+transform = Transform3D(1.0000002, 1.4901161e-08, 0, 0, 1, 4.656613e-10, 3.7252903e-09, 4.656613e-10, 1, 0, 0, 0)
+grab_distance = 1000.0
 snap_mode = 1
-snap_require = "paper"
+snap_require = "paper1"
 initial_object = NodePath("../PickablePaper")
 
 [node name="HighlightRing" parent="Base/Closet/PaperBox2/SnapZone" unique_id=1154492614 instance=ExtResource("23_ver81")]
@@ -1820,7 +1820,7 @@ mesh = SubResource("BoxMesh_27d7j")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7nxc4")
 
-[node name="PickablePaper" parent="Base/Closet/PaperBox2" unique_id=1428784896 groups=["paper"] instance=ExtResource("14_etr7h")]
+[node name="PickablePaper" parent="Base/Closet/PaperBox2" unique_id=1428784896 groups=["paper1"] instance=ExtResource("14_etr7h")]
 transform = Transform3D(1, 4.768372e-08, -3.5527143e-16, -4.768372e-08, 1, 3.7252916e-09, 5.329072e-16, -3.7252916e-09, 1, 0, 0, 0)
 
 [node name="TODOPin" type="MeshInstance3D" parent="Base/Closet/PaperBox2" unique_id=1272352939]
@@ -2249,7 +2249,7 @@ skeleton = NodePath("")
 transform = Transform3D(-0.9659259, 0, -0.25881892, 0, 1, 0, 0.25881892, 0, -0.9659259, 1.6604133, 0.5525415, 0.14509368)
 
 [node name="TT_ClosetEntrance" parent="Base/Decor" unique_id=728723193 instance=ExtResource("7_b600h")]
-transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -4.5102353, 0.55254126, 7.07361)
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -4.2917347, 0.55254126, 6.8106074)
 
 [node name="TT_EscapePod" parent="Base/Decor" unique_id=1895683272 instance=ExtResource("7_b600h")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -17.497631, 1.1905298, -1.089487)
@@ -2276,6 +2276,14 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.43
 open_close_signal = "open_close_cockpit_door"
 
 [node name="door" parent="Base/CockpitDoor/EscapePodRoomDoor/gate-door" parent_id_path=PackedInt32Array(537370861, 883964251, 2002810878) index="0" unique_id=1634702891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7207105, 0)
+
+[node name="ClosetDoor2" parent="Base" unique_id=1181149811 instance=ExtResource("19_sc16m")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.6263356, 2.3841858e-07, 5.91793)
+open_close_signal = "open_close_cockpit_door"
+
+[node name="door" parent="Base/ClosetDoor2/EscapePodRoomDoor/gate-door" parent_id_path=PackedInt32Array(1181149811, 883964251, 2002810878) index="0" unique_id=1634702891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7207105, 0)
 
 [node name="Lighting" type="Node3D" parent="." unique_id=355751096]
@@ -2346,7 +2354,7 @@ light_bake_mode = 1
 spot_range = 2.2946332
 
 [node name="DirectionalLight3D12" type="SpotLight3D" parent="Lighting" unique_id=977019455]
-transform = Transform3D(-0.07926477, 0.73565465, -0.67270243, -0.005278529, 0.6745065, 0.73824954, 0.99683905, 0.062068086, -0.04958145, -8.252447, 8.482285, 5.4299746)
+transform = Transform3D(-0.07926476, 0.7356546, -0.67270243, -0.005278528, 0.6745064, 0.73824954, 0.9968389, 0.062068082, -0.04958145, -8.252447, 8.482285, 5.4299746)
 light_energy = 4.132
 light_volumetric_fog_energy = 2.354
 light_specular = 12.69
@@ -4177,4 +4185,6 @@ shape = SubResource("BoxShape3D_7nxc4")
 
 [editable path="Base/CockpitDoor"]
 [editable path="Base/CockpitDoor/EscapePodRoomDoor"]
+[editable path="Base/ClosetDoor2"]
+[editable path="Base/ClosetDoor2/EscapePodRoomDoor"]
 [editable path="Capsule"]

@@ -30,7 +30,7 @@ func on_line_end():
 func reset():
 	dialogue_lines = []
 	current_line_idx = 0
-	
+
 func pause():
 	paused = true
 	

@@ -62,65 +62,65 @@ ssao_enabled = true
 ssao_radius = 2.03
 ssao_intensity = 8.1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7025r"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ool0"]
 animation = &"Grip"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4url"]
-animation = &"Grip"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_8ool0"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pr1ej"]
-animation = &"Grip 5"
+animation = &"Grip"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_05nbr"]
 filter_enabled = true
+filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0sl42"]
+animation = &"Grip 5"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oaba0"]
+filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0sl42"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_458eo"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_7025r")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_8ool0")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_m4url")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_pr1ej")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_8ool0")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_05nbr")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_pr1ej")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_0sl42")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_05nbr")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_oaba0")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oaba0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h3rex"]
 animation = &"Grip"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_458eo"]
-animation = &"Grip"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_h3rex"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fedci"]
-animation = &"Grip 5"
+animation = &"Grip"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_8qswn"]
 filter_enabled = true
+filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rm0al"]
+animation = &"Grip 5"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_i4re6"]
+filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rm0al"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_pf7vy"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_oaba0")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_h3rex")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_458eo")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_fedci")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_h3rex")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_8qswn")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_fedci")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_rm0al")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_8qswn")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_i4re6")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
@@ -279,38 +279,44 @@ albedo_texture = ExtResource("32_js0lu")
 material = SubResource("StandardMaterial3D_h3rex")
 size = Vector2(0.05, 0.05)
 
-[sub_resource type="TextMesh" id="TextMesh_8qswn"]
+[sub_resource type="TextMesh" id="TextMesh_o8ni1"]
 material = ExtResource("31_wljb1")
 text = "Cockpit Door Lock"
 font_size = 4
 depth = 0.002
 
-[sub_resource type="QuadMesh" id="QuadMesh_i4re6"]
+[sub_resource type="TextMesh" id="TextMesh_8qswn"]
+material = ExtResource("31_wljb1")
+text = "Utility Closet Lock"
+font_size = 4
+depth = 0.002
+
+[sub_resource type="QuadMesh" id="QuadMesh_o8ni1"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pf7vy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3hbvx"]
 viewport_path = NodePath("Level/Screens/computer-screen1/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8ni1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8j3a"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_pf7vy")
+albedo_texture = SubResource("ViewportTexture_3hbvx")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3hbvx"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ms3bu"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_q8j3a"]
+[sub_resource type="QuadMesh" id="QuadMesh_7ixpq"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ms3bu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bk1p3"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ixpq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8ral"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
@@ -320,57 +326,57 @@ specular_mode = 1
 disable_ambient_light = true
 disable_fog = true
 disable_specular_occlusion = true
-albedo_texture = SubResource("ViewportTexture_ms3bu")
+albedo_texture = SubResource("ViewportTexture_bk1p3")
 texture_filter = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_bk1p3"]
+[sub_resource type="QuadMesh" id="QuadMesh_yd4ix"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_n8ral"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_66xif"]
 viewport_path = NodePath("Level/Screens/computer-screen2/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yd4ix"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnuda"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_n8ral")
+albedo_texture = SubResource("ViewportTexture_66xif")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_66xif"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rmfi"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_bnuda"]
+[sub_resource type="QuadMesh" id="QuadMesh_xbak0"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0rmfi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3x28f"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbak0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6q63"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_0rmfi")
+albedo_texture = SubResource("ViewportTexture_3x28f")
 texture_filter = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_3x28f"]
+[sub_resource type="QuadMesh" id="QuadMesh_mmvbu"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l6q63"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_weeiq"]
 viewport_path = NodePath("Level/Screens/computer-screen3/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmvbu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxocx"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_l6q63")
+albedo_texture = SubResource("ViewportTexture_weeiq")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_weeiq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7nv0b"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
@@ -554,19 +560,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ebbq")
 
-[sub_resource type="QuadMesh" id="QuadMesh_uxocx"]
+[sub_resource type="QuadMesh" id="QuadMesh_o8oq8"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7nv0b"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sxt1d"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8oq8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iuns"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 2
-albedo_texture = SubResource("ViewportTexture_7nv0b")
+albedo_texture = SubResource("ViewportTexture_sxt1d")
 texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f557"]
@@ -611,37 +617,37 @@ shadow_mesh = SubResource("ArrayMesh_2ly7d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sl42"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_sxt1d"]
+[sub_resource type="QuadMesh" id="QuadMesh_7gkqi"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2iuns"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_753oq"]
 viewport_path = NodePath("Level/Screens/computer-screen5/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkqi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x338"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_2iuns")
+albedo_texture = SubResource("ViewportTexture_753oq")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_753oq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yg85"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_3x338"]
+[sub_resource type="QuadMesh" id="QuadMesh_s0g06"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1yg85"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2gnni"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0g06"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgxg3"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_1yg85")
+albedo_texture = SubResource("ViewportTexture_2gnni")
 texture_filter = 1
 
 [node name="Game" unique_id=981716421 instance=ExtResource("1_uwrxv")]
@@ -685,6 +691,41 @@ durations = Array[float]([5.0, 5.0, 5.0, 3.0, 5.0])
 metadata/_custom_type_script = "uid://6btm0m758270"
 
 [node name="EnterAlien" type="Node" parent="DialogueManager" index="3" unique_id=2136678722]
+script = ExtResource("4_ca42v")
+subtitles = Array[String](["Christi: I’m picking up something here-", "", "Christi: You are not permitted to investigate that. ", "Oh my god. ", "Uh um. ", "", "Ok. Ok. Now listen to me very closely. ", "There is a, um, indicator on your dashboard that reads “Cargo Integrity”. ", "What color is it?", "Red? Oh sh- it’s in th-", "We need to find some way to lure it out of the cargo hold. ", "Can you grab the-"])
+durations = Array[float]([4.0, 5.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+line_end_callbacks = Array[String](["enter_alien", "", "", "", "", "", "", "", "", "", "", ""])
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="AlienLines1" type="Node" parent="DialogueManager" index="4" unique_id=604616315]
+script = ExtResource("4_ca42v")
+subtitles = Array[String](["[color=red]Christi:[/color] Unlock the cargo hold now!"])
+durations = Array[float]([5.0])
+line_end_callbacks = Array[String](["alien_lines_1"])
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="EnterAlien2" type="Node" parent="DialogueManager" index="5" unique_id=1755269601]
+script = ExtResource("4_ca42v")
+subtitles = Array[String](["Christi: Hello? Hello? Can you hear me?", "My connection is choppy, you’re gonna have to hang in there if that happens again", "We need to carefully lure it out of the cargo hold and away from you.", "Can you get the intercom from the utility closet?", "You might need to unlock it first", "You got it? Ok good", "Ok, press record and yell into the microphone, then press it again to save."])
+durations = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0])
+line_end_callbacks = Array[String](["", "", "", "", "wait_for_get_intercom"])
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="EnterAlien3" type="Node" parent="DialogueManager" index="6" unique_id=2014273254]
+script = ExtResource("4_ca42v")
+subtitles = Array[String](["You got it? Ok good", "Ok, press record and yell into the microphone, then press it again to save."])
+durations = Array[float]([2.0, 2.0])
+line_end_callbacks = Array[String](["", "wait_for_record_1"])
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="EnterAlien4" type="Node" parent="DialogueManager" index="7" unique_id=1514662329]
+script = ExtResource("4_ca42v")
+subtitles = Array[String](["Wait no! First lock the cockpit!"])
+durations = Array[float]([2.0])
+line_end_callbacks = Array[String](["speed_check_lock_cockpit"])
+metadata/_custom_type_script = "uid://6btm0m758270"
+
+[node name="UnlockCargo" type="Node" parent="DialogueManager" index="8" unique_id=1651159234]
 script = ExtResource("4_ca42v")
 subtitles = Array[String](["Christi: I’m picking up something here-", "", ""])
 durations = Array[float]([4.0, 5.0, 0.0])
@@ -815,7 +856,7 @@ bone_idx = 9
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/LeftPhysicsHand" index="1"]
 root_node = NodePath("../Hand_Nails_L")
-tree_root = SubResource("AnimationNodeBlendTree_0sl42")
+tree_root = SubResource("AnimationNodeBlendTree_458eo")
 
 [node name="XRToolsMovementClimb" type="Node3D" parent="XROrigin3D/LeftHand" index="1" unique_id=703727549 groups=["movement_providers"]]
 script = ExtResource("4_0tnpc")
@@ -929,7 +970,7 @@ transform = Transform3D(0.5408295, -0.8408129, 0.023173586, 0.08262676, 0.080524
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/RightPhysicsHand" index="1"]
 root_node = NodePath("../Hand_Nails_R")
-tree_root = SubResource("AnimationNodeBlendTree_rm0al")
+tree_root = SubResource("AnimationNodeBlendTree_pf7vy")
 
 [node name="TeleportRaycast" parent="XROrigin3D/RightHand/RightPhysicsHand" index="2" unique_id=696261466 instance=ExtResource("19_qnb83")]
 transform = Transform3D(0.99993944, -0.0040792804, -0.0102033, 0.0040794252, -0.72437394, 0.6893952, -0.010203239, -0.6893951, -0.72431374, -0.000715971, -0.091701925, -0.120996)
@@ -1033,7 +1074,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D12" parent="Level/Environment/Lighting" parent_id_path=PackedInt32Array(1318367848, 355751096) index="10" unique_id=977019455]
-transform = Transform3D(-0.0792647, 0.73565423, -0.67270243, -0.0052785245, 0.6745061, 0.73824954, 0.9968382, 0.062068053, -0.04958145, -8.252447, 8.482285, 5.4299746)
+transform = Transform3D(-0.07926467, 0.73565406, -0.67270243, -0.0052785226, 0.67450595, 0.73824954, 0.99683785, 0.062068038, -0.04958145, -8.252447, 8.482285, 5.4299746)
 
 [node name="desk_chairArms" type="Node3D" parent="Level" index="2" unique_id=1618009687]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.365514, -1.1920929e-07, -1.3523546)
@@ -1054,23 +1095,41 @@ transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 0, 2
 
 [node name="CockpitDoorLockButton" parent="Level" index="4" unique_id=1681451101 instance=ExtResource("31_v2yb1")]
 unique_name_in_owner = true
-transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 6.075625, 0.848461, -0.046141084)
+transform = Transform3D(-4.371138e-08, 0, 0.9999999, -0.89937097, 0.43718606, -3.9312752e-08, -0.437186, -0.8993711, -1.9110008e-08, 5.834846, 1.0501367, 0.19544488)
 
 [node name="MeshInstance3D2" parent="Level/CockpitDoorLockButton/Button" parent_id_path=PackedInt32Array(1681451101, 1539590923) index="2" unique_id=1430886852]
 transform = Transform3D(-3.849508e-08, -1.302236, -5.692254e-08, 0, -5.6922538e-08, 1.3022358, -0.88066477, 5.692254e-08, 2.4881633e-15, 0, 0.022128224, -0.0013124943)
 mesh = SubResource("QuadMesh_fedci")
 
 [node name="Plate2" type="MeshInstance3D" parent="Level/CockpitDoorLockButton" index="5" unique_id=436602095]
-transform = Transform3D(-4.371139e-08, 0.8716391, -0.49014845, 0, 0.49014845, 0.8716391, 1, 3.8100556e-08, -2.142507e-08, -0.26049203, 0.20078713, 0.027895689)
+transform = Transform3D(-4.371138e-08, -0.06706777, -0.9977484, 9.585623e-15, 0.99774843, -0.06706786, 1, -2.9316212e-09, -4.3612946e-08, 0.002008915, -0.018710852, 0.33776522)
 mesh = SubResource("BoxMesh_7nxc4")
 skeleton = NodePath("../../Buttons/EscapePodPasscodeButtons")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/CockpitDoorLockButton/Plate2" index="0" unique_id=177404860]
 transform = Transform3D(-1, 0, -8.940697e-08, -8.940697e-08, -4.371139e-08, 1, -3.9081024e-15, 1, 4.371139e-08, 0.00015163422, 0.01857847, 0.0063173324)
+mesh = SubResource("TextMesh_o8ni1")
+skeleton = NodePath("../../../Buttons/EscapePodPasscodeButtons")
+
+[node name="Plate3" type="MeshInstance3D" parent="Level/CockpitDoorLockButton" index="6" unique_id=1878685218]
+transform = Transform3D(-4.371138e-08, -0.06706777, -0.9977484, 9.585623e-15, 0.99774843, -0.06706786, 1, -2.9316212e-09, -4.3612946e-08, -0.18535459, -0.022745192, 0.33776522)
+mesh = SubResource("BoxMesh_7nxc4")
+skeleton = NodePath("../../Buttons/EscapePodPasscodeButtons")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/CockpitDoorLockButton/Plate3" index="0" unique_id=1150537468]
+transform = Transform3D(-1, 0, -8.940697e-08, -8.940697e-08, -4.371139e-08, 1, -3.9081024e-15, 1, 4.371139e-08, 0.00015163422, 0.01857847, 0.0063173324)
 mesh = SubResource("TextMesh_8qswn")
 skeleton = NodePath("../../../Buttons/EscapePodPasscodeButtons")
 
-[node name="Screens" type="Node3D" parent="Level" index="5" unique_id=1741008270]
+[node name="ClosetDoorLockButton" parent="Level" index="5" unique_id=1259916577 instance=ExtResource("31_v2yb1")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371138e-08, 0, 0.9999999, -0.89937097, 0.43718606, -3.9312752e-08, -0.437186, -0.8993711, -1.9110008e-08, 5.834846, 1.2010765, 0.28292468)
+
+[node name="MeshInstance3D2" parent="Level/ClosetDoorLockButton/Button" parent_id_path=PackedInt32Array(1259916577, 1539590923) index="2" unique_id=1430886852]
+transform = Transform3D(-3.849508e-08, -1.302236, -5.692254e-08, 0, -5.6922538e-08, 1.3022358, -0.88066477, 5.692254e-08, 2.4881633e-15, 0, 0.022128224, -0.0013124943)
+mesh = SubResource("QuadMesh_fedci")
+
+[node name="Screens" type="Node3D" parent="Level" index="6" unique_id=1741008270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.357388, 0, 1.1274604)
 script = ExtResource("34_02fa5")
 
@@ -1078,11 +1137,11 @@ script = ExtResource("34_02fa5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.397759, 1.3958333, -4.249948)
 
 [node name="Screen" parent="Level/Screens/computer-screen1/UIView" parent_id_path=PackedInt32Array(98513756, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_i4re6")
-surface_material_override/0 = SubResource("StandardMaterial3D_o8ni1")
+mesh = SubResource("QuadMesh_o8ni1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q8j3a")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen1/UIView/StaticBody3D" parent_id_path=PackedInt32Array(98513756, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_3hbvx")
+shape = SubResource("BoxShape3D_ms3bu")
 
 [node name="SubViewport" parent="Level/Screens/computer-screen1/CameraView" parent_id_path=PackedInt32Array(98513756, 504934570) index="0" unique_id=572689086]
 size = Vector2i(1024, 512)
@@ -1094,35 +1153,35 @@ transform = Transform3D(0.9292897, 0.27279717, 0.24900238, -0.26350182, 0.962071
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 
 [node name="Screen" parent="Level/Screens/computer-screen1/CameraView" parent_id_path=PackedInt32Array(98513756, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_q8j3a")
-surface_material_override/0 = SubResource("StandardMaterial3D_7ixpq")
+mesh = SubResource("QuadMesh_7ixpq")
+surface_material_override/0 = SubResource("StandardMaterial3D_n8ral")
 
 [node name="computer-screen2" parent="Level/Screens" index="1" unique_id=866048647 instance=ExtResource("35_nepv3")]
 transform = Transform3D(0.79415417, -0.2367383, -0.5597089, -0.041917376, 0.8974715, -0.439076, 0.6062689, 0.37215558, 0.7028073, 14.176822, 2.1248732, -4.38865)
 
 [node name="Screen" parent="Level/Screens/computer-screen2/UIView" parent_id_path=PackedInt32Array(866048647, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_bk1p3")
-surface_material_override/0 = SubResource("StandardMaterial3D_yd4ix")
+mesh = SubResource("QuadMesh_yd4ix")
+surface_material_override/0 = SubResource("StandardMaterial3D_bnuda")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen2/UIView/StaticBody3D" parent_id_path=PackedInt32Array(866048647, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_66xif")
+shape = SubResource("BoxShape3D_0rmfi")
 
 [node name="SubViewport" parent="Level/Screens/computer-screen2/CameraView" parent_id_path=PackedInt32Array(866048647, 504934570) index="0" unique_id=572689086]
 size = Vector2i(1024, 512)
 
 [node name="Screen" parent="Level/Screens/computer-screen2/CameraView" parent_id_path=PackedInt32Array(866048647, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_bnuda")
-surface_material_override/0 = SubResource("StandardMaterial3D_xbak0")
+mesh = SubResource("QuadMesh_xbak0")
+surface_material_override/0 = SubResource("StandardMaterial3D_l6q63")
 
 [node name="computer-screen3" parent="Level/Screens" index="2" unique_id=2057572418 instance=ExtResource("35_nepv3")]
 transform = Transform3D(-0.38671255, -0.4197831, -0.8211184, -0.041917365, 0.8974715, -0.439076, 0.9212471, -0.13537708, -0.36465973, 14.204406, 2.1248732, -0.31830615)
 
 [node name="Screen" parent="Level/Screens/computer-screen3/UIView" parent_id_path=PackedInt32Array(2057572418, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_3x28f")
-surface_material_override/0 = SubResource("StandardMaterial3D_mmvbu")
+mesh = SubResource("QuadMesh_mmvbu")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxocx")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen3/UIView/StaticBody3D" parent_id_path=PackedInt32Array(2057572418, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_weeiq")
+shape = SubResource("BoxShape3D_7nv0b")
 
 [node name="turret_double2" parent="Level/Screens/computer-screen3/CameraView/SubViewport" parent_id_path=PackedInt32Array(2057572418, 572689086) index="0" unique_id=616446629 instance=ExtResource("36_7025r")]
 transform = Transform3D(0.35807914, 0.029586442, -0.93322235, -0.26350188, 0.96207154, -0.0706051, 0.8957377, 0.27118802, 0.3522938, -4.2231092, 4.397524, 3.2142584)
@@ -1150,8 +1209,8 @@ skeleton = NodePath("")
 transform = Transform3D(-0.9356572, 0.1299113, -0.32812822, 0.35087198, 0.44220555, -0.82543534, 0.03786671, -0.88745576, -0.45933518, -0.1448803, 0.73360705, -0.22435045)
 
 [node name="Screen" parent="Level/Screens/computer-screen3/CameraView" parent_id_path=PackedInt32Array(2057572418, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_uxocx")
-surface_material_override/0 = SubResource("StandardMaterial3D_o8oq8")
+mesh = SubResource("QuadMesh_o8oq8")
+surface_material_override/0 = SubResource("StandardMaterial3D_2iuns")
 
 [node name="MainScreen" type="Node3D" parent="Level/Screens" index="3" unique_id=979680391]
 transform = Transform3D(-0.027630437, -0.04388413, -0.9986544, -0.001213721, 0.99903655, -0.04386741, 0.9996175, 1.3038516e-08, -0.02765708, 14.585436, 0.9267067, -2.3643186)
@@ -1174,18 +1233,18 @@ scene_properties_keys = PackedStringArray("ship_main_monitor_ui.gd")
 transform = Transform3D(-0.99961746, 0, 0.027657231, 0, 1, 0, -0.027657231, 0, -0.99961746, 12.626931, 1.0100532, 0.039051414)
 
 [node name="Screen" parent="Level/Screens/computer-screen5/UIView" parent_id_path=PackedInt32Array(295747199, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_sxt1d")
-surface_material_override/0 = SubResource("StandardMaterial3D_7gkqi")
+mesh = SubResource("QuadMesh_7gkqi")
+surface_material_override/0 = SubResource("StandardMaterial3D_3x338")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen5/UIView/StaticBody3D" parent_id_path=PackedInt32Array(295747199, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_753oq")
+shape = SubResource("BoxShape3D_1yg85")
 
 [node name="turret_double3" parent="Level/Screens/computer-screen5/CameraView/SubViewport" parent_id_path=PackedInt32Array(295747199, 572689086) index="0" unique_id=1777409223 instance=ExtResource("36_7025r")]
 transform = Transform3D(0.92928976, 0.27279717, 0.24900235, -0.12668714, 0.86868393, -0.47889295, -0.34694502, 0.4134849, 0.841819, -11.209466, 3.9184723, 4.4391875)
 
 [node name="Screen" parent="Level/Screens/computer-screen5/CameraView" parent_id_path=PackedInt32Array(295747199, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_3x338")
-surface_material_override/0 = SubResource("StandardMaterial3D_s0g06")
+mesh = SubResource("QuadMesh_s0g06")
+surface_material_override/0 = SubResource("StandardMaterial3D_vgxg3")
 
 [editable path="XROrigin3D/LeftHand/LeftPhysicsHand"]
 [editable path="XROrigin3D/LeftHand/LeftPhysicsHand/Hand_Nails_L"]
@@ -1194,6 +1253,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s0g06")
 [editable path="Level/Buttons/CancelOrderButton/Plate3"]
 [editable path="Level/Buttons/SubmitButton/Plate3"]
 [editable path="Level/Buttons/FlightControlsButtons"]
+[editable path="Level/Buttons/FlightControlsButtons/LeftButton"]
 [editable path="Level/Buttons/FlightControlsButtons/Plate2"]
 [editable path="Level/Buttons/EscapePodPasscodeButtons"]
 [editable path="Level/Buttons/EscapePodPasscodeButtons/LeftButton"]
@@ -1201,8 +1261,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s0g06")
 [editable path="Level/Environment"]
 [editable path="Level/Environment/Base/CockpitDoor"]
 [editable path="Level/Environment/Base/CockpitDoor/EscapePodRoomDoor"]
+[editable path="Level/Environment/Base/ClosetDoor2"]
+[editable path="Level/Environment/Base/ClosetDoor2/EscapePodRoomDoor"]
 [editable path="Level/Environment/Capsule"]
 [editable path="Level/CockpitDoorLockButton"]
+[editable path="Level/ClosetDoorLockButton"]
 [editable path="Level/Screens/computer-screen1"]
 [editable path="Level/Screens/computer-screen1/CameraView/SubViewport/turret_double2"]
 [editable path="Level/Screens/computer-screen2"]

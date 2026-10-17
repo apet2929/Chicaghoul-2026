@@ -4,26 +4,50 @@ extends XRToolsSceneBase
 @onready var left_controller: XRController3D = %LeftHand
 @onready var right_controller: XRController3D = %RightHand
 var cockpit_door_open = false
+var closet_door_open = false
 func _ready() -> void:
 	super._ready()
 	if !Engine.is_editor_hint(): # is in tool mode or are we actualyl running
 		Globals.on_teleport.connect(teleport_player)
-		
+	
+	if Globals.checkpoint != 0:
+		restore_checkpoint(Globals.checkpoint)
 	Globals.button_pressed.connect(self.button_pressed)
+	Globals.game_over.connect(self.game_over)
 
 func _process(delta: float) -> void:
 	if left_controller.is_button_pressed("trigger"):
 		print("hi!")
 		Globals.main_monitor_ui_inst.visible = !Globals.main_monitor_ui_inst.visible
 		
-	
+	if left_controller.is_button_pressed("ax_button") and Globals.has_intercom:
+		equip_intercom()
 
+func game_over():
+	self.load_scene("res://scenes/game_over.tscn")
+
+func equip_intercom():
+	# TODO: Implement
+	print_debug("Equipping intercom!")
+	pass
+		
+func restore_checkpoint(checkpoint):
+	# TODO: Implement
+	# Based on ID, lock & unlock doors and do whatever setup is needed
+	
+	if checkpoint == 0:
+		print("hii :3")
+	
 func button_pressed(button):
 	if button == %CancelOrderButton:
 		print("TODO: Make err not authorized sfx")
+		Globals.game_over.emit()
 	elif button == %CockpitDoorLockButton:
 		cockpit_door_open = !cockpit_door_open
 		Globals.open_close_cockpit_door.emit(cockpit_door_open)
+	elif button == %ClosetDoorLockButton:
+		closet_door_open = !closet_door_open
+		Globals.open_close_closet_door.emit(closet_door_open)
 	elif button == Globals.buttons_container.submit_button:
 		#Globals.main_monitor_ui_inst.clear()
 		pass

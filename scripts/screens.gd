@@ -10,11 +10,11 @@ func _ready() -> void:
 		$"computer-screen1",
 		$"computer-screen2",
 		$"computer-screen3",
-		$"computer-screen4",
 		$"computer-screen5",
 		#$"computer-system",
 		#$"computer-system2",
 		#$"computer-system3",
 	]
+	
 	#for monitor in monitors:
 		#Globals.monitors[monitor.name] = monitor

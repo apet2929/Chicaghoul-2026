@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crit40vre2n50"]
+
+[ext_resource type="Script" uid="uid://cuenv01meqiyc" path="res://scripts/escape_pod_room_door.gd" id="1_ud3u7"]
+[ext_resource type="PackedScene" uid="uid://s5qjkofw2tn8" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/gate-door.fbx" id="2_l5pgv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7nxc4"]
+size = Vector3(1, 4.3585205, 2.6516113)
+
+[node name="EscapePodRoomDoor" type="StaticBody3D" unique_id=1449302730]
+script = ExtResource("1_ud3u7")
+
+[node name="EscapePodRoomDoor" parent="." unique_id=883964251 instance=ExtResource("2_l5pgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.458113, 0, 0.44290733)
+
+[node name="gate-door" parent="EscapePodRoomDoor" index="0" unique_id=2002810878]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1652281, 0, -1.4558773)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519301207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6792603, -0.82580566)
+shape = SubResource("BoxShape3D_7nxc4")
+
+[editable path="EscapePodRoomDoor"]

@@ -3,16 +3,47 @@ extends XRToolsSceneBase
 
 @onready var left_controller: XRController3D = %LeftHand
 @onready var right_controller: XRController3D = %RightHand
-
+var cockpit_door_open = false
 func _ready() -> void:
 	super._ready()
 	if !Engine.is_editor_hint(): # is in tool mode or are we actualyl running
 		Globals.on_teleport.connect(teleport_player)
+		
+	Globals.button_pressed.connect(self.button_pressed)
 
 func _process(delta: float) -> void:
 	if left_controller.is_button_pressed("trigger"):
 		print("hi!")
+		Globals.main_monitor_ui_inst.visible = !Globals.main_monitor_ui_inst.visible
+		
+	
 
+func button_pressed(button):
+	if button == %CancelOrderButton:
+		print("TODO: Make err not authorized sfx")
+	elif button == %CockpitDoorLockButton:
+		cockpit_door_open = !cockpit_door_open
+		Globals.open_close_cockpit_door.emit(cockpit_door_open)
+	elif button == Globals.buttons_container.submit_button:
+		#Globals.main_monitor_ui_inst.clear()
+		pass
+	else: 
+		pass
+
+
+func passphrase_updated(name):
+	if name == %FlightControlsButtons.name:
+		var tut_ui: TutorialUI = Globals.main_monitor_ui_inst.tutorial_ui()
+		tut_ui.on_press_left()
+		
+	
+func passphrase_correct(button):
+	if button == %FlightControlsButtons:
+		pass
+
+func passphrase_incorrect(button):
+	if button == %FlightControlsButtons:
+		pass
 
 func teleport_player(teleport_target: TeleportTarget):
 	if !Globals.teleporting:  # Poor man's mutex
@@ -37,3 +68,8 @@ func teleport_player(teleport_target: TeleportTarget):
 ## unless hidden.
 func set_fade(p_value: float) -> void:
 	XRToolsFade.set_fade("game", Color(0, 0, 0, p_value))
+
+
+
+func on_cancel_order_button_pressed():
+	print("TODO: Play ERR Not Authorized sound effect")

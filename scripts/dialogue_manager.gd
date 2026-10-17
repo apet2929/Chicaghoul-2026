@@ -13,7 +13,7 @@ func play():
 		if child is Dialogue or child is DialogueManager:
 			dialogue_lines.append(child)
 	
-	dialogue_lines[0].play()
+	dialogue_lines[current_line_idx].play()
 	self.next_line.connect(on_line_end)
 	
 
@@ -23,12 +23,7 @@ func on_line_end():
 		
 	current_line_idx += 1
 	if current_line_idx >= dialogue_lines.size():
-		cutscene_ended.emit()
-		self.next_line.disconnect(on_line_end)
-		if get_parent() is DialogueManager:
-			get_parent().next_line.emit()
-		reset()
-		print("Cutscene ended!")
+		cutscene_end()
 		return
 	dialogue_lines[current_line_idx].play()
 	
@@ -38,6 +33,14 @@ func reset():
 	
 func pause():
 	paused = true
+	
+func cutscene_end():
+	cutscene_ended.emit()
+	self.next_line.disconnect(on_line_end)
+	if get_parent() is DialogueManager:
+		get_parent().next_line.emit()
+	reset()
+	print("Cutscene ended!")
 
 func unpause(args):
 	print("Unpaused!")
@@ -49,3 +52,9 @@ func play_next(dialogue_line):
 	for i in range(len(c)):
 		if c[i] == dialogue_line:
 			current_line_idx = i-1
+
+# Usage: Will skip to next sibling dialogue line / manager
+# goto_end()
+# unpause()
+func goto_end():
+	current_line_idx = get_child_count() - 1

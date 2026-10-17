@@ -14,7 +14,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed(_arg):
+	Globals.button_pressed.emit(self)
 	self.on_pressed.emit()
+	print(str(self.get_path()) + " pressed!")
 	$AudioStreamPlayer3D.stream = Globals.button_down_audio
 	$AudioStreamPlayer3D.play(0)
 

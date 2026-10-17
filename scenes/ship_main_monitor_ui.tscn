@@ -2,6 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://5wqbceq3t6p" path="res://assets/me/ship_ui_theme.tres" id="1_crgvg"]
 [ext_resource type="Script" uid="uid://cphft3cjjqtrh" path="res://scripts/ship_main_monitor_ui.gd" id="2_77ovk"]
+[ext_resource type="Texture2D" uid="uid://ec3a8gxq3601" path="res://assets/me/ship_map.jpg" id="3_flnjl"]
+[ext_resource type="Script" uid="uid://dhufsmeybsip3" path="res://scripts/tutorial_ui.gd" id="3_h4sdb"]
+[ext_resource type="Texture2D" uid="uid://clfwymj54eeoy" path="res://assets/me/calendar_sept.jpg" id="4_44yt8"]
+[ext_resource type="Texture2D" uid="uid://d1vnm0gbq6p87" path="res://assets/me/calendar_aug.jpg" id="5_sc72k"]
+[ext_resource type="Texture2D" uid="uid://bdbmbparhqcki" path="res://assets/me/calendar_oct.jpg" id="6_fokuu"]
+[ext_resource type="Texture2D" uid="uid://cb8fokyvxjufa" path="res://assets/me/calendar_nov.jpg" id="7_h8gmb"]
+[ext_resource type="Texture2D" uid="uid://ddoj6c345cb0c" path="res://addons/godot-xr-tools/images/teleport_arrow.png" id="8_44yt8"]
 
 [sub_resource type="Gradient" id="Gradient_77ovk"]
 colors = PackedColorArray(0.2467123, 0.30684516, 0.45121974, 1, 1, 1, 1, 1)
@@ -11,6 +18,42 @@ gradient = SubResource("Gradient_77ovk")
 width = 132
 fill = 1
 fill_from = Vector2(0.525641, 0.055555556)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd2ao"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.62, 0.6127667, 0.5332, 0.5294118)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flnjl"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.5298854, 0.6251809, 0.66795665, 0.5294118)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv47p"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.5332, 0.62, 0.54043335, 0.36862746)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="MonitorUI" type="Control" unique_id=1509242354]
 layout_mode = 3
@@ -22,7 +65,16 @@ grow_vertical = 2
 theme = ExtResource("1_crgvg")
 script = ExtResource("2_77ovk")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1610064563]
+[node name="Screen1" type="Control" parent="." unique_id=2020306955]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Screen1" unique_id=1610064563]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -32,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_t65tg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1145236087]
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen1" unique_id=1145236087]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -45,10 +97,305 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2091400666]
+[node name="TextureRect" type="TextureRect" parent="Screen1" unique_id=2091400666]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TutorialUI" type="Control" parent="." unique_id=247722370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_h4sdb")
+
+[node name="Background" type="TextureRect" parent="TutorialUI" unique_id=827430865]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_t65tg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialUI" unique_id=956115102]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TutorialUI" unique_id=2045292879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="State0" type="Control" parent="TutorialUI" unique_id=462966055]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect3" type="TextureRect" parent="TutorialUI/State0" unique_id=1504697974]
+modulate = Color(1, 1, 1, 0.5058824)
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 788.0
+offset_top = 267.0
+offset_right = 1388.0
+offset_bottom = 867.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4558663, 0.44477355)
+texture = ExtResource("6_fokuu")
+
+[node name="TextureRect" type="TextureRect" parent="TutorialUI/State0" unique_id=1631392296]
+modulate = Color(1, 1, 1, 0.5058824)
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 563.0
+offset_top = 130.00002
+offset_right = 1163.0
+offset_bottom = 730.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.547281, 0.5339638)
+texture = ExtResource("4_44yt8")
+
+[node name="TextureRect2" type="TextureRect" parent="TutorialUI/State0" unique_id=1177976394]
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 186.0
+offset_top = 110.0
+offset_right = 786.0
+offset_bottom = 710.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.70011806, 0.6830819)
+texture = ExtResource("5_sc72k")
+
+[node name="State1" type="Control" parent="TutorialUI" unique_id=929490740]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="TutorialUI/State1" unique_id=1161441119]
+modulate = Color(1, 1, 1, 0.5058824)
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 798.0
+offset_top = 253.0
+offset_right = 1398.0
+offset_bottom = 853.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4742774, 0.4627366)
+texture = ExtResource("7_h8gmb")
+
+[node name="TextureRect3" type="TextureRect" parent="TutorialUI/State1" unique_id=1739256664]
+modulate = Color(1, 1, 1, 0.5058824)
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 544.0
+offset_top = 117.0
+offset_right = 1144.0
+offset_bottom = 717.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.56619924, 0.55242175)
+texture = ExtResource("6_fokuu")
+
+[node name="TextureRect" type="TextureRect" parent="TutorialUI/State1" unique_id=1219214155]
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 186.0
+offset_top = 103.0
+offset_right = 786.0
+offset_bottom = 703.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.68014896, 0.66359866)
+texture = ExtResource("4_44yt8")
+
+[node name="State2" type="Control" parent="TutorialUI" unique_id=503819890]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect3" type="TextureRect" parent="TutorialUI/State2" unique_id=457925192]
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 161.0
+offset_top = 99.0
+offset_right = 761.0
+offset_bottom = 699.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6961486, 0.67920893)
+texture = ExtResource("6_fokuu")
+
+[node name="TextureRect" type="TextureRect" parent="TutorialUI/State2" unique_id=48836872]
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 619.00006
+offset_top = 188.0
+offset_right = 1219.0
+offset_bottom = 788.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.568362, 0.5545318)
+texture = ExtResource("7_h8gmb")
+
+[node name="Arrow" type="TextureRect" parent="TutorialUI" unique_id=81261467]
+modulate = Color(0.1734623, 2.850243e-07, 0.002082756, 0.8862745)
+custom_minimum_size = Vector2(600, 600)
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.99994
+offset_top = -222.0
+offset_right = 475.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+scale = Vector2(0.15291223, 0.14919136)
+texture = ExtResource("8_44yt8")
+
+[node name="Screen2" type="Control" parent="." unique_id=273445995]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background2" type="TextureRect" parent="Screen2" unique_id=1938794028]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_flnjl")
+expand_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Screen2" unique_id=853031973]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 401.0
+offset_top = 434.0
+offset_right = 521.0
+offset_bottom = 554.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hd2ao")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen2/PanelContainer" unique_id=1448293326]
+z_index = 1
+layout_mode = 2
+text = "A"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="Screen2" unique_id=2126618434]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 168.0
+offset_top = 222.0
+offset_right = 288.0
+offset_bottom = 452.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_flnjl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen2/PanelContainer3" unique_id=82788127]
+z_index = 1
+layout_mode = 2
+text = "C"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Screen2" unique_id=929210065]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 568.0
+offset_top = 135.0
+offset_right = 688.0
+offset_bottom = 255.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pv47p")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen2/PanelContainer2" unique_id=2111537251]
+z_index = 1
+layout_mode = 2
+text = "B"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

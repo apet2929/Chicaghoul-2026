@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bwa22rbwirlst"]
+
+[ext_resource type="PackedScene" uid="uid://cwyhb0bqriu3l" path="res://scenes/passcode_button.tscn" id="1_wl2qw"]
+[ext_resource type="ArrayMesh" uid="uid://j8u4xo5gr1wa" path="res://assets/me/button_top.tres" id="2_01mp5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdv61"]
+size = Vector3(0.19667053, 0.10046387, 0.41989136)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nepv3"]
+size = Vector3(0.24468994, 0.10046387, 0.5115967)
+
+[node name="SubmitButton" unique_id=311593662 instance=ExtResource("1_wl2qw")]
+
+[node name="MeshInstance3D" parent="ButtonBase" parent_id_path=PackedInt32Array(201312896) index="1" unique_id=1563211458]
+transform = Transform3D(10, 0, 0, 0, -8.742278e-07, 9.999998, 0, -20, -4.371138e-07, 0, 0, 0)
+surface_material_override/0 = null
+
+[node name="MeshInstance3D" parent="Button" parent_id_path=PackedInt32Array(1539590923) index="1" unique_id=108771569]
+transform = Transform3D(10, 0, 0, 0, -8.742278e-07, 9.999998, 0, -20, -4.371138e-07, 0, -0.03, 0)
+surface_material_override/0 = null
+
+[node name="Button2" type="MeshInstance3D" parent="Button" parent_id_path=PackedInt32Array(1539590923) index="3" unique_id=1497570999]
+transform = Transform3D(10, -5.684342e-14, 0, 0, -1.1920928e-06, 9.999998, 0, -20, -2.384186e-06, 0, -0.03, 0)
+visible = false
+mesh = ExtResource("2_01mp5")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" parent="InteractableAreaButton" parent_id_path=PackedInt32Array(2106351299) index="1" unique_id=929490653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011672974, 0.054666482, -0.005874634)
+shape = SubResource("BoxShape3D_gdv61")
+
+[node name="CollisionShape3D" parent="HandPoseArea" parent_id_path=PackedInt32Array(1261259098) index="0" unique_id=125610914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030822754, 0.027746588, -0.0026245117)
+shape = SubResource("BoxShape3D_nepv3")

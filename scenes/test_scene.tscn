@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b0jwy5e04ot1e" path="res://scripts/test_scene.gd" id="1_7ddre"]
 [ext_resource type="Environment" uid="uid://li4cyuhoj167" path="res://assets/me/moody_lighting_env.tres" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://cvnlx7lp5lqa6" path="res://scenes/pickable_paper.tscn" id="1_j8ivh"]
+[ext_resource type="Script" uid="uid://kgg0juo56ek8" path="res://scripts/flicker_light.gd" id="4_3qnke"]
 [ext_resource type="PackedScene" uid="uid://bbbbxcxb2y882" path="res://scenes/passcode_buttons.tscn" id="4_qjeyg"]
 
 [node name="Test" type="Node3D" unique_id=233927949]
@@ -15,10 +16,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8570208, 0, 0)
 environment = ExtResource("1_g7g4h")
 
 [node name="DirectionalLight3D" type="SpotLight3D" parent="." unique_id=472353932]
-transform = Transform3D(-0.7158184, 0, 0.6982865, 0, 1, 0, -0.6982865, 0, -0.7158184, 4.4736443, 2.0151422, -3.810773)
-light_energy = 5.0
+transform = Transform3D(-0.6124041, -0.5177533, 0.597405, -0.37061733, 0.85552996, 0.36154014, -0.6982865, 0, -0.7158184, 4.4736443, 2.0151422, -3.810773)
+light_energy = 11.772
 spot_range = 10.451012
 spot_angle = 10.067799
+script = ExtResource("4_3qnke")
+flicker_rate = 1.04
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=328223910]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.03371191, 1.9140472, -4.0917287)

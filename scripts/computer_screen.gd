@@ -6,8 +6,7 @@ extends Node3D
 
 func _ready() -> void:
 	#self.call_deferred("set_ui_screen_inst")
-	$UIView.visible = ui_view
-	$CameraView.visible = !ui_view
+	$CameraView.visible = true
 	
 
 #func set_ui_screen_inst():

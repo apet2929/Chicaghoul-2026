@@ -10,7 +10,7 @@ func _ready() -> void:
 	_controller = XRHelpers.get_xr_controller(self)
 	set_collision_mask_value(TeleportTarget.COLLISION_LAYER, true)
 	
-
+#/root/DemoSpectator/HMDViewport/DemoStaging/Scene/Game/Level/GarageDoor2/HandArea3D
 func _process(delta: float) -> void:
 	if _controller == null:
 		return

@@ -1,20 +1,38 @@
 [gd_scene format=4 uid="uid://qwbhow6wseuy"]
 
 [ext_resource type="Script" uid="uid://c6kx3lh62gnhd" path="res://scripts/door2.gd" id="1_8vuor"]
-[ext_resource type="Texture2D" uid="uid://ypvj7x8p34n" path="res://assets/kenney/kenney_factory-kit_3.0/Models/GLB format/Textures/colormap.png" id="2_irmc5"]
+[ext_resource type="Texture2D" uid="uid://23th3keeygpn" path="res://assets/Metal062C_1K-JPG/Metal062C.png" id="3_irmc5"]
 [ext_resource type="PackedScene" uid="uid://dqhs3w7mvp2tb" path="res://scenes/glow_mesh.tscn" id="3_sqv60"]
-[ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="4_5vvbw"]
+[ext_resource type="Material" uid="uid://cliyhjfvy8pfd" path="res://assets/maps/holodeck/materials/base.material" id="5_irmc5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s5nhw"]
 size = Vector3(0.172, 2.438, 3.603)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mj3h8"]
-size = Vector3(0.172, 0.41480076, 3.603)
+size = Vector3(0.172, 1.2811904, 3.603)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_irmc5"]
+frequency = 0.0007
+offset = Vector3(193.55, -38.46, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_17af3"]
+noise = SubResource("FastNoiseLite_irmc5")
+in_3d_space = true
+as_normal_map = true
+bump_strength = 14.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te4e5"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("2_irmc5")
+specular_mode = 1
+albedo_color = Color(0.69965345, 0.6996535, 0.6996533, 1)
+metallic = 0.73
+metallic_specular = 0.74
+roughness = 0.84
+roughness_texture = ExtResource("3_irmc5")
+normal_enabled = true
+normal_scale = 3.26
+normal_texture = SubResource("NoiseTexture2D_17af3")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k5k1h"]
@@ -49,21 +67,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k5k1h")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27d7j"]
-albedo_color = Color(0.5749978, 0.57499784, 0.57499784, 1)
-metallic = 0.34
-metallic_specular = 0.71
-metallic_texture = ExtResource("4_5vvbw")
-
-[sub_resource type="BoxMesh" id="BoxMesh_pgnop"]
-material = SubResource("StandardMaterial3D_27d7j")
-flip_faces = true
-size = Vector3(0.0031347647, 0.1605078, 2.7449117)
+[sub_resource type="TorusMesh" id="TorusMesh_5vvbw"]
+inner_radius = 0.111
+outer_radius = 0.124
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmauj"]
 shading_mode = 0
 albedo_color = Color(1, 0.9055, 0.19, 1)
 grow_amount = 0.02
+
+[sub_resource type="TorusMesh" id="TorusMesh_7nxc4"]
+material = ExtResource("5_irmc5")
+inner_radius = 0.078
+outer_radius = 0.137
 
 [node name="GarageDoor2" type="StaticBody3D" unique_id=1899009613]
 script = ExtResource("1_8vuor")
@@ -77,22 +93,27 @@ collision_layer = 131072
 collision_mask = 131072
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HandArea3D" unique_id=454479273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3387171, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.248571, 0)
 shape = SubResource("BoxShape3D_mj3h8")
 
 [node name="door-wide-half" type="MeshInstance3D" parent="." unique_id=136584166]
-transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -0.6199436, -0.9798531, -0.021886945)
+transform = Transform3D(-9.6741076e-08, 0, 2.213178, 0, 2.213178, 0, -2.213178, 0, -9.6741076e-08, -0.6199436, -1.2601755, -0.021886945)
 mesh = SubResource("ArrayMesh_joed2")
 skeleton = NodePath("")
 
 [node name="GlowOutline" parent="." unique_id=1717128241 instance=ExtResource("3_sqv60")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.16256261, 0.31263113, 0.32620597)
+transform = Transform3D(-1.31, 0, -1.978045e-07, 0, 1.31, 0, 1.978045e-07, 0, -1.31, -0.16256261, 0.53459835, 0.3868742)
 
 [node name="GlowMesh" parent="GlowOutline" index="0" unique_id=2126028921]
-transform = Transform3D(1, 0, -9.947598e-14, 0, 1, 0, 0, 0, 1, -0.1566236, -0.7068527, 0.33980018)
-mesh = SubResource("BoxMesh_pgnop")
+transform = Transform3D(0.9999999, 0, -2.729337e-12, 0, 0.9999999, 0, 9.379164e-13, 0, 2.9099998, -0.3435746, -0.40668532, 0.3023915)
+visible = false
+mesh = SubResource("TorusMesh_5vvbw")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_cmauj")
+
+[node name="Handle" type="MeshInstance3D" parent="." unique_id=1691567577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.91, 0.27331114, 0, 0)
+mesh = SubResource("TorusMesh_7nxc4")
 
 [connection signal="body_entered" from="HandArea3D" to="." method="_on_hand_area_3d_body_entered"]
 [connection signal="body_exited" from="HandArea3D" to="." method="_on_hand_area_3d_body_exited"]

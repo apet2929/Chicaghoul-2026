@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cdy3rsyods7y6" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Roughness.jpg" id="Roughness"]
 
 [resource]
+albedo_color = Color(0.91657764, 0.604401, 0, 1)
 albedo_texture = ExtResource("Color")
 roughness_texture = ExtResource("Roughness")
 roughness_texture_channel = 4

@@ -17,3 +17,5 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.07
 
 [node name="RightButton" parent="." unique_id=622755180 instance=ExtResource("2_yye2s")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.22394745, 0, 0)
+
+[editable path="LeftButton"]

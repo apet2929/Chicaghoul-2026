@@ -1,13 +1,13 @@
 class_name ShipMonitorUI
 extends Control
 
+func show_tutorial_ui():
+	clear()
+	$TutorialUI.visible = true
+	$TutorialUI.enable()
 
-func _ready() -> void:
-	pass
-
-func set_text(text):
-	$RichTextLabel.text = text
-	
+func tutorial_ui() -> TutorialUI:
+	return $TutorialUI
 
 func clear():
 	var children = get_children()

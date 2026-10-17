@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 size = Vector3(0.2, 0.01, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q2o6"]
+shading_mode = 2
 albedo_texture = ExtResource("2_3qepm")
 metallic_specular = 0.04
 roughness_texture = ExtResource("3_v0m1j")

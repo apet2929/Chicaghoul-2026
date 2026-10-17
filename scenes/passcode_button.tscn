@@ -26,7 +26,7 @@ albedo_color = Color(0.70853215, 0.46986967, 0.34459314, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t65tg"]
 transparency = 1
-albedo_color = Color(0.44408095, 0.4785449, 0.517735, 1)
+albedo_color = Color(0.9032343, 0.91385216, 0.92574674, 1)
 albedo_texture = ExtResource("4_nwdsg")
 
 [sub_resource type="QuadMesh" id="QuadMesh_7nxc4"]

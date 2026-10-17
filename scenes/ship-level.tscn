@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdc5q0ukskebn" path="res://scenes/teleport_target.tscn" id="7_b600h"]
 [ext_resource type="PackedScene" uid="uid://d0g0tjc8wej5b" path="res://assets/kenney/kenney_factory-kit_3.0/Models/FBX format/box-wide.fbx" id="9_68f1i"]
 [ext_resource type="PackedScene" uid="uid://b5urplllv2ta6" path="res://assets/kenney/kenney_space-kit/Models/FBX format/structure.fbx" id="9_hy3pm"]
+[ext_resource type="Script" uid="uid://cw66pegf0ccek" path="res://scripts/paper_box.gd" id="10_3s2qt"]
 [ext_resource type="PackedScene" uid="uid://bs0netu0ft7q5" path="res://assets/kenney/kenney_factory-kit_3.0/Models/FBX format/box-small.fbx" id="10_5seas"]
 [ext_resource type="Texture2D" uid="uid://bkwu68jjwd65o" path="res://assets/me/floor_tile.png" id="10_n5i4k"]
 [ext_resource type="Texture2D" uid="uid://d078iaf38v008" path="res://assets/digitaln8m4r3/textures/godot_token_normal.png" id="11_b600h"]
@@ -25,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="23_ver81"]
 [ext_resource type="PackedScene" uid="uid://psmjyk1ipg3g" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-corner.fbx" id="24_d7oaq"]
 [ext_resource type="PackedScene" uid="uid://bqyoxoakx22ig" path="res://assets/me/xyz-hw-details-sci-fi-capsule/source/Capsule.fbx" id="24_rfibj"]
-[ext_resource type="Material" uid="uid://d3gfgbtdb2bpm" path="res://assets/me/mosaic_shader.tres" id="27_o0kpf"]
 [ext_resource type="Texture2D" uid="uid://ortcmqt4lb0u" path="res://assets/me/paper.png" id="34_mve46"]
 [ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="35_f5g72"]
 
@@ -367,7 +367,6 @@ emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajgv5"]
 resource_name = "metalRed"
-next_pass = ExtResource("27_o0kpf")
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.8144006, 0.48769736, 1)
 emission_enabled = true
@@ -608,21 +607,18 @@ shadow_mesh = SubResource("ArrayMesh_8vcpe")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoqcb"]
 resource_name = "skin"
-next_pass = ExtResource("27_o0kpf")
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.8884274, 0.80466515, 1)
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6vfj"]
 resource_name = "rock"
-next_pass = ExtResource("27_o0kpf")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.9592555, 0.7468624, 0.65628237, 1)
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d18y2"]
 resource_name = "rockDark"
-next_pass = ExtResource("27_o0kpf")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.85324365, 0.6441637, 0.5494939, 1)
 emission_enabled = true
@@ -854,6 +850,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kppx7")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o0kpf"]
+resource_local_to_scene = true
+radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q2o6"]
 albedo_texture = ExtResource("34_mve46")
@@ -1625,7 +1625,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.3
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.347338, 1.1920929e-07, -1.9703041)
 
 [node name="TT_Chair" parent="Base/Cockpit" unique_id=288386913 instance=ExtResource("7_b600h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.119263, 0.07418394, -2.3536618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.119263, 0.07418394, -2.3536618)
 
 [node name="Floor" type="StaticBody3D" parent="Base" unique_id=371337334]
 
@@ -1637,12 +1637,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.33
 
 [node name="template-corner4" parent="Base/Floor" unique_id=325735339 instance=ExtResource("1_umeaf")]
 transform = Transform3D(1, 0, 2.1855693e-07, 0, 1, 0, -2.1855693e-07, 0, 1, 8.328439, 0, 0.80750656)
-
-[node name="template-corner5" parent="Base/Floor" unique_id=938444210 instance=ExtResource("1_umeaf")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.067192, 1.7881393e-06, 3.8861294)
-
-[node name="template-corner6" parent="Base/Floor" unique_id=671517526 instance=ExtResource("1_umeaf")]
-transform = Transform3D(-1, 0, -1.3113416e-07, 0, 1, 0, 1.3113416e-07, 0, -1, -11.485382, 1.7881393e-06, 0.8447685)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Base/Floor" unique_id=1512686609]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 7.7071075, -6.175104)
@@ -1760,7 +1754,7 @@ mesh = SubResource("ArrayMesh_3bl7r")
 skeleton = NodePath("")
 
 [node name="head" type="MeshInstance3D" parent="Base/Closet/astronautA/astronautA" unique_id=1016136708]
-transform = Transform3D(-0.22169136, 0.0116809085, 0.13533816, -0.12697205, -0.10988372, -0.19850326, 0.048279937, -0.23534878, 0.09939786, 0, 0.8031604, 0.016263306)
+transform = Transform3D(-0.22169134, 0.011680908, 0.13533814, -0.12697205, -0.10988371, -0.19850326, 0.048279934, -0.23534878, 0.09939786, 0, 0.7539323, 0.02692303)
 mesh = SubResource("ArrayMesh_i6xxa")
 skeleton = NodePath("")
 
@@ -1776,12 +1770,15 @@ skeleton = NodePath("")
 
 [node name="PaperBox" parent="Base/Closet" unique_id=373376892 instance=ExtResource("9_68f1i")]
 transform = Transform3D(0.20525505, -0.7727406, -0.027244471, -0.03953305, -0.045693252, 0.99817294, -0.9657173, -0.25475362, -0.049909413, -8.546445, 1.4067941, 6.1412325)
+script = ExtResource("10_3s2qt")
 
 [node name="SnapZone" parent="Base/Closet/PaperBox" unique_id=1998900079 instance=ExtResource("21_omadc")]
-grab_distance = 1000.0
 snap_mode = 1
 snap_require = "paper"
 initial_object = NodePath("../PickablePaper")
+
+[node name="CollisionShape3D" parent="Base/Closet/PaperBox/SnapZone" index="0"]
+shape = SubResource("SphereShape3D_o0kpf")
 
 [node name="PaperSnapZoneMesh" type="MeshInstance3D" parent="Base/Closet/PaperBox/SnapZone" unique_id=11828320]
 transform = Transform3D(1, 0, -4.4703484e-08, -4.4703484e-08, 1, 1.4901161e-08, 7.450581e-09, -1.4901161e-08, 1, 0, 0, 0)
@@ -1795,38 +1792,12 @@ skeleton = NodePath("../..")
 
 [node name="PickablePaper" parent="Base/Closet/PaperBox" unique_id=1641758308 groups=["paper"] instance=ExtResource("14_etr7h")]
 transform = Transform3D(1, 4.768372e-08, -3.5527143e-16, -4.768372e-08, 1, 3.7252916e-09, 5.329072e-16, -3.7252916e-09, 1, 0, 0, 0)
+second_hand_grab = 1
 
 [node name="MeshInstance3D" parent="Base/Closet/PaperBox/PickablePaper" index="3" unique_id=11828320]
 transform = Transform3D(0.9998533, 0.017144755, 0.00014640391, 0.017144054, -0.9996433, -0.020487238, -0.00020494312, 0.020486671, -0.9997896, 0.0051469803, -0.023098946, 0.0060715675)
 
 [node name="TODOPin" type="MeshInstance3D" parent="Base/Closet/PaperBox" unique_id=345139652]
-transform = Transform3D(1, -1.4901161e-08, -1.1920929e-07, -4.4703484e-08, 1, 2.2351742e-08, 7.450581e-09, -4.0978193e-08, 1, 0.006658554, -0.022143364, 0.10728955)
-mesh = SubResource("TorusMesh_7nxc4")
-
-[node name="PaperBox2" parent="Base/Closet" unique_id=45017880 instance=ExtResource("9_68f1i")]
-transform = Transform3D(0.01790355, 0.15161867, -0.98493236, 0.11551, -0.78020513, -0.16680744, -0.98114187, -0.1800193, -0.04081691, -7.812013, 0.3748598, 8.325638)
-
-[node name="SnapZone" parent="Base/Closet/PaperBox2" unique_id=1424591751 instance=ExtResource("21_omadc")]
-transform = Transform3D(1.0000002, 1.4901161e-08, 0, 0, 1, 4.656613e-10, 3.7252903e-09, 4.656613e-10, 1, 0, 0, 0)
-grab_distance = 1000.0
-snap_mode = 1
-snap_require = "paper1"
-initial_object = NodePath("../PickablePaper")
-
-[node name="HighlightRing" parent="Base/Closet/PaperBox2/SnapZone" unique_id=1154492614 instance=ExtResource("23_ver81")]
-transform = Transform3D(1, 0, -7.450581e-09, -1.4901161e-08, 1, 3.7252903e-09, 7.450581e-09, -3.7252903e-09, 1, 0, 0, 0)
-skeleton = NodePath("../..")
-
-[node name="PaperSnapZoneMesh" type="MeshInstance3D" parent="Base/Closet/PaperBox2/SnapZone" unique_id=1143419343]
-transform = Transform3D(1, 0, -4.4703484e-08, -4.4703484e-08, 1, 1.4901161e-08, 7.450581e-09, -1.4901161e-08, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_27d7j")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_7nxc4")
-
-[node name="PickablePaper" parent="Base/Closet/PaperBox2" unique_id=1428784896 groups=["paper1"] instance=ExtResource("14_etr7h")]
-transform = Transform3D(1, 4.768372e-08, -3.5527143e-16, -4.768372e-08, 1, 3.7252916e-09, 5.329072e-16, -3.7252916e-09, 1, 0, 0, 0)
-
-[node name="TODOPin" type="MeshInstance3D" parent="Base/Closet/PaperBox2" unique_id=1272352939]
 transform = Transform3D(1, -1.4901161e-08, -1.1920929e-07, -4.4703484e-08, 1, 2.2351742e-08, 7.450581e-09, -4.0978193e-08, 1, 0.006658554, -0.022143364, 0.10728955)
 mesh = SubResource("TorusMesh_7nxc4")
 
@@ -1966,7 +1937,7 @@ transform = Transform3D(0.9002074, 0, 0.43546158, 0, 1, 0, -0.43546158, 0, 0.900
 transform = Transform3D(0.98937744, 0, 0.14537013, 0, 1, 0, -0.1453701, 0, 0.9893773, -15.992012, -0.0211792, 7.7002645)
 
 [node name="CombinedWall22" parent="Base/Walls" unique_id=1509332714 instance=ExtResource("13_ng756")]
-transform = Transform3D(0.98937744, 0, 0.14537013, 0, 1, 0, -0.1453701, 0, 0.9893773, -15.992012, -0.0211792, 4.2069197)
+transform = Transform3D(1.0050571, 0, 0.026266726, 0, 1, 0, -0.03346137, 0, 0.78895557, -16.368568, -0.0211792, 4.2069197)
 
 [node name="CombinedWall14" parent="Base/Walls" unique_id=1826215981 instance=ExtResource("13_ng756")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.7411311, -0.0211792, 8.125538)
@@ -2249,7 +2220,7 @@ mesh = SubResource("ArrayMesh_bpbm7")
 skeleton = NodePath("")
 
 [node name="TT_CockpitBack" parent="Base/Decor" unique_id=701155925 instance=ExtResource("7_b600h")]
-transform = Transform3D(-0.9659259, 0, -0.25881892, 0, 1, 0, 0.25881892, 0, -0.9659259, 1.6604133, 0.5525415, 0.14509368)
+transform = Transform3D(-0.9659259, 0, -0.25881892, 0, 1, 0, 0.25881892, 0, -0.9659259, 1.5701287, 0.5525414, -0.5243577)
 
 [node name="TT_ClosetEntrance" parent="Base/Decor" unique_id=728723193 instance=ExtResource("7_b600h")]
 transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -4.2917347, 0.55254126, 6.8106074)
@@ -2277,6 +2248,7 @@ open_close_signal = "open_close_cargo_hold_door"
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.4387374, 0, -2.1259313)
 open_close_signal = "open_close_cockpit_door"
+_is_open = true
 
 [node name="door" parent="Base/CockpitDoor/EscapePodRoomDoor/gate-door" parent_id_path=PackedInt32Array(537370861, 883964251, 2002810878) index="0" unique_id=1634702891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7207105, 0)
@@ -2357,25 +2329,18 @@ light_bake_mode = 1
 spot_range = 2.2946332
 
 [node name="DirectionalLight3D12" type="SpotLight3D" parent="Lighting" unique_id=977019455]
-transform = Transform3D(-0.079264745, 0.73565453, -0.67270243, -0.0052785277, 0.6745064, 0.73824954, 0.9968388, 0.06206808, -0.04958145, -8.252447, 8.482285, 5.4299746)
+transform = Transform3D(-0.0792648, 0.73565483, -0.67270267, -0.005278531, 0.67450666, 0.7382498, 0.9968394, 0.062068105, -0.049581468, -12.288123, 8.121721, 5.9836497)
 light_energy = 4.132
 light_volumetric_fog_energy = 2.354
 light_specular = 12.69
 light_bake_mode = 1
-spot_range = 9.915954
+spot_range = 11.244324
 spot_angle = 15.486345
 script = ExtResource("20_o0kpf")
+flicker_rate = 1.05
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/DirectionalLight3D12" unique_id=433675976]
 libraries/ = SubResource("AnimationLibrary_3s2qt")
-
-[node name="DirectionalLight3D13" type="SpotLight3D" parent="Lighting" unique_id=1136158192]
-transform = Transform3D(-0.07926481, 0.73565495, -0.6727027, -0.005278532, 0.6745068, 0.73824984, 0.99683964, 0.062068116, -0.04958148, -10.418756, 7.372405, 6.196142)
-light_energy = 4.347
-light_volumetric_fog_energy = 2.354
-light_specular = 12.69
-spot_range = 7.532097
-spot_angle = 22.276987
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lighting" unique_id=225321872]
 transform = Transform3D(-0.08215148, -0.7515908, 0.654494, -0.09360449, 0.65962964, 0.7457392, -0.9922144, 0, -0.12454182, -8.025347, 1.944766, 6.063148)
@@ -2391,1156 +2356,6 @@ current = true
 
 [node name="catwalk-corner" parent="." unique_id=516146942 instance=ExtResource("16_4xq01")]
 transform = Transform3D(-0.050089512, 0, -2.5898755, 0, 2.5903597, 0, 2.5898755, 0, -0.050089512, -2.9595826, 2.9488502, -1.8406315)
-
-[node name="Cargo" type="Node3D" parent="." unique_id=1065813467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6410494, 0, 0)
-
-[node name="gate4" type="MeshInstance3D" parent="Cargo" unique_id=1465312649]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, 0, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate5" type="MeshInstance3D" parent="Cargo" unique_id=1056022079]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, -1.726223, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate11" type="MeshInstance3D" parent="Cargo" unique_id=1529108121]
-transform = Transform3D(-6.437065e-08, -0.59999996, 2.622683e-08, -1.6673184e-15, -2.622683e-08, -0.59999996, 0.59999996, -6.437065e-08, 1.146411e-15, -1.6906824, 1.6164348, -9.591526)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate12" type="MeshInstance3D" parent="Cargo" unique_id=263081057]
-transform = Transform3D(-6.437065e-08, -0.59999996, 2.622683e-08, -1.6673184e-15, -2.622683e-08, -0.59999996, 0.59999996, -6.437065e-08, 1.146411e-15, -1.6906824, 1.6164348, -7.865303)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate13" type="MeshInstance3D" parent="Cargo" unique_id=1875825936]
-transform = Transform3D(-6.437065e-08, -0.59999996, 2.622683e-08, -1.6673184e-15, -2.622683e-08, -0.59999996, 0.59999996, -6.437065e-08, 1.146411e-15, -1.6219492, 4.283266, -11.681258)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate14" type="MeshInstance3D" parent="Cargo" unique_id=664479499]
-transform = Transform3D(-6.437065e-08, -0.59999996, 2.622683e-08, -1.6673184e-15, -2.622683e-08, -0.59999996, 0.59999996, -6.437065e-08, 1.146411e-15, -1.6219492, 4.283266, -9.955035)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate15" type="MeshInstance3D" parent="Cargo" unique_id=475342850]
-transform = Transform3D(-0.59999996, 9.059748e-08, -2.292822e-15, -1.6673181e-15, -2.6226829e-08, -0.59999996, -9.059748e-08, -0.59999996, 2.6226829e-08, 1.3876324, 4.283266, -10.623308)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate17" type="MeshInstance3D" parent="Cargo" unique_id=1714392412]
-transform = Transform3D(-0.59999996, 9.059748e-08, -2.292822e-15, -1.6673181e-15, -2.6226829e-08, -0.59999996, -9.059748e-08, -0.59999996, 2.6226829e-08, 3.1386678, 4.283266, -10.623308)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate18" type="MeshInstance3D" parent="Cargo" unique_id=735169575]
-transform = Transform3D(-0.59999996, 9.059748e-08, -2.292822e-15, -1.6673181e-15, -2.6226829e-08, -0.59999996, -9.059748e-08, -0.59999996, 2.6226829e-08, 4.8322387, 4.283266, -10.623308)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate16" type="MeshInstance3D" parent="Cargo" unique_id=922295000]
-transform = Transform3D(-0.59999996, 9.059748e-08, -2.292822e-15, -1.6673181e-15, -2.6226829e-08, -0.59999996, -9.059748e-08, -0.59999996, 2.6226829e-08, -0.33859062, 4.283266, -9.5889435)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate6" type="MeshInstance3D" parent="Cargo" unique_id=820889566]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, -3.4355154, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate7" type="MeshInstance3D" parent="Cargo" unique_id=912920020]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, 5.04913, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate10" type="MeshInstance3D" parent="Cargo" unique_id=1836911424]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, 6.6984625, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate8" type="MeshInstance3D" parent="Cargo" unique_id=1726655003]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, 3.322907, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="gate9" type="MeshInstance3D" parent="Cargo" unique_id=5212367]
-transform = Transform3D(-0.6, 9.059749e-08, -2.2928227e-15, -1.6673187e-15, -2.6226834e-08, -0.6, -9.059749e-08, -0.6, 2.6226834e-08, 1.6136146, 1.6164348, -10.499211)
-mesh = SubResource("ArrayMesh_8duok")
-skeleton = NodePath("")
-
-[node name="Boxes" type="Node3D" parent="Cargo" unique_id=1002627609]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.663739, 0, -11.375765)
-metadata/_edit_lock_ = true
-
-[node name="box-wide6" parent="Cargo/Boxes" unique_id=1537235897 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 5.035014, 1.7524593, -0.964386)
-
-[node name="box-small6" parent="Cargo/Boxes" unique_id=1788008298 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 5.959901, 1.7524598, -0.86076546)
-
-[node name="box-long6" parent="Cargo/Boxes" unique_id=599054974 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 5.6254473, 1.7524598, -0.7028427)
-
-[node name="box-large6" parent="Cargo/Boxes" unique_id=1966943706 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 6.5841417, 1.7524598, -0.6258373)
-
-[node name="box-wide7" parent="Cargo/Boxes" unique_id=1815776599 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 7.4132776, 1.7524593, -0.964386)
-
-[node name="box-small7" parent="Cargo/Boxes" unique_id=204657984 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 8.338164, 1.7524598, -0.86076546)
-
-[node name="box-long7" parent="Cargo/Boxes" unique_id=842416278 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 8.003711, 1.7524598, -0.7028427)
-
-[node name="box-large7" parent="Cargo/Boxes" unique_id=1255684737 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 8.962404, 1.7524598, -0.6258373)
-
-[node name="box-large11" parent="Cargo/Boxes" unique_id=501975345 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.509607, 1.7524598, 0.16638565)
-
-[node name="box-wide10" parent="Cargo/Boxes" unique_id=845603652 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.680472, 1.7524593, 0.5049343)
-
-[node name="box-long10" parent="Cargo/Boxes" unique_id=1684203675 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.0900393, 1.7524598, 0.24339104)
-
-[node name="box-large12" parent="Cargo/Boxes" unique_id=1837012008 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.1313457, 1.7524598, 0.16638565)
-
-[node name="box-wide8" parent="Cargo/Boxes" unique_id=1499376850 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.0350142, 1.7524593, -0.964386)
-
-[node name="box-small8" parent="Cargo/Boxes" unique_id=2007954251 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.9599009, 1.7524598, -0.86076546)
-
-[node name="box-long8" parent="Cargo/Boxes" unique_id=122787143 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.6254473, 1.7524598, -0.7028427)
-
-[node name="box-large8" parent="Cargo/Boxes" unique_id=774364590 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 2.5841417, 1.7524598, -0.6258373)
-
-[node name="box-wide9" parent="Cargo/Boxes" unique_id=245630298 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.4132776, 1.7524593, -0.964386)
-
-[node name="box-long12" parent="Cargo/Boxes" unique_id=980796218 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.782274, 2.1518729, 0.24339104)
-
-[node name="box-large16" parent="Cargo/Boxes" unique_id=270406702 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.8235803, 2.1518729, 0.16638565)
-
-[node name="box-wide12" parent="Cargo/Boxes" unique_id=1168544311 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.0350142, 2.295804, -0.964386)
-
-[node name="box-small10" parent="Cargo/Boxes" unique_id=1120261912 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.9599009, 2.2958045, -0.86076546)
-
-[node name="box-long13" parent="Cargo/Boxes" unique_id=464446515 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.6254473, 2.2958045, -0.7028427)
-
-[node name="box-large17" parent="Cargo/Boxes" unique_id=624775575 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 2.5841417, 2.2958045, -0.6258373)
-
-[node name="box-wide13" parent="Cargo/Boxes" unique_id=133079526 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.4132776, 2.295804, -0.964386)
-
-[node name="box-small9" parent="Cargo/Boxes" unique_id=1264031865 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.3381643, 1.7524598, -0.86076546)
-
-[node name="box-long9" parent="Cargo/Boxes" unique_id=107076565 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.0037107, 1.7524598, -0.7028427)
-
-[node name="box-large9" parent="Cargo/Boxes" unique_id=1584690474 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.9624043, 1.7524598, 0.37416267)
-
-[node name="box-large13" parent="Cargo/Boxes" unique_id=1415478149 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.509607, 2.1841507, -0.5542383)
-
-[node name="box-wide11" parent="Cargo/Boxes" unique_id=534221597 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.680472, 2.3280818, -0.21568966)
-
-[node name="box-long11" parent="Cargo/Boxes" unique_id=1823918078 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.0900393, 2.1841507, -0.47723293)
-
-[node name="box-large60" parent="Cargo/Boxes" unique_id=1853352117 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 11.962404, 1.7524598, -0.6258373)
-
-[node name="box-large61" parent="Cargo/Boxes" unique_id=1110520357 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 11.509607, 1.7524598, 0.16638565)
-
-[node name="box-wide36" parent="Cargo/Boxes" unique_id=1983487685 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 10.680471, 1.7524593, 0.5049343)
-
-[node name="box-long39" parent="Cargo/Boxes" unique_id=1229283163 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 10.090039, 1.7524598, 0.24339104)
-
-[node name="box-large62" parent="Cargo/Boxes" unique_id=1248957640 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 11.509607, 2.1841507, -0.5542383)
-
-[node name="box-wide37" parent="Cargo/Boxes" unique_id=229863789 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 10.680471, 2.3280818, -0.21568966)
-
-[node name="box-long40" parent="Cargo/Boxes" unique_id=27639185 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 10.090039, 2.1841507, -0.47723293)
-
-[node name="box-large63" parent="Cargo/Boxes" unique_id=586796305 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 9.401356, 1.6522946, 0.09236622)
-
-[node name="box-large64" parent="Cargo/Boxes" unique_id=1398151463 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 10.354004, 2.7524598, -0.69985676)
-
-[node name="box-wide38" parent="Cargo/Boxes" unique_id=823666633 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 11.18314, 2.7524593, -1.0384054)
-
-[node name="box-long41" parent="Cargo/Boxes" unique_id=329428147 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 11.773572, 2.7524598, -0.77686214)
-
-[node name="box-large65" parent="Cargo/Boxes" unique_id=1923320166 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, -0.971038, 0.23892517, 1.7827077e-07, 0.23892517, 0.971038, -4.3863757e-08, 10.354004, 2.7837238, 0.020767212)
-
-[node name="box-wide39" parent="Cargo/Boxes" unique_id=572276067 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 11.18314, 2.8515337, -0.31778145)
-
-[node name="box-wide40" parent="Cargo/Boxes" unique_id=147187075 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 10.754111, 3.213006, -0.08088684)
-
-[node name="box-wide41" parent="Cargo/Boxes" unique_id=952288780 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.9659259, 0, -0.20705508, 0, 1, 0, 0.25881886, 0, -0.7727407, 9.403024, 2.1840646, -0.08088684)
-
-[node name="box-long42" parent="Cargo/Boxes" unique_id=180545245 instance=ExtResource("11_xshpo")]
-transform = Transform3D(0.96592575, 0, -0.20705543, 0, 1, 0, 0.25881928, 0, 0.7727406, 11.38555, 2.2275417, 0.36385632)
-
-[node name="box-large14" parent="Cargo/Boxes" unique_id=490548600 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.1313457, 2.3280823, -0.5542383)
-
-[node name="box-large15" parent="Cargo/Boxes" unique_id=2046591172 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.9624043, 2.3280823, -0.3464613)
-
-[node name="box-large10" parent="Cargo/Boxes" unique_id=812984678 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.3726187, 1.7524598, 0.0617218)
-
-[node name="box-large55" parent="Cargo/Boxes" unique_id=1816738393 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 2.3726187, 1.7524598, 0.52784634)
-
-[node name="box-large56" parent="Cargo/Boxes" unique_id=848181743 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.182097, 1.7524598, 0.52784634)
-
-[node name="box-wide14" parent="Cargo/Boxes" unique_id=672397964 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 5.5241194, 0.050304055, -0.025238037)
-
-[node name="box-small11" parent="Cargo/Boxes" unique_id=1716049326 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 4.5992327, 0.050304532, -0.12885857)
-
-[node name="box-long14" parent="Cargo/Boxes" unique_id=1821078075 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 4.9336863, 0.050304532, -0.2867813)
-
-[node name="box-large18" parent="Cargo/Boxes" unique_id=20047146 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 3.9749918, 0.050304532, -0.3637867)
-
-[node name="box-wide15" parent="Cargo/Boxes" unique_id=459759536 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 3.145856, 0.050304055, -0.025238037)
-
-[node name="box-small12" parent="Cargo/Boxes" unique_id=533914497 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 2.2209692, 0.050304532, -0.12885857)
-
-[node name="box-long15" parent="Cargo/Boxes" unique_id=1880465684 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 2.5554228, 0.050304532, -0.2867813)
-
-[node name="box-large19" parent="Cargo/Boxes" unique_id=165714784 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 1.5967293, 0.050304532, -0.3637867)
-
-[node name="box-large20" parent="Cargo/Boxes" unique_id=926373928 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.0495262, 0.050304532, -1.1560097)
-
-[node name="box-wide16" parent="Cargo/Boxes" unique_id=792703701 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.878662, 0.050304055, -1.4945583)
-
-[node name="box-long16" parent="Cargo/Boxes" unique_id=953674650 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.4690943, 0.050304532, -1.2330151)
-
-[node name="box-large21" parent="Cargo/Boxes" unique_id=582371282 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.427788, 0.050304532, -1.1560097)
-
-[node name="box-wide17" parent="Cargo/Boxes" unique_id=1231170618 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 9.524119, 0.050304055, -0.025238037)
-
-[node name="box-small13" parent="Cargo/Boxes" unique_id=1480329347 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.599233, 0.050304532, -0.12885857)
-
-[node name="box-long17" parent="Cargo/Boxes" unique_id=800899506 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.933686, 0.050304532, -0.2867813)
-
-[node name="box-large22" parent="Cargo/Boxes" unique_id=2014755413 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.974992, 0.050304532, -0.3637867)
-
-[node name="box-wide18" parent="Cargo/Boxes" unique_id=988090523 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.145856, 0.050304055, -0.025238037)
-
-[node name="box-long18" parent="Cargo/Boxes" unique_id=1056073013 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 1.7768593, 0.59364927, -1.2330151)
-
-[node name="box-large23" parent="Cargo/Boxes" unique_id=1986008659 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.7355537, 0.59364927, -1.1560097)
-
-[node name="box-wide19" parent="Cargo/Boxes" unique_id=1255283164 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 9.524119, 0.5936488, -0.025238037)
-
-[node name="box-small14" parent="Cargo/Boxes" unique_id=689429561 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.599233, 0.59364927, -0.12885857)
-
-[node name="box-long19" parent="Cargo/Boxes" unique_id=1235426690 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 8.933686, 0.59364927, -0.2867813)
-
-[node name="box-large24" parent="Cargo/Boxes" unique_id=1008908215 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.974992, 0.59364927, -0.3637867)
-
-[node name="box-wide20" parent="Cargo/Boxes" unique_id=302537237 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.145856, 0.5936488, -0.025238037)
-
-[node name="box-small15" parent="Cargo/Boxes" unique_id=425183397 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.220969, 0.050304532, -0.12885857)
-
-[node name="box-long20" parent="Cargo/Boxes" unique_id=1396325429 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.555423, 0.050304532, -0.2867813)
-
-[node name="box-large25" parent="Cargo/Boxes" unique_id=862096425 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 5.5967293, 0.050304532, -1.3637867)
-
-[node name="box-large26" parent="Cargo/Boxes" unique_id=1628081463 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.0495262, 0.6259271, -0.4353857)
-
-[node name="box-wide21" parent="Cargo/Boxes" unique_id=740317533 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.878662, 0.6259266, -0.77393436)
-
-[node name="box-long21" parent="Cargo/Boxes" unique_id=1261431055 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.4690943, 0.6259271, -0.5123911)
-
-[node name="box-large27" parent="Cargo/Boxes" unique_id=1185120453 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.427788, 0.6259271, -0.4353857)
-
-[node name="box-large28" parent="Cargo/Boxes" unique_id=1305372616 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 5.5967293, 0.6259271, -0.6431627)
-
-[node name="box-large29" parent="Cargo/Boxes" unique_id=213224062 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 7.186515, 0.050304532, -1.0513458)
-
-[node name="box-wide22" parent="Cargo/Boxes" unique_id=1973972106 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.035014, 0.050304055, 0.4555521)
-
-[node name="box-small16" parent="Cargo/Boxes" unique_id=1248114950 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.959901, 0.050304532, 0.55917263)
-
-[node name="box-long22" parent="Cargo/Boxes" unique_id=1286495912 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.6254473, 0.050304532, 0.7170954)
-
-[node name="box-large30" parent="Cargo/Boxes" unique_id=899670220 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 6.5841417, 0.050304532, 0.79410076)
-
-[node name="box-wide23" parent="Cargo/Boxes" unique_id=1915535554 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 7.4132776, 0.050304055, 0.4555521)
-
-[node name="box-small17" parent="Cargo/Boxes" unique_id=1175944225 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 8.338164, 0.050304532, 0.55917263)
-
-[node name="box-long23" parent="Cargo/Boxes" unique_id=6690465 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 8.003711, 0.050304532, 0.7170954)
-
-[node name="box-large31" parent="Cargo/Boxes" unique_id=1603775064 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 8.962404, 0.050304532, 0.79410076)
-
-[node name="box-large32" parent="Cargo/Boxes" unique_id=1638331214 instance=ExtResource("12_i4pon")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 8.509607, 0.050304532, 1.5863237)
-
-[node name="box-wide24" parent="Cargo/Boxes" unique_id=1884302123 instance=ExtResource("9_68f1i")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 7.6804714, 0.050304055, 1.9248724)
-
-[node name="box-long24" parent="Cargo/Boxes" unique_id=1350513326 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 7.0900393, 0.050304532, 1.6633291)
-
-[node name="box-large33" parent="Cargo/Boxes" unique_id=1534238708 instance=ExtResource("12_i4pon")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 6.1313457, 0.050304532, 1.5863237)
-
-[node name="box-wide25" parent="Cargo/Boxes" unique_id=1964697174 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 1.0350142, 0.050304055, 0.4555521)
-
-[node name="box-small18" parent="Cargo/Boxes" unique_id=1917159524 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 1.9599009, 0.050304532, 0.55917263)
-
-[node name="box-long25" parent="Cargo/Boxes" unique_id=341109387 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 1.6254473, 0.050304532, 0.7170954)
-
-[node name="box-large34" parent="Cargo/Boxes" unique_id=1270967120 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.5841417, 0.050304532, 0.79410076)
-
-[node name="box-wide26" parent="Cargo/Boxes" unique_id=957465298 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.4132776, 0.050304055, 0.4555521)
-
-[node name="box-long26" parent="Cargo/Boxes" unique_id=695439882 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 8.782274, 0.59364927, 1.6633291)
-
-[node name="box-large35" parent="Cargo/Boxes" unique_id=2034981844 instance=ExtResource("12_i4pon")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 7.82358, 0.59364927, 1.5863237)
-
-[node name="box-wide27" parent="Cargo/Boxes" unique_id=609563251 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 1.0350142, 0.5936488, 0.4555521)
-
-[node name="box-small19" parent="Cargo/Boxes" unique_id=1487564669 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 1.9599009, 0.59364927, 0.55917263)
-
-[node name="box-long27" parent="Cargo/Boxes" unique_id=299495777 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0909012e-07, 0.08303409, -0.79723734, 1.742177e-08, 0.9965467, 0.066427276, 1, 0, -1.8358784e-07, 1.6254473, 0.59364927, 0.7170954)
-
-[node name="box-large36" parent="Cargo/Boxes" unique_id=481153001 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.5841417, 0.59364927, 0.79410076)
-
-[node name="box-wide28" parent="Cargo/Boxes" unique_id=1277618678 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.4132776, 0.5936488, 0.4555521)
-
-[node name="box-small20" parent="Cargo/Boxes" unique_id=2001075189 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.3381643, 0.050304532, 0.55917263)
-
-[node name="box-long28" parent="Cargo/Boxes" unique_id=1804090494 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.0037107, 0.050304532, 0.7170954)
-
-[node name="box-large37" parent="Cargo/Boxes" unique_id=1271891657 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.9624043, 0.050304532, 1.7941008)
-
-[node name="box-large38" parent="Cargo/Boxes" unique_id=1367744096 instance=ExtResource("12_i4pon")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 8.509607, 0.6259271, 0.86569977)
-
-[node name="box-wide30" parent="Cargo/Boxes" unique_id=2102174340 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.99999994, 0, 1.4901161e-07, 0, 1, 0, -1.6391277e-07, 0, -0.8, 9.514435, 0.050304055, 0.18014431)
-
-[node name="box-wide31" parent="Cargo/Boxes" unique_id=186939083 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.99999994, 0, 1.4901161e-07, 0, 1, 0, -1.6391277e-07, 0, -0.8, 9.514435, 0.5936488, 0.18014431)
-
-[node name="box-wide33" parent="Cargo/Boxes" unique_id=1756988123 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.99999994, 0, 1.4901161e-07, 0, 1, 0, -1.6391277e-07, 0, -0.8, 9.921481, 0.0860163, 1.3283358)
-
-[node name="box-large44" parent="Cargo/Boxes" unique_id=1075440866 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 11.125998, 0.050304532, 1.1946573)
-
-[node name="box-wide32" parent="Cargo/Boxes" unique_id=401320003 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 11.464545, 0.050304055, 2.0237923)
-
-[node name="box-long32" parent="Cargo/Boxes" unique_id=177898165 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 11.203002, 0.59364927, 0.92198944)
-
-[node name="box-large45" parent="Cargo/Boxes" unique_id=434658215 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 11.125997, 0.59364927, 1.8806839)
-
-[node name="box-large46" parent="Cargo/Boxes" unique_id=510869014 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 10.405373, 0.6259271, 1.1946564)
-
-[node name="box-wide34" parent="Cargo/Boxes" unique_id=943688059 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.99999994, 0, 1.4901161e-07, 0, 1, 0, -1.6391277e-07, 0, -0.8, 2.3635159, 3.088112, 0.039165497)
-
-[node name="box-wide35" parent="Cargo/Boxes" unique_id=277004885 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 3.90658, 2.654877, 0.734622)
-
-[node name="box-long36" parent="Cargo/Boxes" unique_id=1003685092 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 3.6450367, 3.2725804, -0.36718082)
-
-[node name="box-large58" parent="Cargo/Boxes" unique_id=1400088130 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 4.941724, 2.694111, 0.59151363)
-
-[node name="box-large59" parent="Cargo/Boxes" unique_id=1641288540 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-0.9999999, 0, 2.682209e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 3.3163977, 3.0551383, -0.09451389)
-
-[node name="box-wide29" parent="Cargo/Boxes" unique_id=745045835 instance=ExtResource("9_68f1i")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 7.6804714, 0.6259266, 1.2042484)
-
-[node name="box-long29" parent="Cargo/Boxes" unique_id=1530295885 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 7.0900393, 0.6259271, 0.94270515)
-
-[node name="box-long30" parent="Cargo/Boxes" unique_id=466497777 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 5.59103, 0.050304532, 1.6633291)
-
-[node name="box-long31" parent="Cargo/Boxes" unique_id=253638760 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 5.59103, 0.6259271, 0.94270515)
-
-[node name="box-long37" parent="Cargo/Boxes" unique_id=992032082 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.3670787e-09, 0.99998957, 0.0036794655, -2.972343e-07, 0.004599355, -0.7999916, -1, -1.8989924e-15, 2.5352605e-07, 5.59103, 1.3040738, 0.94270515)
-
-[node name="box-long38" parent="Cargo/Boxes" unique_id=441222260 instance=ExtResource("11_xshpo")]
-transform = Transform3D(0.86602545, 0.49999475, 0.0018395131, -2.972343e-07, 0.004599355, -0.7999916, -0.49999997, 0.8660164, 0.0031866375, 4.7189317, 1.3040738, 0.37507343)
-
-[node name="box-large39" parent="Cargo/Boxes" unique_id=1197569654 instance=ExtResource("12_i4pon")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 6.1313457, 0.6259271, 0.86569977)
-
-[node name="box-large42" parent="Cargo/Boxes" unique_id=1261013202 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 6.809374, 0.55541635, 1.7255611)
-
-[node name="box-large43" parent="Cargo/Boxes" unique_id=796016753 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 8.030805, 1.1310389, 1.3087034)
-
-[node name="box-large40" parent="Cargo/Boxes" unique_id=62221392 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.9624043, 0.6259271, 1.0734768)
-
-[node name="box-large47" parent="Cargo/Boxes" unique_id=1008302219 instance=ExtResource("12_i4pon")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 6.1313457, 2.2125604, 0.17429447)
-
-[node name="box-large48" parent="Cargo/Boxes" unique_id=1900943230 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 4.9624043, 2.2125604, 0.3820715)
-
-[node name="box-long33" parent="Cargo/Boxes" unique_id=1226021431 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 5.59103, 2.2125604, 0.25129986)
-
-[node name="box-long35" parent="Cargo/Boxes" unique_id=2001814521 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 4.393516, 2.2399766, 0.25129986)
-
-[node name="box-large49" parent="Cargo/Boxes" unique_id=2024991491 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 6.197332, 2.6747506, 0.31353188)
-
-[node name="box-large50" parent="Cargo/Boxes" unique_id=241704803 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 1.1809759, 1.702167, 0.45646572)
-
-[node name="box-large51" parent="Cargo/Boxes" unique_id=201940746 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.9624043, 2.7452612, -0.33855247)
-
-[node name="box-small21" parent="Cargo/Boxes" unique_id=457272742 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 2.255991, 1.8560855, -0.059259415)
-
-[node name="box-long34" parent="Cargo/Boxes" unique_id=1600975732 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 1.9215374, 1.8560855, 0.09866333)
-
-[node name="box-large52" parent="Cargo/Boxes" unique_id=1308670840 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 2.88023, 2.2877765, 0.45504475)
-
-[node name="box-large53" parent="Cargo/Boxes" unique_id=1702896673 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.072956, 2.3161862, 0.3731537)
-
-[node name="box-large54" parent="Cargo/Boxes" unique_id=676713154 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.88023, 2.848887, 0.46295357)
-
-[node name="box-large57" parent="Cargo/Boxes" unique_id=1125141157 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.8321576, 2.2467175, 0.46295357)
-
-[node name="box-large41" parent="Cargo/Boxes" unique_id=1757322114 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981467e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.3726187, 0.050304532, 1.4816599)
-
-[node name="box-wide42" parent="Cargo/Boxes" unique_id=280534415 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.1321163, 1.7524593, 1.4129639)
-
-[node name="box-small22" parent="Cargo/Boxes" unique_id=2027598200 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.2357368, 1.7524598, 4.488077)
-
-[node name="box-large66" parent="Cargo/Boxes" unique_id=2059172547 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.470665, 1.7524598, 3.8638363)
-
-[node name="box-wide43" parent="Cargo/Boxes" unique_id=282333580 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.1321163, 1.7524593, 3.0347004)
-
-[node name="box-small23" parent="Cargo/Boxes" unique_id=2025157704 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.2357368, 2.2958045, 4.488077)
-
-[node name="box-large67" parent="Cargo/Boxes" unique_id=1014744939 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.470665, 2.2958045, 3.8638363)
-
-[node name="box-wide44" parent="Cargo/Boxes" unique_id=1430997922 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.1321163, 2.295804, 3.0347004)
-
-[node name="box-small24" parent="Cargo/Boxes" unique_id=90200041 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.2357368, 1.7524598, 2.1098137)
-
-[node name="box-long45" parent="Cargo/Boxes" unique_id=1628931024 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.3936596, 1.7524598, 2.4442673)
-
-[node name="box-large68" parent="Cargo/Boxes" unique_id=1983889825 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.470665, 1.7524598, 1.4855738)
-
-[node name="box-large69" parent="Cargo/Boxes" unique_id=2129644285 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.750042, 2.3280823, 1.4855738)
-
-[node name="box-large70" parent="Cargo/Boxes" unique_id=1207419532 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.158224, 1.6758893, 3.0753593)
-
-[node name="box-large71" parent="Cargo/Boxes" unique_id=345477209 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.6243496, 1.6570022, 4.0753593)
-
-[node name="box-large72" parent="Cargo/Boxes" unique_id=1357538277 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.6243496, 1.7289364, 2.2658806)
-
-[node name="box-wide45" parent="Cargo/Boxes" unique_id=252118073 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 2.0712643, 0.050304055, 0.92385864)
-
-[node name="box-small25" parent="Cargo/Boxes" unique_id=1056780029 instance=ExtResource("10_5seas")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.9676437, 0.050304532, 1.8487453)
-
-[node name="box-long46" parent="Cargo/Boxes" unique_id=908002591 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.809721, 0.050304532, 1.5142918)
-
-[node name="box-large73" parent="Cargo/Boxes" unique_id=1787915027 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.7327156, 0.050304532, 2.4729862)
-
-[node name="box-wide46" parent="Cargo/Boxes" unique_id=197570684 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 2.0712643, 0.050304055, 3.302122)
-
-[node name="box-small26" parent="Cargo/Boxes" unique_id=311677131 instance=ExtResource("10_5seas")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.9676437, 0.050304532, 4.227009)
-
-[node name="box-long47" parent="Cargo/Boxes" unique_id=1695744232 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.809721, 0.050304532, 3.8925552)
-
-[node name="box-large74" parent="Cargo/Boxes" unique_id=1884843850 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.7327156, 0.050304532, 4.8512487)
-
-[node name="box-large75" parent="Cargo/Boxes" unique_id=1734623236 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.94049263, 0.050304532, 4.398452)
-
-[node name="box-wide47" parent="Cargo/Boxes" unique_id=2052697390 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.60194397, 0.050304055, 3.569316)
-
-[node name="box-long48" parent="Cargo/Boxes" unique_id=609416577 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.86348724, 0.050304532, 2.9788837)
-
-[node name="box-large76" parent="Cargo/Boxes" unique_id=1203455647 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.94049263, 0.050304532, 2.0201902)
-
-[node name="box-long49" parent="Cargo/Boxes" unique_id=227435512 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.86348724, 0.59364927, 4.6711187)
-
-[node name="box-large77" parent="Cargo/Boxes" unique_id=147244716 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.94049263, 0.59364927, 3.7124243)
-
-[node name="box-large78" parent="Cargo/Boxes" unique_id=550373185 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 0.7327156, 0.050304532, 0.85124874)
-
-[node name="box-large79" parent="Cargo/Boxes" unique_id=1146537250 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.6611176, 0.6259271, 4.398452)
-
-[node name="box-wide48" parent="Cargo/Boxes" unique_id=1418702764 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.3225689, 0.6259266, 3.569316)
-
-[node name="box-long50" parent="Cargo/Boxes" unique_id=109510515 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.5841122, 0.6259271, 2.9788837)
-
-[node name="box-large80" parent="Cargo/Boxes" unique_id=1035170576 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, -3.145845e-08, 0.98190176, -0.15151271, 1.6309711e-07, 0.18939088, 0.78552145, 1.6611176, 0.6259271, 2.0201902)
-
-[node name="box-large81" parent="Cargo/Boxes" unique_id=819555076 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.4533405, 0.6259271, 0.85124874)
-
-[node name="box-wide49" parent="Cargo/Boxes" unique_id=462416763 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.5520554, 0.050304055, 1.4129639)
-
-[node name="box-small27" parent="Cargo/Boxes" unique_id=774801486 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.655676, 0.050304532, 0.48807716)
-
-[node name="box-long51" parent="Cargo/Boxes" unique_id=1697283830 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.8135986, 0.050304532, 0.82253075)
-
-[node name="box-wide50" parent="Cargo/Boxes" unique_id=498848768 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.5520554, 0.050304055, 5.412964)
-
-[node name="box-small28" parent="Cargo/Boxes" unique_id=1590990913 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.655676, 0.050304532, 4.488077)
-
-[node name="box-long52" parent="Cargo/Boxes" unique_id=1213080080 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.8135986, 0.050304532, 4.8225307)
-
-[node name="box-large82" parent="Cargo/Boxes" unique_id=946359076 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.890604, 0.050304532, 3.8638363)
-
-[node name="box-wide51" parent="Cargo/Boxes" unique_id=1436679931 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.5520554, 0.050304055, 3.0347004)
-
-[node name="box-wide52" parent="Cargo/Boxes" unique_id=1975101054 instance=ExtResource("9_68f1i")]
-transform = Transform3D(0.46245736, 0, 0.7093133, 0, 1, 0, -0.88664156, 0, 0.36996588, 2.5520554, 0.5936488, 5.412964)
-
-[node name="box-small29" parent="Cargo/Boxes" unique_id=866904646 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, -2.6950989e-08, 0.98674893, -0.12980352, 1.6390224e-07, 0.1622544, 0.78939915, 2.655676, 0.59364927, 4.488077)
-
-[node name="box-small52" parent="Cargo/Boxes" unique_id=1248441936 instance=ExtResource("10_5seas")]
-transform = Transform3D(0.06582802, 0, 0.7982648, 0, 1, 0, -0.997831, 0, 0.05266243, 4.9485416, 0.050304532, 11.591703)
-
-[node name="box-large118" parent="Cargo/Boxes" unique_id=354012623 instance=ExtResource("12_i4pon")]
-transform = Transform3D(0.06582802, 0, 0.7982648, 0, 1, 0, -0.997831, 0, 0.05266243, 4.3411207, 0.050304532, 11.316193)
-
-[node name="box-wide83" parent="Cargo/Boxes" unique_id=2101432164 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.0658281, 0, -0.7982648, 0, 1, 0, 0.997831, 0, -0.0526625, 3.7266884, 0.050304055, 12.096779)
-
-[node name="box-small53" parent="Cargo/Boxes" unique_id=1624674907 instance=ExtResource("10_5seas")]
-transform = Transform3D(-0.0658281, 0, -0.7982648, 0, 1, 0, 0.997831, 0, -0.0526625, 4.642748, 0.050304532, 12.261059)
-
-[node name="box-wide84" parent="Cargo/Boxes" unique_id=1162638923 instance=ExtResource("9_68f1i")]
-transform = Transform3D(0.8542758, 0, -0.41585603, 0, 1, 0, 0.5198201, 0, 0.68342066, 3.7266884, 0.5936488, 12.096779)
-
-[node name="box-small54" parent="Cargo/Boxes" unique_id=1114331239 instance=ExtResource("10_5seas")]
-transform = Transform3D(-0.0658281, -0.16190244, -0.78768694, -2.6950987e-08, 0.98674905, -0.12980352, 0.997831, -0.010680856, -0.051964667, 4.642748, 0.59364927, 12.261059)
-
-[node name="box-small55" parent="Cargo/Boxes" unique_id=1975044081 instance=ExtResource("10_5seas")]
-transform = Transform3D(0.8564322, 0, 0.41300756, 0, 1, 0, -0.51625943, 0, 0.6851458, 1.9705343, 0.050304532, 12.240702)
-
-[node name="box-large140" parent="Cargo/Boxes" unique_id=467552335 instance=ExtResource("12_i4pon")]
-transform = Transform3D(0.8564322, 0, 0.41300756, 0, 1, 0, -0.51625943, 0, 0.6851458, 1.8494644, 0.050304532, 11.584799)
-
-[node name="box-wide85" parent="Cargo/Boxes" unique_id=1661694259 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.85643226, 0, -0.41300753, 0, 1, 0, 0.5162594, 0, -0.6851458, 0.85776424, 0.050304055, 11.52672)
-
-[node name="box-small56" parent="Cargo/Boxes" unique_id=288090309 instance=ExtResource("10_5seas")]
-transform = Transform3D(-0.85643226, 0, -0.41300753, 0, 1, 0, 0.5162594, 0, -0.6851458, 1.2465019, 0.050304532, 12.372318)
-
-[node name="box-wide86" parent="Cargo/Boxes" unique_id=772878996 instance=ExtResource("9_68f1i")]
-transform = Transform3D(0.06167379, 0, -0.7984771, 0, 1, 0, 0.9980962, 0, 0.049339086, 0.85776424, 0.5936488, 11.52672)
-
-[node name="box-small57" parent="Cargo/Boxes" unique_id=1091596158 instance=ExtResource("10_5seas")]
-transform = Transform3D(-0.85643226, -0.083765395, -0.40753472, -2.6021683e-08, 0.986749, -0.12980351, 0.5162594, -0.13895985, -0.6760669, 1.2465019, 0.59364927, 12.372318)
-
-[node name="box-large83" parent="Cargo/Boxes" unique_id=707777510 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.890604, 0.59364927, 3.8638363)
-
-[node name="box-wide53" parent="Cargo/Boxes" unique_id=1123154106 instance=ExtResource("9_68f1i")]
-transform = Transform3D(0.9916441, 0.12900375, -1.473769e-07, -0.12900375, 0.9916441, 1.9172374e-08, 1.6610329e-07, 0, 0.8, 2.5520554, 0.5936488, 3.0347004)
-
-[node name="box-small30" parent="Cargo/Boxes" unique_id=48176427 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.655676, 0.050304532, 2.1098137)
-
-[node name="box-long54" parent="Cargo/Boxes" unique_id=1733546024 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.8135986, 0.050304532, 2.4442673)
-
-[node name="box-large84" parent="Cargo/Boxes" unique_id=1020529864 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 3.8906035, 0.050304532, 1.4855738)
-
-[node name="box-wide54" parent="Cargo/Boxes" unique_id=1688078127 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-1.2020139e-07, 0, -0.8, 0, 1, 0, 0.99999994, 0, -1.140425e-07, 2.1356678, 3.088112, 4.084462)
-
-[node name="box-wide55" parent="Cargo/Boxes" unique_id=307734137 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.990153e-07, 0, -0.79999995, 0, 1, 0, 0.9999999, 0, -2.3325177e-07, 2.8311253, 2.654877, 2.541398)
-
-[node name="box-long55" parent="Cargo/Boxes" unique_id=2098364083 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.990153e-07, 0, -0.79999995, 0, 1, 0, 0.9999999, 0, -2.3325177e-07, 1.7293224, 3.2725804, 2.8029413)
-
-[node name="box-large85" parent="Cargo/Boxes" unique_id=2004343601 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.990153e-07, 0, -0.79999995, 0, 1, 0, 0.9999999, 0, -2.3325177e-07, 2.0019894, 3.0551383, 3.1315804)
-
-[node name="box-long56" parent="Cargo/Boxes" unique_id=267688345 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 3.759832, 0.050304532, 0.8569479)
-
-[node name="box-long57" parent="Cargo/Boxes" unique_id=1625996966 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 2.1855698e-07, -2.7955705e-08, 0.9939019, -0.08821407, -2.5198003e-07, -0.11026759, -0.79512155, 3.0392075, 0.6259271, 0.8569479)
-
-[node name="box-long58" parent="Cargo/Boxes" unique_id=1481438464 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-0.5, 0.86601627, 0.003186637, -2.972343e-07, 0.004599355, -0.7999916, -0.8660254, -0.4999948, -0.001839513, 2.4715767, 1.3040738, 1.7290459)
-
-[node name="box-large86" parent="Cargo/Boxes" unique_id=231732417 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 3.169979, 0.6259271, 1.4855738)
-
-[node name="box-large87" parent="Cargo/Boxes" unique_id=138420138 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364963e-07, 2.4785748, 2.2125604, 1.4855738)
-
-[node name="box-long59" parent="Cargo/Boxes" unique_id=1259440649 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 2.347803, 2.2399766, 2.0544624)
-
-[node name="box-large88" parent="Cargo/Boxes" unique_id=1130216249 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.7579498, 2.7452612, 1.4855738)
-
-[node name="box-small31" parent="Cargo/Boxes" unique_id=1758402931 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.037243, 1.8560855, 4.191987)
-
-[node name="box-long60" parent="Cargo/Boxes" unique_id=1303609764 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-5.2453665e-08, 0, 0.8, 0, 1, 0, -1, 0, -2.6226836e-08, 2.1951656, 1.6702785, 4.4524565)
-
-[node name="box-large89" parent="Cargo/Boxes" unique_id=135498157 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 1.2331088e-09, 0.9900023, -0.11284099, -8.654873e-09, 0.14105123, 0.79200184, 2.551548, 2.2047527, 3.567748)
-
-[node name="box-large91" parent="Cargo/Boxes" unique_id=993596718 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.5594559, 2.848887, 3.567748)
-
-[node name="box-large92" parent="Cargo/Boxes" unique_id=986221328 instance=ExtResource("12_i4pon")]
-transform = Transform3D(0.99092495, 0.13441609, -1.4727001e-07, -0.13441609, 0.99092495, 1.997675e-08, 1.6610329e-07, 0, 0.8, 2.5594559, 2.2467175, 2.61582)
-
-[node name="box-large93" parent="Cargo/Boxes" unique_id=1264653385 instance=ExtResource("12_i4pon")]
-transform = Transform3D(0.9955171, 0, 0.07566568, 0, 1, 0, -0.094582126, 0, 0.79641366, 3.5781627, 0.050304532, 3.0753593)
-
-[node name="box-wide56" parent="Cargo/Boxes" unique_id=1678445538 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.2008495, 4.4192905, -1.4971447)
-
-[node name="box-small32" parent="Cargo/Boxes" unique_id=1289922003 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.3044701, 4.4192905, 1.5779686)
-
-[node name="box-large94" parent="Cargo/Boxes" unique_id=382223433 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.5393982, 4.4192905, 0.9537277)
-
-[node name="box-wide57" parent="Cargo/Boxes" unique_id=120047871 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.2008495, 4.4192905, 0.12459183)
-
-[node name="box-small33" parent="Cargo/Boxes" unique_id=1318945901 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.3044701, 4.9626355, 1.5779686)
-
-[node name="box-large95" parent="Cargo/Boxes" unique_id=1165455120 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.5393982, 4.9626355, 0.9537277)
-
-[node name="box-wide58" parent="Cargo/Boxes" unique_id=1417365225 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.2008495, 4.962635, 0.12459183)
-
-[node name="box-small34" parent="Cargo/Boxes" unique_id=81180525 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.3044701, 4.4192905, -0.8002949)
-
-[node name="box-long63" parent="Cargo/Boxes" unique_id=952067238 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.4623928, 4.4192905, -0.4658413)
-
-[node name="box-large96" parent="Cargo/Boxes" unique_id=336762876 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.5393982, 4.4192905, -1.4245348)
-
-[node name="box-large97" parent="Cargo/Boxes" unique_id=1239793244 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 1.8187752, 4.994913, -1.4245348)
-
-[node name="box-large98" parent="Cargo/Boxes" unique_id=983510360 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.2269573, 4.4192905, 0.16525078)
-
-[node name="box-large99" parent="Cargo/Boxes" unique_id=1257609 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.6930828, 4.4192905, 1.1652508)
-
-[node name="box-large100" parent="Cargo/Boxes" unique_id=743136619 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.6930828, 4.4192905, -0.644228)
-
-[node name="box-wide59" parent="Cargo/Boxes" unique_id=1616860095 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 2.1399975, 2.717135, -1.1658735)
-
-[node name="box-small35" parent="Cargo/Boxes" unique_id=2027674510 instance=ExtResource("10_5seas")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 2.036377, 2.7171354, -0.24098682)
-
-[node name="box-long64" parent="Cargo/Boxes" unique_id=91022880 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.8784542, 2.7171354, -0.5754404)
-
-[node name="box-large101" parent="Cargo/Boxes" unique_id=1499651332 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.8014488, 2.7171354, 0.38325405)
-
-[node name="box-wide60" parent="Cargo/Boxes" unique_id=141747124 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 2.1399975, 2.717135, 1.21239)
-
-[node name="box-small36" parent="Cargo/Boxes" unique_id=857201132 instance=ExtResource("10_5seas")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 2.036377, 2.7171354, 2.1372766)
-
-[node name="box-long65" parent="Cargo/Boxes" unique_id=346430985 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.8784542, 2.7171354, 1.8028231)
-
-[node name="box-large102" parent="Cargo/Boxes" unique_id=1572710798 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.8014488, 2.7171354, 2.7615166)
-
-[node name="box-large103" parent="Cargo/Boxes" unique_id=959603277 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.0092258, 2.7171354, 2.3087196)
-
-[node name="box-wide61" parent="Cargo/Boxes" unique_id=1912336469 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.6706772, 2.717135, 1.4795837)
-
-[node name="box-long66" parent="Cargo/Boxes" unique_id=390857085 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.93222046, 2.7171354, 0.8891516)
-
-[node name="box-large104" parent="Cargo/Boxes" unique_id=1590925931 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.0092258, 2.7171354, -0.06954193)
-
-[node name="box-long67" parent="Cargo/Boxes" unique_id=1804759613 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 0.93222046, 3.2604804, 2.5813866)
-
-[node name="box-large105" parent="Cargo/Boxes" unique_id=1108309394 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.0092258, 3.2604804, 1.6226921)
-
-[node name="box-large106" parent="Cargo/Boxes" unique_id=1221118296 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 0.8014488, 2.7171354, -1.2384834)
-
-[node name="box-large107" parent="Cargo/Boxes" unique_id=1683269850 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.7298508, 3.292758, 2.3087196)
-
-[node name="box-wide62" parent="Cargo/Boxes" unique_id=946461127 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.3913021, 3.2927575, 1.4795837)
-
-[node name="box-long68" parent="Cargo/Boxes" unique_id=41812770 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.6528454, 3.292758, 0.8891516)
-
-[node name="box-large108" parent="Cargo/Boxes" unique_id=363698573 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.7298508, 3.292758, -0.06954193)
-
-[node name="box-large109" parent="Cargo/Boxes" unique_id=1912626623 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, -7.868051e-08, 0, -0.8, 1.5220737, 3.292758, -1.2384834)
-
-[node name="box-wide63" parent="Cargo/Boxes" unique_id=1819797521 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.6207886, 2.717135, -0.6767683)
-
-[node name="box-small37" parent="Cargo/Boxes" unique_id=1128387310 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.724409, 2.7171354, -1.601655)
-
-[node name="box-long69" parent="Cargo/Boxes" unique_id=318366032 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.8823318, 2.7171354, -1.2672014)
-
-[node name="box-wide64" parent="Cargo/Boxes" unique_id=1698105939 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.6207886, 2.717135, 3.3232317)
-
-[node name="box-small38" parent="Cargo/Boxes" unique_id=253916934 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.724409, 2.7171354, 2.398345)
-
-[node name="box-long70" parent="Cargo/Boxes" unique_id=728304551 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.8823318, 2.7171354, 2.7327986)
-
-[node name="box-large110" parent="Cargo/Boxes" unique_id=196277805 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.9593372, 2.7171354, 1.7741041)
-
-[node name="box-wide65" parent="Cargo/Boxes" unique_id=1584514991 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.6207886, 2.717135, 0.9449682)
-
-[node name="box-wide66" parent="Cargo/Boxes" unique_id=9421423 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.6207886, 3.26048, 3.3232317)
-
-[node name="box-small39" parent="Cargo/Boxes" unique_id=1701144649 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.724409, 3.2604804, 2.398345)
-
-[node name="box-long71" parent="Cargo/Boxes" unique_id=1798073607 instance=ExtResource("11_xshpo")]
-transform = Transform3D(0.46469995, 0.4598892, 0.60533935, -0.24067143, 0.8879763, -0.31350952, -0.8521333, 0, 0.41865984, 2.8823318, 3.2604804, 2.7327986)
-
-[node name="box-large111" parent="Cargo/Boxes" unique_id=755896695 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.9593372, 3.2604804, 1.7741041)
-
-[node name="box-wide67" parent="Cargo/Boxes" unique_id=1195930884 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.6207886, 3.26048, 0.9449682)
-
-[node name="box-small40" parent="Cargo/Boxes" unique_id=2081147205 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.724409, 2.7171354, 0.02008152)
-
-[node name="box-long72" parent="Cargo/Boxes" unique_id=422819747 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.8823318, 2.7171354, 0.3545351)
-
-[node name="box-large112" parent="Cargo/Boxes" unique_id=93190802 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 3.9593368, 2.7171354, -0.6041584)
-
-[node name="box-wide68" parent="Cargo/Boxes" unique_id=139976858 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-1.2020139e-07, 0, -0.8, 0, 1, 0, 0.99999994, 0, -1.140425e-07, 2.204401, 5.754943, 1.1743536)
-
-[node name="box-wide69" parent="Cargo/Boxes" unique_id=568530559 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.990153e-07, 0, -0.79999995, 0, 1, 0, 0.9999999, 0, -2.3325177e-07, 2.8998585, 5.3217077, -0.36871052)
-
-[node name="box-long73" parent="Cargo/Boxes" unique_id=26571484 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.990153e-07, 0, -0.79999995, 0, 1, 0, 0.9999999, 0, -2.3325177e-07, 1.7980556, 5.939411, -0.107167244)
-
-[node name="box-large113" parent="Cargo/Boxes" unique_id=397263851 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.990153e-07, 0, -0.79999995, 0, 1, 0, 0.9999999, 0, -2.3325177e-07, 2.0707226, 5.7219696, 0.22147179)
-
-[node name="box-long74" parent="Cargo/Boxes" unique_id=2026326284 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 3.8285651, 2.7171354, -1.2327843)
-
-[node name="box-long75" parent="Cargo/Boxes" unique_id=1535927022 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 3.1079407, 3.292758, -1.2327843)
-
-[node name="box-long76" parent="Cargo/Boxes" unique_id=710889447 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-0.5, 0.86601627, 0.003186637, -2.972343e-07, 0.004599355, -0.7999916, -0.8660254, -0.4999948, -0.001839513, 2.54031, 3.9709048, -0.3606863)
-
-[node name="box-large114" parent="Cargo/Boxes" unique_id=632094225 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 3.2387123, 3.292758, -0.6041584)
-
-[node name="box-large115" parent="Cargo/Boxes" unique_id=2117147812 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364963e-07, 2.547308, 4.8793917, -1.4245348)
-
-[node name="box-long77" parent="Cargo/Boxes" unique_id=1147766867 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-1, 0, 2.1855698e-07, 0, 1, 0, -2.5352605e-07, 0, -0.8, 2.4165363, 4.906808, -0.85564613)
-
-[node name="box-large116" parent="Cargo/Boxes" unique_id=908468585 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 1.826683, 5.412092, -1.4245348)
-
-[node name="box-small41" parent="Cargo/Boxes" unique_id=1400030324 instance=ExtResource("10_5seas")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.105976, 4.522917, 1.2818785)
-
-[node name="box-long78" parent="Cargo/Boxes" unique_id=520580312 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1, 0, -8.742276e-09, 0, 1, 0, -8.742276e-09, 0, 0.8, 2.2638988, 4.522917, 1.616332)
-
-[node name="box-large117" parent="Cargo/Boxes" unique_id=603882580 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -8.742276e-09, 5.8441088e-09, 0.74372274, -0.5347906, -6.5018297e-09, 0.6684882, 0.5949782, 2.6202812, 5.149202, 0.6576395)
-
-[node name="box-large119" parent="Cargo/Boxes" unique_id=88517082 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.628189, 5.515718, 0.6576395)
-
-[node name="box-large120" parent="Cargo/Boxes" unique_id=417106175 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 2.628189, 4.9135485, -0.29428864)
-
-[node name="box-large121" parent="Cargo/Boxes" unique_id=1641239316 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 3.646896, 2.7171354, 0.9856272)
-
-[node name="box-wide70" parent="Cargo/Boxes" unique_id=69507569 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 6.4226465, 4.4192905, -0.05411911)
-
-[node name="box-small42" parent="Cargo/Boxes" unique_id=632397387 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.3475332, 4.4192905, -0.770875)
-
-[node name="box-long79" parent="Cargo/Boxes" unique_id=1508889318 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.0130796, 4.4192905, -0.61295223)
-
-[node name="box-large122" parent="Cargo/Boxes" unique_id=1903252824 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.971774, 4.4192905, -0.53594685)
-
-[node name="box-wide71" parent="Cargo/Boxes" unique_id=414423533 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.80091, 4.4192905, -0.8744955)
-
-[node name="box-small43" parent="Cargo/Boxes" unique_id=2106510785 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.3475332, 4.9626355, -0.770875)
-
-[node name="box-long80" parent="Cargo/Boxes" unique_id=787913189 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.0130796, 4.9626355, -0.61295223)
-
-[node name="box-large123" parent="Cargo/Boxes" unique_id=558889769 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.971774, 4.9626355, -0.53594685)
-
-[node name="box-wide72" parent="Cargo/Boxes" unique_id=1366677054 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.80091, 4.962635, -0.8744955)
-
-[node name="box-small44" parent="Cargo/Boxes" unique_id=1324606709 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 5.7257967, 4.4192905, -0.770875)
-
-[node name="box-long81" parent="Cargo/Boxes" unique_id=1910952690 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 5.391343, 4.4192905, -0.61295223)
-
-[node name="box-large124" parent="Cargo/Boxes" unique_id=917157965 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 6.3500366, 4.4192905, 0.46405315)
-
-[node name="box-large125" parent="Cargo/Boxes" unique_id=435015578 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 6.3500366, 4.994913, -0.25656986)
-
-[node name="box-large126" parent="Cargo/Boxes" unique_id=1514586373 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.760251, 4.4192905, 0.15161228)
-
-[node name="box-large127" parent="Cargo/Boxes" unique_id=1006541872 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.760251, 4.4192905, 0.61773777)
-
-[node name="box-large128" parent="Cargo/Boxes" unique_id=2105218166 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 5.56973, 4.4192905, 0.61773777)
-
-[node name="box-wide73" parent="Cargo/Boxes" unique_id=1399125276 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.9117517, 2.717135, 0.88502884)
-
-[node name="box-small45" parent="Cargo/Boxes" unique_id=40374129 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 5.986865, 2.7171354, 0.7814083)
-
-[node name="box-long82" parent="Cargo/Boxes" unique_id=1598626674 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.3213186, 2.7171354, 0.62348557)
-
-[node name="box-large129" parent="Cargo/Boxes" unique_id=1700606475 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 5.362624, 2.7171354, 0.5464802)
-
-[node name="box-wide74" parent="Cargo/Boxes" unique_id=1962567454 instance=ExtResource("9_68f1i")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 4.5334883, 2.717135, 0.88502884)
-
-[node name="box-small46" parent="Cargo/Boxes" unique_id=1054132355 instance=ExtResource("10_5seas")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 3.6086016, 2.7171354, 0.7814083)
-
-[node name="box-long83" parent="Cargo/Boxes" unique_id=1695358811 instance=ExtResource("11_xshpo")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 3.9430552, 2.7171354, 0.62348557)
-
-[node name="box-large130" parent="Cargo/Boxes" unique_id=41639547 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 2.9843616, 2.7171354, 0.5464802)
-
-[node name="box-large131" parent="Cargo/Boxes" unique_id=236565574 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.4371586, 2.7171354, -0.2457428)
-
-[node name="box-wide75" parent="Cargo/Boxes" unique_id=1289942785 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.2662945, 2.717135, -0.58429146)
-
-[node name="box-long84" parent="Cargo/Boxes" unique_id=1248083218 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.8567266, 2.7171354, -0.32274818)
-
-[node name="box-large132" parent="Cargo/Boxes" unique_id=573841149 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.81542, 2.7171354, -0.2457428)
-
-[node name="box-long85" parent="Cargo/Boxes" unique_id=292821823 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.1644917, 3.2604804, -0.32274818)
-
-[node name="box-large133" parent="Cargo/Boxes" unique_id=2005845646 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.123186, 3.2604804, -0.2457428)
-
-[node name="box-large134" parent="Cargo/Boxes" unique_id=667523241 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.9843616, 2.7171354, -0.45351982)
-
-[node name="box-large135" parent="Cargo/Boxes" unique_id=932859166 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.4371586, 3.292758, 0.47488213)
-
-[node name="box-wide76" parent="Cargo/Boxes" unique_id=388037469 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.2662945, 3.2927575, 0.13633347)
-
-[node name="box-long86" parent="Cargo/Boxes" unique_id=1567366601 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.8567266, 3.292758, 0.39787674)
-
-[node name="box-large136" parent="Cargo/Boxes" unique_id=1086720520 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.81542, 3.292758, 0.47488213)
-
-[node name="box-large137" parent="Cargo/Boxes" unique_id=1232058114 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1.223919e-07, 0, 0.8, 0, 1, 0, -1, 0, 1.1364961e-07, 6.9843616, 3.292758, 0.2671051)
-
-[node name="box-wide77" parent="Cargo/Boxes" unique_id=108217246 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 6.4226465, 2.717135, 1.3658199)
-
-[node name="box-small47" parent="Cargo/Boxes" unique_id=1336922428 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 7.347533, 2.7171354, 1.4694405)
-
-[node name="box-long87" parent="Cargo/Boxes" unique_id=1808027034 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 7.0130796, 2.7171354, 1.6273632)
-
-[node name="box-wide78" parent="Cargo/Boxes" unique_id=1156415467 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.4226465, 2.717135, 1.3658199)
-
-[node name="box-small48" parent="Cargo/Boxes" unique_id=1648911427 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.3475332, 2.7171354, 1.4694405)
-
-[node name="box-long88" parent="Cargo/Boxes" unique_id=686957698 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.0130796, 2.7171354, 1.6273632)
-
-[node name="box-large138" parent="Cargo/Boxes" unique_id=1475357010 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.971774, 2.7171354, 1.7043686)
-
-[node name="box-wide79" parent="Cargo/Boxes" unique_id=1224116502 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.80091, 2.717135, 1.3658199)
-
-[node name="box-wide80" parent="Cargo/Boxes" unique_id=1693117000 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 2.4226465, 3.26048, 1.3658199)
-
-[node name="box-small49" parent="Cargo/Boxes" unique_id=975124220 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.3475332, 3.2604804, 1.4694405)
-
-[node name="box-long89" parent="Cargo/Boxes" unique_id=1835949504 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.0130796, 3.2604804, 1.6273632)
-
-[node name="box-large139" parent="Cargo/Boxes" unique_id=1684638069 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 3.971774, 3.2604804, 1.7043686)
-
-[node name="box-wide81" parent="Cargo/Boxes" unique_id=1360310448 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.80091, 3.26048, 1.3658199)
-
-[node name="box-small50" parent="Cargo/Boxes" unique_id=104545309 instance=ExtResource("10_5seas")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.7257967, 2.7171354, 1.4694405)
-
-[node name="box-long90" parent="Cargo/Boxes" unique_id=485650838 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.391343, 2.7171354, 1.6273632)
-
-[node name="box-wide82" parent="Cargo/Boxes" unique_id=588384461 instance=ExtResource("9_68f1i")]
-transform = Transform3D(-0.99999994, 0, 1.4901161e-07, 0, 1, 0, -1.6391277e-07, 0, -0.8, 3.7511482, 5.754943, 0.12905598)
-
-[node name="box-long91" parent="Cargo/Boxes" unique_id=55992867 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-0.66471267, 0.699108, -0.21075857, 0.72470945, 0.6890545, -1.9438221e-07, 0.18153, -0.1909236, -0.77173877, 5.032669, 5.530069, 0.41460514)
-
-[node name="box-large141" parent="Cargo/Boxes" unique_id=1686769201 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-0.9999999, 0, 2.6822087e-07, 0, 1, 0, -3.427267e-07, 0, -0.79999995, 4.70403, 5.7219696, 0.81575394)
-
-[node name="box-long94" parent="Cargo/Boxes" unique_id=1334698550 instance=ExtResource("11_xshpo")]
-transform = Transform3D(0.8660254, 0.49999478, 0.0018395127, -2.972655e-07, 0.0045993556, -0.7999916, -0.49999994, 0.8660163, 0.0031866378, 6.1065645, 3.9709048, 1.2853413)
-
-[node name="box-long95" parent="Cargo/Boxes" unique_id=920774982 instance=ExtResource("11_xshpo")]
-transform = Transform3D(2.9723745e-07, 0, 0.8, 0, 1, 0, -1, 0, 2.5352608e-07, 5.781148, 4.906808, 0.3411913)
-
-[node name="box-small51" parent="Cargo/Boxes" unique_id=1623164083 instance=ExtResource("10_5seas")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.6436234, 4.522917, 0.030631065)
-
-[node name="box-long96" parent="Cargo/Boxes" unique_id=1743349559 instance=ExtResource("11_xshpo")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 3.3091698, 4.522917, 0.18855381)
-
-[node name="box-large145" parent="Cargo/Boxes" unique_id=821525385 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 1, 0, 1, 0, -4.371139e-08, 4.2678623, 4.9546075, 0.5449362)
-
-[node name="box-large146" parent="Cargo/Boxes" unique_id=1381895264 instance=ExtResource("12_i4pon")]
-transform = Transform3D(1, 0, -1.4861874e-07, 0, 1, 0, 1.6610329e-07, 0, 0.8, 3.4605885, 4.983017, 0.46304417)
-
-[node name="box-large147" parent="Cargo/Boxes" unique_id=2102328875 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 4.2678623, 5.515718, 0.55284405)
-
-[node name="box-large148" parent="Cargo/Boxes" unique_id=608036435 instance=ExtResource("12_i4pon")]
-transform = Transform3D(-2.0981469e-07, 0, -0.8, 0, 1, 0, 1, 0, -1.8358784e-07, 5.2197905, 4.9135485, 0.55284405)
 
 [node name="template-wall-half" parent="." unique_id=179538263 instance=ExtResource("22_b600h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.8024, -1.1920929e-07, 3.9091105)
@@ -4186,6 +3001,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7378171, 0.02834891, -0.831
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015502896, -0.03458942, 0.0039975643)
 shape = SubResource("BoxShape3D_7nxc4")
 
+[editable path="Base/Closet/PaperBox/SnapZone"]
 [editable path="Base/Closet/PaperBox/PickablePaper"]
 [editable path="Base/Closet/PaperBox/PickablePaper/GlowOutline"]
 [editable path="Base/CockpitDoor"]

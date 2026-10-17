@@ -14,12 +14,12 @@ material = SubResource("StandardMaterial3D_t65tg")
 orientation = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7nxc4"]
-height = 1.3964844
-radius = 0.5527344
+height = 0.05621338
+radius = 1.1948242
 
-[node name="TeleportTarget" type="Area3D" unique_id=288386913]
-collision_layer = 131072
-collision_mask = 0
+[node name="TeleportTarget" type="StaticBody3D" unique_id=1263574366]
+collision_layer = 16777216
+collision_mask = 16777216
 script = ExtResource("1_4s5a0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1284920698]
@@ -27,5 +27,5 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 mesh = SubResource("QuadMesh_7nxc4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1978473100]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3017578, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02572769, 0)
 shape = SubResource("CylinderShape3D_7nxc4")

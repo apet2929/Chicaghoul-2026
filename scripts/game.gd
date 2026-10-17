@@ -7,8 +7,8 @@ var cockpit_door_open = false
 var closet_door_open = false
 func _ready() -> void:
 	super._ready()
-	if !Engine.is_editor_hint(): # is in tool mode or are we actualyl running
-		Globals.on_teleport.connect(teleport_player)
+	if Engine.is_editor_hint(): # is in tool mode or are we actualyl running
+		return
 	
 	if Globals.checkpoint != 0:
 		restore_checkpoint(Globals.checkpoint)
@@ -68,21 +68,6 @@ func passphrase_correct(button):
 func passphrase_incorrect(button):
 	if button == %FlightControlsButtons:
 		pass
-
-func teleport_player(teleport_target: TeleportTarget):
-	if !Globals.teleporting:  # Poor man's mutex
-		Globals.teleporting = true
-		print("Running teleport_player!")
-		var tween = get_tree().create_tween()
-		tween.tween_method(set_fade, 0.0, 1.0, 1.0)
-		await tween.finished
-		tween.kill()
-		$XROrigin3D.global_position = teleport_target.global_position + Vector3(0,1.5,0)
-		tween = get_tree().create_tween()
-		tween.tween_method(set_fade, 1.0, 0.0, 1.0)
-		await tween.finished
-		tween.kill()
-		Globals.teleporting = false
 
 ## Sets the fade-alpha for scene transitions, allowing us to black out the
 ## screen for transitions.. The [param p_value] parameter must be in the range

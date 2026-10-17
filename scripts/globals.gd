@@ -2,7 +2,6 @@ extends Node
 
 signal camera_change(new_camera: XRCamera3D)
 signal button_pressed(button)
-signal on_teleport(target: TeleportTarget)
 signal recording_finished(recording: AudioStreamWAV)
 signal passphrase_correct(buttons)
 signal passphrase_incorrect(buttons)
@@ -22,7 +21,7 @@ var main_monitor_ui_inst: ShipMonitorUI = null
 var monitors: Array[ShipMonitorUI] = []
 var subtitle_inst: Subtitle = null
 var camera: XRCamera3D = null
-var teleporting = false # Poor man's mutex
+#var teleporting = false # Poor man's mutex
 var passcode_states = {
 	
 }
@@ -34,19 +33,14 @@ var buttons_container: ButtonsContainer = null
 func set_camera(camera: XRCamera3D):
 	self.camera = camera
 	camera_change.emit(camera)
-	
-func teleport_to(target: TeleportTarget):
-	on_teleport.emit(target)
 
 func restart_from_checkpoint():
 	# Reset anything that would be set during game scene initialization
-	teleporting = false
 	passcode_states = {}
 	has_intercom = false
 	main_monitor_ui_inst =null
 	monitors = []
 	subtitle_inst =null
 	camera = null
-	teleporting = false # Poor man's mutex
 	passcode_states = {}
 	buttons_container = null

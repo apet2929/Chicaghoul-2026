@@ -1,4 +1,4 @@
-extends Area3D
+extends StaticBody3D
 class_name TeleportTarget
 
 @export var enabled = true

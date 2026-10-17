@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://detj82cicc32c" path="res://scenes/player_pointer_bone.tscn" id="16_e1j6l"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="16_qnb83"]
 [ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="17_pl11u"]
-[ext_resource type="PackedScene" uid="uid://0kvgq4huxkok" path="res://scenes/teleport_raycast.tscn" id="19_qnb83"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="22_pr1ej"]
 [ext_resource type="AudioStream" uid="uid://hyo3oxrfvy3s" path="res://assets/sound/sacre_bleu.mp3" id="23_sww3w"]
 [ext_resource type="Script" uid="uid://bcrl5x6roupyq" path="res://scripts/buttons_container.gd" id="24_7025r"]
 [ext_resource type="PackedScene" uid="uid://bwa22rbwirlst" path="res://scenes/submit_button.tscn" id="25_sgl2t"]
@@ -55,10 +55,8 @@ sky = SubResource("Sky_bt5mj")
 ambient_light_source = 1
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.3
-tonemap_mode = 2
-tonemap_exposure = 0.61
+tonemap_exposure = 0.3
 tonemap_white = 1.45
-ssao_enabled = true
 ssao_radius = 2.03
 ssao_intensity = 8.1
 
@@ -176,6 +174,10 @@ text = "Audio Lures"
 font_size = 6
 depth = 0.002
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_o8ni1"]
+resource_local_to_scene = true
+radius = 0.3
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryyf7"]
 resource_name = "metal"
 vertex_color_use_as_albedo = true
@@ -291,32 +293,32 @@ text = "Utility Closet Lock"
 font_size = 4
 depth = 0.002
 
-[sub_resource type="QuadMesh" id="QuadMesh_o8ni1"]
+[sub_resource type="QuadMesh" id="QuadMesh_3hbvx"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3hbvx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q8j3a"]
 viewport_path = NodePath("Level/Screens/computer-screen1/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8j3a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms3bu"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_3hbvx")
+albedo_texture = SubResource("ViewportTexture_q8j3a")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ms3bu"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ixpq"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_7ixpq"]
+[sub_resource type="QuadMesh" id="QuadMesh_bk1p3"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bk1p3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_n8ral"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8ral"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yd4ix"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
@@ -326,57 +328,57 @@ specular_mode = 1
 disable_ambient_light = true
 disable_fog = true
 disable_specular_occlusion = true
-albedo_texture = SubResource("ViewportTexture_bk1p3")
+albedo_texture = SubResource("ViewportTexture_n8ral")
 texture_filter = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_yd4ix"]
+[sub_resource type="QuadMesh" id="QuadMesh_66xif"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_66xif"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bnuda"]
 viewport_path = NodePath("Level/Screens/computer-screen2/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnuda"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rmfi"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_66xif")
+albedo_texture = SubResource("ViewportTexture_bnuda")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0rmfi"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbak0"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_xbak0"]
+[sub_resource type="QuadMesh" id="QuadMesh_3x28f"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3x28f"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_l6q63"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6q63"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmvbu"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_3x28f")
+albedo_texture = SubResource("ViewportTexture_l6q63")
 texture_filter = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_mmvbu"]
+[sub_resource type="QuadMesh" id="QuadMesh_weeiq"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_weeiq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uxocx"]
 viewport_path = NodePath("Level/Screens/computer-screen3/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxocx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nv0b"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_weeiq")
+albedo_texture = SubResource("ViewportTexture_uxocx")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7nv0b"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8oq8"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
@@ -560,19 +562,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ebbq")
 
-[sub_resource type="QuadMesh" id="QuadMesh_o8oq8"]
+[sub_resource type="QuadMesh" id="QuadMesh_sxt1d"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sxt1d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2iuns"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iuns"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkqi"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 2
-albedo_texture = SubResource("ViewportTexture_sxt1d")
+albedo_texture = SubResource("ViewportTexture_2iuns")
 texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f557"]
@@ -617,37 +619,37 @@ shadow_mesh = SubResource("ArrayMesh_2ly7d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sl42"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_7gkqi"]
+[sub_resource type="QuadMesh" id="QuadMesh_753oq"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_753oq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3x338"]
 viewport_path = NodePath("Level/Screens/computer-screen5/UIView/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x338"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yg85"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_753oq")
+albedo_texture = SubResource("ViewportTexture_3x338")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1yg85"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0g06"]
 resource_local_to_scene = true
 size = Vector3(1.5, 1, 0.02)
 
-[sub_resource type="QuadMesh" id="QuadMesh_s0g06"]
+[sub_resource type="QuadMesh" id="QuadMesh_2gnni"]
 resource_local_to_scene = true
 size = Vector2(1.5, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2gnni"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vgxg3"]
 viewport_path = NodePath("CameraView/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgxg3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nbsr"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_2gnni")
+albedo_texture = SubResource("ViewportTexture_vgxg3")
 texture_filter = 1
 
 [node name="Game" unique_id=981716421 instance=ExtResource("1_uwrxv")]
@@ -746,12 +748,16 @@ metadata/_edit_lock_ = true
 
 [node name="SubtitlesContainer" parent="XROrigin3D/XRCamera3D" index="0" unique_id=1750260639 instance=ExtResource("3_dinhu")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -1.7368264)
+enabled = false
+collision_layer = 0
 material = ExtResource("8_ssvqc")
 metadata/_edit_lock_ = true
 
 [node name="PopupContainer" parent="XROrigin3D/XRCamera3D" index="1" unique_id=852650615 instance=ExtResource("7_ca42v")]
 unique_name_in_owner = true
 transform = Transform3D(0.99999994, 0, -4.656613e-10, 0, 1, 0, 4.656613e-10, 0, 0.99999994, 0, 0, -1.7)
+enabled = false
+collision_layer = 0
 material = ExtResource("8_ssvqc")
 unshaded = true
 metadata/_edit_lock_ = true
@@ -972,10 +978,6 @@ transform = Transform3D(0.5408295, -0.8408129, 0.023173586, 0.08262676, 0.080524
 root_node = NodePath("../Hand_Nails_R")
 tree_root = SubResource("AnimationNodeBlendTree_pf7vy")
 
-[node name="TeleportRaycast" parent="XROrigin3D/RightHand/RightPhysicsHand" index="2" unique_id=696261466 instance=ExtResource("19_qnb83")]
-transform = Transform3D(0.99993944, -0.0040792804, -0.0102033, 0.0040794252, -0.72437394, 0.6893952, -0.010203239, -0.6893951, -0.72431374, -0.000715971, -0.091701925, -0.120996)
-collision_mask = 16777216
-
 [node name="MovementTurn" parent="XROrigin3D/RightHand" index="1" unique_id=1088511353 instance=ExtResource("16_bhx41")]
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" index="2" unique_id=1630750158 instance=ExtResource("13_sww3w")]
@@ -983,6 +985,14 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 ranged_enable = false
 
 [node name="MovementClimb" parent="XROrigin3D/RightHand" index="3" unique_id=1508827680 instance=ExtResource("16_qnb83")]
+
+[node name="FunctionTeleport" parent="XROrigin3D/RightHand" index="4" unique_id=1936217655 instance=ExtResource("22_pr1ej")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, -0.07071068, -0.07071068)
+no_collision_color = Color(1, 0, 0, 1)
+strength = 10.0
+target_texture = null
+collision_mask = 16777216
+valid_teleport_mask = 16777216
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=2132967254 instance=ExtResource("3_iywne")]
 
@@ -1073,8 +1083,11 @@ unique_name_in_owner = true
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 metadata/_edit_lock_ = true
 
+[node name="CollisionShape3D" parent="Level/Environment/Base/Closet/PaperBox/SnapZone" parent_id_path=PackedInt32Array(1318367848, 1998900079) index="0"]
+shape = SubResource("SphereShape3D_o8ni1")
+
 [node name="DirectionalLight3D12" parent="Level/Environment/Lighting" parent_id_path=PackedInt32Array(1318367848, 355751096) index="10" unique_id=977019455]
-transform = Transform3D(-0.07926466, 0.735654, -0.67270243, -0.005278522, 0.6745059, 0.73824954, 0.99683774, 0.06206803, -0.04958145, -8.252447, 8.482285, 5.4299746)
+transform = Transform3D(-0.079264775, 0.7356547, -0.6727026, -0.0052785296, 0.67450655, 0.7382497, 0.99683917, 0.062068094, -0.049581464, -11.867342, 7.8356247, 5.4299746)
 
 [node name="desk_chairArms" type="Node3D" parent="Level" index="2" unique_id=1618009687]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.365514, -1.1920929e-07, -1.3523546)
@@ -1137,11 +1150,11 @@ script = ExtResource("34_02fa5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.397759, 1.3958333, -4.249948)
 
 [node name="Screen" parent="Level/Screens/computer-screen1/UIView" parent_id_path=PackedInt32Array(98513756, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_o8ni1")
-surface_material_override/0 = SubResource("StandardMaterial3D_q8j3a")
+mesh = SubResource("QuadMesh_3hbvx")
+surface_material_override/0 = SubResource("StandardMaterial3D_ms3bu")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen1/UIView/StaticBody3D" parent_id_path=PackedInt32Array(98513756, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_ms3bu")
+shape = SubResource("BoxShape3D_7ixpq")
 
 [node name="SubViewport" parent="Level/Screens/computer-screen1/CameraView" parent_id_path=PackedInt32Array(98513756, 504934570) index="0" unique_id=572689086]
 size = Vector2i(1024, 512)
@@ -1153,35 +1166,35 @@ transform = Transform3D(0.9292897, 0.27279717, 0.24900238, -0.26350182, 0.962071
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 
 [node name="Screen" parent="Level/Screens/computer-screen1/CameraView" parent_id_path=PackedInt32Array(98513756, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_7ixpq")
-surface_material_override/0 = SubResource("StandardMaterial3D_n8ral")
+mesh = SubResource("QuadMesh_bk1p3")
+surface_material_override/0 = SubResource("StandardMaterial3D_yd4ix")
 
 [node name="computer-screen2" parent="Level/Screens" index="1" unique_id=866048647 instance=ExtResource("35_nepv3")]
 transform = Transform3D(0.79415417, -0.2367383, -0.5597089, -0.041917376, 0.8974715, -0.439076, 0.6062689, 0.37215558, 0.7028073, 14.176822, 2.1248732, -4.38865)
 
 [node name="Screen" parent="Level/Screens/computer-screen2/UIView" parent_id_path=PackedInt32Array(866048647, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_yd4ix")
-surface_material_override/0 = SubResource("StandardMaterial3D_bnuda")
+mesh = SubResource("QuadMesh_66xif")
+surface_material_override/0 = SubResource("StandardMaterial3D_0rmfi")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen2/UIView/StaticBody3D" parent_id_path=PackedInt32Array(866048647, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_0rmfi")
+shape = SubResource("BoxShape3D_xbak0")
 
 [node name="SubViewport" parent="Level/Screens/computer-screen2/CameraView" parent_id_path=PackedInt32Array(866048647, 504934570) index="0" unique_id=572689086]
 size = Vector2i(1024, 512)
 
 [node name="Screen" parent="Level/Screens/computer-screen2/CameraView" parent_id_path=PackedInt32Array(866048647, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_xbak0")
-surface_material_override/0 = SubResource("StandardMaterial3D_l6q63")
+mesh = SubResource("QuadMesh_3x28f")
+surface_material_override/0 = SubResource("StandardMaterial3D_mmvbu")
 
 [node name="computer-screen3" parent="Level/Screens" index="2" unique_id=2057572418 instance=ExtResource("35_nepv3")]
 transform = Transform3D(-0.38671255, -0.4197831, -0.8211184, -0.041917365, 0.8974715, -0.439076, 0.9212471, -0.13537708, -0.36465973, 14.204406, 2.1248732, -0.31830615)
 
 [node name="Screen" parent="Level/Screens/computer-screen3/UIView" parent_id_path=PackedInt32Array(2057572418, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_mmvbu")
-surface_material_override/0 = SubResource("StandardMaterial3D_uxocx")
+mesh = SubResource("QuadMesh_weeiq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7nv0b")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen3/UIView/StaticBody3D" parent_id_path=PackedInt32Array(2057572418, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_7nv0b")
+shape = SubResource("BoxShape3D_o8oq8")
 
 [node name="turret_double2" parent="Level/Screens/computer-screen3/CameraView/SubViewport" parent_id_path=PackedInt32Array(2057572418, 572689086) index="0" unique_id=616446629 instance=ExtResource("36_7025r")]
 transform = Transform3D(0.35807914, 0.029586442, -0.93322235, -0.26350188, 0.96207154, -0.0706051, 0.8957377, 0.27118802, 0.3522938, -4.2231092, 4.397524, 3.2142584)
@@ -1209,8 +1222,8 @@ skeleton = NodePath("")
 transform = Transform3D(-0.9356572, 0.1299113, -0.32812822, 0.35087198, 0.44220555, -0.82543534, 0.03786671, -0.88745576, -0.45933518, -0.1448803, 0.73360705, -0.22435045)
 
 [node name="Screen" parent="Level/Screens/computer-screen3/CameraView" parent_id_path=PackedInt32Array(2057572418, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_o8oq8")
-surface_material_override/0 = SubResource("StandardMaterial3D_2iuns")
+mesh = SubResource("QuadMesh_sxt1d")
+surface_material_override/0 = SubResource("StandardMaterial3D_7gkqi")
 
 [node name="MainScreen" type="Node3D" parent="Level/Screens" index="3" unique_id=979680391]
 transform = Transform3D(-0.027630437, -0.04388413, -0.9986544, -0.001213721, 0.99903655, -0.04386741, 0.9996175, 1.3038516e-08, -0.02765708, 14.585436, 0.9267067, -2.3643186)
@@ -1233,23 +1246,24 @@ scene_properties_keys = PackedStringArray("ship_main_monitor_ui.gd")
 transform = Transform3D(-0.99961746, 0, 0.027657231, 0, 1, 0, -0.027657231, 0, -0.99961746, 12.626931, 1.0100532, 0.039051414)
 
 [node name="Screen" parent="Level/Screens/computer-screen5/UIView" parent_id_path=PackedInt32Array(295747199, 32117418) index="1" unique_id=780899359]
-mesh = SubResource("QuadMesh_7gkqi")
-surface_material_override/0 = SubResource("StandardMaterial3D_3x338")
+mesh = SubResource("QuadMesh_753oq")
+surface_material_override/0 = SubResource("StandardMaterial3D_1yg85")
 
 [node name="CollisionShape3D" parent="Level/Screens/computer-screen5/UIView/StaticBody3D" parent_id_path=PackedInt32Array(295747199, 430693555) index="0" unique_id=96619963]
-shape = SubResource("BoxShape3D_1yg85")
+shape = SubResource("BoxShape3D_s0g06")
 
 [node name="turret_double3" parent="Level/Screens/computer-screen5/CameraView/SubViewport" parent_id_path=PackedInt32Array(295747199, 572689086) index="0" unique_id=1777409223 instance=ExtResource("36_7025r")]
 transform = Transform3D(0.92928976, 0.27279717, 0.24900235, -0.12668714, 0.86868393, -0.47889295, -0.34694502, 0.4134849, 0.841819, -11.209466, 3.9184723, 4.4391875)
 
 [node name="Screen" parent="Level/Screens/computer-screen5/CameraView" parent_id_path=PackedInt32Array(295747199, 504934570) index="1" unique_id=35850800]
-mesh = SubResource("QuadMesh_s0g06")
-surface_material_override/0 = SubResource("StandardMaterial3D_vgxg3")
+mesh = SubResource("QuadMesh_2gnni")
+surface_material_override/0 = SubResource("StandardMaterial3D_4nbsr")
 
 [editable path="XROrigin3D/LeftHand/LeftPhysicsHand"]
 [editable path="XROrigin3D/LeftHand/LeftPhysicsHand/Hand_Nails_L"]
 [editable path="XROrigin3D/RightHand/RightPhysicsHand"]
 [editable path="XROrigin3D/RightHand/RightPhysicsHand/Hand_Nails_R"]
+[editable path="XROrigin3D/RightHand/FunctionTeleport"]
 [editable path="Level/Buttons/CancelOrderButton/Plate3"]
 [editable path="Level/Buttons/SubmitButton/Plate3"]
 [editable path="Level/Buttons/FlightControlsButtons"]
@@ -1259,6 +1273,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vgxg3")
 [editable path="Level/Buttons/EscapePodPasscodeButtons/LeftButton"]
 [editable path="Level/Buttons/AudioLureButtons/Plate"]
 [editable path="Level/Environment"]
+[editable path="Level/Environment/Base/Cockpit/TT_Chair"]
+[editable path="Level/Environment/Base/Closet/PaperBox/SnapZone"]
 [editable path="Level/Environment/Base/Closet/PaperBox/PickablePaper"]
 [editable path="Level/Environment/Base/Closet/PaperBox/PickablePaper/GlowOutline"]
 [editable path="Level/Environment/Base/CockpitDoor"]

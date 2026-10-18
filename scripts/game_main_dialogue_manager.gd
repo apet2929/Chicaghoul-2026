@@ -13,16 +13,29 @@ func _ready():
 func show_tutorial_ui():
 	Globals.main_monitor_ui_inst.show_tutorial_ui()
 	
-
+# TODO: After enter passcode correctly, disable door locks and make all doors open
+# then, its a dash to the escape pod
 func enter_alien():
 	all_lights_flicker_hard()
+	var alien: Alien = get_tree().get_first_node_in_group("alien")
+	
+	alien.move()
+	
+func game_start():
+	var alien: Alien = get_tree().get_first_node_in_group("alien")
+	alien.current_location = Alien.LOC_CLOSET
+	var doors = Globals.doors_container
+	doors.closet_door.open_close(false)
+	doors.cockpit_door.open_close(false)
+	enter_alien()
+	
 	
 func alien_lines_1():
 	all_lights_flicker_hard()
 	# TODO: If player unlocks cargo hold here, they should die
 
 func wait_for_get_intercom():
-	var intercom = get_tree().get_first_node_in_group("paper1")
+	var intercom = get_tree().get_first_node_in_group("microphone")
 	await intercom.picked_up
 	print("Got intercom!")
 	Globals.has_intercom = true
@@ -35,19 +48,27 @@ func wait_for_record_1():
 func speed_check_lock_cockpit():
 	# Lock the cockpit before time runs out or you die
 	pass
+	
+func wait_for_open_escape_pod():
+	Globals.passphrase_correct.connect(passphrase_correct)
+	pause()
+	
+func passphrase_correct(passphrase_buttons):
+	if passphrase_buttons == Globals.buttons_container.escape_pod_passcode_button:
+		unpause(null)
 
 func all_lights_flicker(flicker_rate):
-	$Level/Environment.all_lights_flicker(flicker_rate)
+	%Environment.all_lights_flicker(flicker_rate)
 
 
 func all_lights_flicker_hard():
-	$Level/Environment.all_lights_flicker(1.09)
+	%Environment.all_lights_flicker(1.09)
 
 func all_lights_flicker_medium():
-	$Level/Environment.all_lights_flicker(1.04)
-	
-func all_lights_flicker_none():
-	$Level/Environment.all_lights_flicker(0.5)
+	%Environment.all_lights_flicker(1.04)
+
+func all_lights_flicker_reset():
+	%Environment.reset_flicker()
 
 func play_sfx(node: AudioStreamPlayer, name):
 	node.play(name)

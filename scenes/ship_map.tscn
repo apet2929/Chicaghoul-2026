@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://br8oemjgno1j6"]
+
+[ext_resource type="Script" uid="uid://ci2jupuill76y" path="res://scripts/ship_map.gd" id="1_ssgem"]
+[ext_resource type="PackedScene" uid="uid://ucc00i4bwsag" path="res://scenes/alien_location_indicator.tscn" id="2_n1vws"]
+[ext_resource type="Texture2D" uid="uid://djjfneuk76h2w" path="res://assets/me/ship_map2.jpg" id="2_ssgem"]
+[ext_resource type="Texture2D" uid="uid://n2rbxhexglmq" path="res://assets/kenney/kenney_space-kit/Side/meteor.png" id="3_wi6kp"]
+[ext_resource type="Script" uid="uid://0i8cqspul7qv" path="res://scripts/ship_map_doors.gd" id="5_cm4xs"]
+[ext_resource type="Texture2D" uid="uid://dcod5pawts70t" path="res://assets/me/plaque.png" id="6_ldmc5"]
+
+[node name="Control" type="Control" unique_id=1548665145]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ssgem")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=77801203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ssgem")
+expand_mode = 2
+
+[node name="Locations" type="Control" parent="." unique_id=22412531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LocCockpit" parent="Locations" unique_id=12348381 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -25.0
+offset_right = -194.0
+offset_bottom = 42.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_wi6kp")
+
+[node name="LocFoyer" parent="Locations" unique_id=953269187 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -25.0
+offset_right = 85.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wi6kp")
+
+[node name="LocCloset" parent="Locations" unique_id=601405849 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -204.0
+offset_right = -74.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_wi6kp")
+
+[node name="LocCargo" parent="Locations" unique_id=235348994 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 1)
+layout_mode = 0
+offset_left = 397.0
+offset_top = 162.0
+offset_right = 476.0
+offset_bottom = 229.0
+texture = ExtResource("3_wi6kp")
+
+[node name="LocEngine" parent="Locations" unique_id=1813457021 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 363.0
+offset_top = -3.0
+offset_right = 442.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture = ExtResource("3_wi6kp")
+
+[node name="Doors" type="Control" parent="." unique_id=1301054372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_cm4xs")
+
+[node name="DoorCockpit" parent="Doors" unique_id=2078404090 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.122, 0.122, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -65.00003
+offset_right = -245.0
+offset_bottom = 1.9999695
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+scale = Vector2(1.4799994, 1)
+texture = ExtResource("6_ldmc5")
+
+[node name="DoorCargo" parent="Doors" unique_id=1986158414 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 0.24313726)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -616.0
+offset_top = -114.0
+offset_right = -516.0
+offset_bottom = -47.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.4799994, 1)
+texture = ExtResource("6_ldmc5")
+
+[node name="DoorCloset" parent="Doors" unique_id=791404213 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 0.24313726)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -601.0
+offset_top = 76.99997
+offset_right = -501.0
+offset_bottom = 143.99997
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+scale = Vector2(1.4799994, 1)
+texture = ExtResource("6_ldmc5")
+
+[node name="DoorEngine" parent="Doors" unique_id=1955267370 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 0.24313726)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -659.0
+offset_top = -12.0
+offset_right = -559.0
+offset_bottom = 55.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 3.1856928
+scale = Vector2(1.4799994, 1)
+texture = ExtResource("6_ldmc5")
+
+[node name="DoorEscapePod" parent="Doors" unique_id=1329840495 instance=ExtResource("2_n1vws")]
+modulate = Color(1, 0.120000005, 0.120000005, 0.24313726)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -824.0
+offset_top = -64.0
+offset_right = -724.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+scale = Vector2(1.4799994, 1)
+texture = ExtResource("6_ldmc5")

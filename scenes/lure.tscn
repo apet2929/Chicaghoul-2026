@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cq01ydtu38lvx"]
+
+[node name="Lure" type="AudioStreamPlayer3D" unique_id=1664230590]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
+volume_db = 5.0
+max_distance = 50.0
+panning_strength = 2.01
+bus = &"Lure"

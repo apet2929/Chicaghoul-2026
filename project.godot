@@ -24,6 +24,7 @@ run/main_scene.pc="uid://dbeb7yij08a0k"
 [audio]
 
 buses/default_bus_layout="uid://carhujpnerjxi"
+driver/enable_input=true
 
 [autoload]
 

@@ -17,7 +17,7 @@ orientation = 1
 height = 0.05621338
 radius = 1.1948242
 
-[node name="TeleportTarget" type="StaticBody3D" unique_id=1263574366]
+[node name="TeleportTarget" type="StaticBody3D" unique_id=1263574366 groups=["teleport_target"]]
 collision_layer = 16777216
 collision_mask = 16777216
 script = ExtResource("1_4s5a0")

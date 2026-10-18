@@ -2,16 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ddy4fev7h8s5g" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="Color"]
 [ext_resource type="Texture2D" uid="uid://b8vn7gw7s614x" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Displacement.jpg" id="Displacement"]
-[ext_resource type="Texture2D" uid="uid://trf6vv2qykcf" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_NormalGL.jpg" id="NormalGL"]
-[ext_resource type="Texture2D" uid="uid://cdy3rsyods7y6" path="res://assets/Metal062C_1K-JPG/Metal062C_1K-JPG_Roughness.jpg" id="Roughness"]
 
 [resource]
-albedo_color = Color(0.91657764, 0.604401, 0, 1)
+shading_mode = 0
+albedo_color = Color(1, 0.87266284, 0.71788466, 1)
 albedo_texture = ExtResource("Color")
-roughness_texture = ExtResource("Roughness")
-roughness_texture_channel = 4
-normal_enabled = true
-normal_texture = ExtResource("NormalGL")
 heightmap_enabled = true
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("Displacement")

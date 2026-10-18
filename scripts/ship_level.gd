@@ -13,6 +13,12 @@ func all_lights_flicker(flicker_rate):
 		if light is FlickerLight:
 			light.flicker_rate = flicker_rate
 
+func reset_flicker():
+	var lights = $Lighting.get_children()
+	for light in lights:
+		if light is FlickerLight:
+			light.reset_rate()
+
 func set_main_monitor_text(text):
 	pass
 	#var main_screen = $Base/Cockpit/Screens/MainScreen

@@ -3,12 +3,19 @@ extends SpotLight3D
 
 # Using poisson distribution 
 @export var flicker_rate = 1.04
+var _original_flicker_rate
+func _ready() -> void:
+	_original_flicker_rate = flicker_rate
+	
+func reset_rate():
+	flicker_rate = _original_flicker_rate
+
 #var time_since_last_flicker = 0.0
 func _process(delta: float) -> void:
 	var should_flicker = randf() > (0.999 / flicker_rate)
-	if should_flicker:
+	if should_flicker and !Globals.epilepsy_protection:
 		flicker()
-		
+
 func flicker():
 	self.visible = !self.visible
 

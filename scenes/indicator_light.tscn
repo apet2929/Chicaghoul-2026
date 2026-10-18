@@ -5,11 +5,12 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymhr1"]
 transparency = 1
 blend_mode = 1
-albedo_color = Color(0.60784316, 0.627451, 0.5803922, 1)
+albedo_color = Color(0.32941177, 0.93333334, 0.9529412, 1)
 metallic = 0.95
 metallic_specular = 0.94
 roughness = 0.08
 emission_enabled = true
+emission = Color(0.32941177, 0.93333334, 0.9529412, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_27d7j"]
 material = SubResource("StandardMaterial3D_ymhr1")

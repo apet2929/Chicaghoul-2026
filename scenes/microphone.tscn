@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc2a7afqef24b" path="res://scripts/microphone.gd" id="1_5p4jn"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_erbfv"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_micn4"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_f84gd"]
 [ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="4_ahljw"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_vjqgm"]
@@ -45,8 +46,6 @@ top_radius = 0.05
 bottom_radius = 0.05
 height = 0.05
 
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_27d7j"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_u283h"]
 material = SubResource("StandardMaterial3D_27d7j")
 flip_faces = true
@@ -57,47 +56,55 @@ shading_mode = 0
 albedo_color = Color(1, 0.9055, 0.19, 1)
 grow_amount = 0.02
 
-[node name="Microphone" type="Node3D" unique_id=467874620]
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_micn4"]
+
+[node name="Microphone" type="Node3D" unique_id=467874620 groups=["microphone1"]]
 script = ExtResource("1_5p4jn")
 
-[node name="Microphone" type="RigidBody3D" parent="." unique_id=1398128572]
+[node name="SnapZone" parent="." unique_id=1664046820 instance=ExtResource("2_micn4")]
+
+[node name="Microphone" type="RigidBody3D" parent="SnapZone" unique_id=1398128572 groups=["microphone"]]
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("2_erbfv")
 
-[node name="GrabPointHandLeft" parent="Microphone" unique_id=513329526 instance=ExtResource("3_f84gd")]
+[node name="GrabPointHandLeft" parent="SnapZone/Microphone" unique_id=513329526 instance=ExtResource("3_f84gd")]
 transform = Transform3D(0.21730019, -0.9761048, 0, 0.9761048, 0.21730019, 0, 0, 0, 1, -0.085585594, -0.047136933, -0.089203924)
 visible = true
 hand_pose = SubResource("Resource_j3pel")
 
-[node name="GrabPointHandRight" parent="Microphone" unique_id=1305960658 instance=ExtResource("4_vjqgm")]
+[node name="GrabPointHandRight" parent="SnapZone/Microphone" unique_id=1305960658 instance=ExtResource("4_vjqgm")]
 transform = Transform3D(0.0741305, 0.99724853, 0, -0.99724853, 0.0741305, 0, 0, 0, 1, 0.06758645, -0.01356779, -0.014841974)
 visible = true
 hand_pose = SubResource("Resource_u283h")
 
-[node name="IndicatorLight" parent="Microphone" unique_id=827362570 instance=ExtResource("7_63h5i")]
+[node name="IndicatorLight" parent="SnapZone/Microphone" unique_id=827362570 instance=ExtResource("7_63h5i")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, -0.0061234385, -0.072208725)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Microphone" unique_id=1066036435]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SnapZone/Microphone" unique_id=1066036435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009460449, 0.002304107, 0.002105713)
 shape = SubResource("BoxShape3D_jvhcy")
 
-[node name="Body" type="MeshInstance3D" parent="Microphone" unique_id=897382561]
+[node name="Body" type="MeshInstance3D" parent="SnapZone/Microphone" unique_id=897382561]
 mesh = SubResource("BoxMesh_27d7j")
 
-[node name="RecordButton" type="MeshInstance3D" parent="Microphone" unique_id=844854433]
+[node name="RecordButton" type="MeshInstance3D" parent="SnapZone/Microphone" unique_id=844854433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017053932, 0.011578247, 0.039429754)
 mesh = SubResource("CylinderMesh_27d7j")
 skeleton = NodePath("../Body")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Microphone" unique_id=415869561]
-stream = SubResource("AudioStreamMicrophone_27d7j")
+[node name="GlowOutline" parent="SnapZone/Microphone" unique_id=1717128241 instance=ExtResource("9_ctqj4")]
 
-[node name="GlowOutline" parent="Microphone" unique_id=1717128241 instance=ExtResource("9_ctqj4")]
-
-[node name="GlowMesh" parent="Microphone/GlowOutline" index="0" unique_id=2126028921]
+[node name="GlowMesh" parent="SnapZone/Microphone/GlowOutline" index="0" unique_id=2126028921]
 mesh = SubResource("BoxMesh_u283h")
 surface_material_override/0 = SubResource("StandardMaterial3D_ahljw")
 
-[editable path="Microphone/GlowOutline"]
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="SnapZone/Microphone" unique_id=2031735545]
+stream = SubResource("AudioStreamMicrophone_micn4")
+autoplay = true
+bus = &"Record"
+
+[connection signal="dropped" from="SnapZone/Microphone" to="." method="_on_microphone_dropped"]
+
+[editable path="SnapZone/Microphone/GlowOutline"]

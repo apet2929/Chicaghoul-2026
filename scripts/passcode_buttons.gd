@@ -15,13 +15,15 @@ var current_input = ""
 @onready var buttons = [$LeftButton, $RightButton, $UpButton, $DownButton]
 signal on_button_pressed(button)
 
+var is_pressable = false
+var time_since_pressed = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	left_button.on_pressed.connect(button_pressed, ConnectFlags.CONNECT_APPEND_SOURCE_OBJECT)
 	right_button.on_pressed.connect(button_pressed, ConnectFlags.CONNECT_APPEND_SOURCE_OBJECT)
 	up_button.on_pressed.connect(button_pressed, ConnectFlags.CONNECT_APPEND_SOURCE_OBJECT)
 	down_button.on_pressed.connect(button_pressed, ConnectFlags.CONNECT_APPEND_SOURCE_OBJECT)
-	#Globals.submit_button_pressed.connect(self.submit_pressed)
+	Globals.submit_button_pressed.connect(self.submit_pressed)
 
 func button_pressed(button):
 	self.on_button_pressed.emit(button)
@@ -34,12 +36,9 @@ func button_pressed(button):
 	if button == down_button:
 		current_input += DOWN
 	
-	#print(str(button) + " pressed, current_input is now " + str(current_input))
+	print(str(button) + " pressed, current_input is now " + str(current_input))
 	Globals.passcode_states[self.name] = current_input
-	if current_input.length() >= correct_passphrase.length():
-		check_passphrase()
-	else:
-		Globals.passphrase_updated.emit(self.name)
+	Globals.passphrase_updated.emit(self.name)
 
 func submit_pressed():
 	check_passphrase()
@@ -50,3 +49,4 @@ func check_passphrase():
 	else:
 		Globals.passphrase_incorrect.emit(self)
 	current_input = ""
+	

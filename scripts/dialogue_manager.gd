@@ -7,11 +7,17 @@ var current_line_idx = 0
 var dialogue_lines = []
 var paused = false
 
+@export var audio_listener: AudioStreamPlayer3D
+
 func play():
+	if audio_listener == null and get_parent() is DialogueManager:
+		audio_listener = get_parent().audio_listener
+
 	dialogue_lines = []
 	for child in get_children():
 		if child is Dialogue or child is DialogueManager:
 			dialogue_lines.append(child)
+			child.audio_listener = audio_listener
 	
 	dialogue_lines[current_line_idx].play()
 	self.next_line.connect(on_line_end)
@@ -33,7 +39,7 @@ func reset():
 
 func pause():
 	paused = true
-	
+
 func cutscene_end():
 	cutscene_ended.emit()
 	self.next_line.disconnect(on_line_end)

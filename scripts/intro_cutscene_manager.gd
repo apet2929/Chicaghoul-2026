@@ -1,6 +1,8 @@
 extends DialogueManager
 
 var cam_offset
+
+
 func _ready() -> void:
 	#cam_offset = %Rocket.position - %XRCamera3D.position
 	#Globals.subtitle_inst = %Subtitles
@@ -10,6 +12,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 	self.call_deferred("play")
 	self.cutscene_ended.connect(on_cutscene_end)
+	
 
 func _process(delta: float) -> void:
 	#%XRCamera3D.position = %Rocket.position + cam_offset
@@ -28,7 +31,6 @@ func show_clouds():
 	tween.tween_property(%Clouds, "alpha", 1, 3.0)
 	
 func on_cutscene_end() -> void:
-	# Works if main.tscn is the currently running scene
-	get_tree().root.find_child("Main", true, false).load_scene("res://scenes/game.tscn")
+	get_parent().load_scene("res://scenes/game.tscn")
 
 	

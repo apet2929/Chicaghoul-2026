@@ -15,6 +15,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.458113, 0, 0.44290733)
 [node name="gate-door" parent="EscapePodRoomDoor" index="0" unique_id=2002810878]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1652281, 0, -1.4558773)
 
+[node name="door" parent="EscapePodRoomDoor/gate-door" index="0" unique_id=1634702891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7207105, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519301207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6792603, -0.82580566)
 shape = SubResource("BoxShape3D_7nxc4")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://unuwyds8c0em"]
+
+[ext_resource type="Script" uid="uid://3yqpj4w7esrx" path="res://scripts/alien.gd" id="1_h100l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t65tg"]
+albedo_color = Color(0.5203826, 0.15602946, 0.88393104, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7nxc4"]
+material = SubResource("StandardMaterial3D_t65tg")
+
+[node name="Alien" type="Node3D" unique_id=1965306123 groups=["alien"]]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+script = ExtResource("1_h100l")
+current_location = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=978482468]
+mesh = SubResource("SphereMesh_7nxc4")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=737330243]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.2962289, 1.7886369)
+current = true
+
+[node name="Timer" type="Timer" parent="." unique_id=927931910]
+wait_time = 5.0

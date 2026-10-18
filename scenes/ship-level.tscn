@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://kgg0juo56ek8" path="res://scripts/flicker_light.gd" id="20_o0kpf"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="21_omadc"]
 [ext_resource type="PackedScene" uid="uid://dl0plhh2mh3v1" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-half.fbx" id="22_b600h"]
+[ext_resource type="Script" uid="uid://cjpj6mr8poas6" path="res://scripts/doors_container.gd" id="22_etr7h"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="23_ver81"]
 [ext_resource type="PackedScene" uid="uid://psmjyk1ipg3g" path="res://assets/kenney/kenney_modular-space-kit_1.0/Models/FBX format/template-wall-corner.fbx" id="24_d7oaq"]
 [ext_resource type="PackedScene" uid="uid://bqyoxoakx22ig" path="res://assets/me/xyz-hw-details-sci-fi-capsule/source/Capsule.fbx" id="24_rfibj"]
@@ -851,7 +852,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kppx7")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_o0kpf"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_omadc"]
 resource_local_to_scene = true
 radius = 0.3
 
@@ -1476,7 +1477,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5011215, 0, 2.989066)
 
 [node name="pipe_straight7" type="MeshInstance3D" parent="Base/Cockpit/Pipe/pipe_straight/ClosetPipes" unique_id=678586216]
-transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, 0.6175685, 1, -0.4553826)
+transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, -4.5164146, 1, -2.1651113)
 mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
@@ -1501,22 +1502,22 @@ mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
 [node name="pipe_straight8" type="MeshInstance3D" parent="Base/Cockpit/Pipe/pipe_straight/ClosetPipes" unique_id=993089719]
-transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, 0.6175685, 0, -0.4553826)
+transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, -4.5164146, 0, -2.1651113)
 mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
 [node name="pipe_straight9" type="MeshInstance3D" parent="Base/Cockpit/Pipe/pipe_straight/ClosetPipes" unique_id=1733864700]
-transform = Transform3D(0.9852824, -0.077189535, -0.1525135, 0.15204762, -0.011911842, 0.9883014, -0.078103244, -0.99694526, -4.357786e-08, 0.70385504, -0.94384956, -0.3169682)
+transform = Transform3D(0.9852824, -0.077189535, -0.1525135, 0.15204762, -0.011911842, 0.9883014, -0.078103244, -0.99694526, -4.357786e-08, -4.430128, -0.94384956, -2.0266967)
 mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
 [node name="pipe_straight10" type="MeshInstance3D" parent="Base/Cockpit/Pipe/pipe_straight/ClosetPipes" unique_id=873969469]
-transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, 0.6175685, -3, -0.4553826)
+transform = Transform3D(0.7195215, 0.69447017, 3.0356265e-08, -3.6611585e-15, -4.3711392e-08, 1, 0.69447017, -0.7195215, -3.1451275e-08, -4.840066, -3, -2.1974277)
 mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
 [node name="pipe_straight11" type="MeshInstance3D" parent="Base/Cockpit/Pipe/pipe_straight/ClosetPipes" unique_id=1828033562]
-transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, 0.6175685, -2, -0.4553826)
+transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462087e-08, -4.5164146, -2, -2.1651113)
 mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
@@ -1536,7 +1537,7 @@ mesh = SubResource("ArrayMesh_xh8bv")
 skeleton = NodePath("")
 
 [node name="pipe_straight12" type="MeshInstance3D" parent="Base/Cockpit/Pipe/pipe_straight/ClosetPipes" unique_id=1190360469]
-transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462094e-08, 0.6119275, -3.9999995, -0.44559097)
+transform = Transform3D(0.8570326, -0.51526225, -2.2522832e-08, 0, -4.371139e-08, 1.0000001, -0.51526225, -0.8570326, -3.7462094e-08, -4.5220556, -3.9999995, -2.1553197)
 mesh = SubResource("ArrayMesh_d5ivu")
 skeleton = NodePath("")
 
@@ -1778,7 +1779,7 @@ snap_require = "paper"
 initial_object = NodePath("../PickablePaper")
 
 [node name="CollisionShape3D" parent="Base/Closet/PaperBox/SnapZone" index="0"]
-shape = SubResource("SphereShape3D_o0kpf")
+shape = SubResource("SphereShape3D_omadc")
 
 [node name="PaperSnapZoneMesh" type="MeshInstance3D" parent="Base/Closet/PaperBox/SnapZone" unique_id=11828320]
 transform = Transform3D(1, 0, -4.4703484e-08, -4.4703484e-08, 1, 1.4901161e-08, 7.450581e-09, -1.4901161e-08, 1, 0, 0, 0)
@@ -1820,10 +1821,10 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.36
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.36405182, -1.1920929e-07, -5.2885456)
 
 [node name="template-corner5" parent="Base/Walls" unique_id=1027746260 instance=ExtResource("1_umeaf")]
-transform = Transform3D(1.3113416e-07, -7.642742e-15, 1, -8.742278e-08, -1, 3.821371e-15, 1, -8.742278e-08, -1.3113416e-07, 8.357277, 7.9999995, 0.6861143)
+transform = Transform3D(1.3113416e-07, -7.642742e-15, 1, -8.742278e-08, -1, 3.821371e-15, 1, -8.742278e-08, -1.3113416e-07, 8.357277, 7.9999995, 0.82338905)
 
 [node name="template-corner6" parent="Base/Walls" unique_id=1019108769 instance=ExtResource("1_umeaf")]
-transform = Transform3D(1, -7.642742e-15, 0, -7.642742e-15, -1, 8.742278e-08, 0, -8.742278e-08, -1, 8.357277, 8, -3.3029416)
+transform = Transform3D(1, -7.642742e-15, 0, -7.642742e-15, -1, 8.742278e-08, 0, -8.742278e-08, -1, 8.357277, 8, -3.1656668)
 
 [node name="template-corner7" parent="Base/Walls" unique_id=545765506 instance=ExtResource("1_umeaf")]
 transform = Transform3D(-4.371138e-08, 0, -1, -8.742278e-08, -1, 3.8213705e-15, -1, 8.742278e-08, 4.371138e-08, -26.291592, 8.000002, -2.6120682)
@@ -2234,10 +2235,19 @@ transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -7.1
 [node name="TT_EscapePodEntrance" parent="Base/Decor" unique_id=599297043 instance=ExtResource("7_b600h")]
 transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -12.064185, 0.55254126, -1.0293918)
 
+[node name="DoorsContainer" type="Node3D" parent="Base" unique_id=1319047548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1728525, 0, 0)
+script = ExtResource("22_etr7h")
+
 [node name="EscapePodDoor" parent="Base" unique_id=1449302730 instance=ExtResource("19_sc16m")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1728525, 0, 0)
 open_close_signal = "open_close_escape_pod_door"
+
+[node name="EngineRoomDoor" parent="Base" unique_id=938550986 instance=ExtResource("19_sc16m")]
+unique_name_in_owner = true
+transform = Transform3D(0.048206337, 0, 1.1730099, 0, 1.174, 0, -1.1730099, 0, 0.048206337, -7.0496235, 0, -5.734477)
+open_close_signal = "open_close_engine_room_door"
 
 [node name="CargoHoldDoor" parent="Base" unique_id=604511779 instance=ExtResource("19_sc16m")]
 unique_name_in_owner = true
@@ -2250,16 +2260,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.43
 open_close_signal = "open_close_cockpit_door"
 _is_open = true
 
-[node name="door" parent="Base/CockpitDoor/EscapePodRoomDoor/gate-door" parent_id_path=PackedInt32Array(537370861, 883964251, 2002810878) index="0" unique_id=1634702891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7207105, 0)
-
-[node name="ClosetDoor2" parent="Base" unique_id=1181149811 instance=ExtResource("19_sc16m")]
+[node name="ClosetDoor" parent="Base" unique_id=1181149811 instance=ExtResource("19_sc16m")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.6263356, 2.3841858e-07, 5.91793)
-open_close_signal = "open_close_cockpit_door"
-
-[node name="door" parent="Base/ClosetDoor2/EscapePodRoomDoor/gate-door" parent_id_path=PackedInt32Array(1181149811, 883964251, 2002810878) index="0" unique_id=1634702891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7207105, 0)
+open_close_signal = "open_close_closet_door"
 
 [node name="Lighting" type="Node3D" parent="." unique_id=355751096]
 
@@ -2269,12 +2273,16 @@ light_energy = 1.788
 light_bake_mode = 1
 spot_range = 10.830023
 spot_angle = 64.89675
+script = ExtResource("20_o0kpf")
+flicker_rate = 0.9
 
 [node name="DirectionalLight3D2" type="SpotLight3D" parent="Lighting" unique_id=2088184369]
 transform = Transform3D(-0.28076202, 0.72108215, -0.63341385, -0.055078886, -0.6709765, -0.73942995, -0.9581957, -0.17271617, 0.22810121, 0, 3.4039185, 1.2975428)
 light_bake_mode = 1
 spot_range = 12.980154
 spot_angle = 25.883312
+script = ExtResource("20_o0kpf")
+flicker_rate = 0.9
 
 [node name="DirectionalLight3D4" type="SpotLight3D" parent="Lighting" unique_id=960398918]
 transform = Transform3D(0.16158974, -0.92423904, 0.34593493, -0.00657042, 0.34952635, 0.93690354, -0.9868362, -0.15366693, 0.05040724, 8.387139, 5.220996, -0.8124305)
@@ -2282,12 +2290,16 @@ light_energy = 0.756
 light_bake_mode = 1
 spot_range = 12.980154
 spot_angle = 38.036106
+script = ExtResource("20_o0kpf")
+flicker_rate = 0.9
 
 [node name="DirectionalLight3D3" type="SpotLight3D" parent="Lighting" unique_id=1346237662]
 transform = Transform3D(-0.104895346, -0.5296645, -0.8416962, 0.26619157, -0.8304362, 0.48940504, -0.95819557, -0.17271617, 0.22810116, 0, 3.4039185, 1.2975428)
 light_energy = 1.5
 light_bake_mode = 1
 spot_range = 12.980154
+script = ExtResource("20_o0kpf")
+flicker_rate = 0.9
 
 [node name="DirectionalLight3D5" type="SpotLight3D" parent="Lighting" unique_id=42383061]
 transform = Transform3D(0.80470467, 0.5928846, 0.03063183, -0.05214481, 0.019188676, 0.9984552, 0.59138083, -0.80505884, 0.046357073, -5.383238, 16.352459, 5.028599)
@@ -2296,6 +2308,8 @@ light_energy = 4.386
 light_bake_mode = 1
 spot_range = 78.74547
 spot_angle = 71.405495
+script = ExtResource("20_o0kpf")
+flicker_rate = 0.9
 
 [node name="CapsuleLight" type="SpotLight3D" parent="Lighting" unique_id=89056467]
 transform = Transform3D(-0.59138083, 0.8050589, -0.046357054, -0.052144803, 0.019188661, 0.9984552, 0.80470467, 0.59288454, 0.030631833, -15.881078, 7.8682566, -3.7038765)
@@ -2303,21 +2317,25 @@ light_energy = 4.386
 light_bake_mode = 1
 spot_range = 78.74547
 spot_angle = 71.405495
-
-[node name="CapsuleLight2" type="SpotLight3D" parent="Lighting" unique_id=418222115]
-transform = Transform3D(-0.59138083, 0.8050589, -0.04635705, -0.052144803, 0.019188657, 0.9984552, 0.80470467, 0.59288454, 0.030631833, -15.881078, 7.8682566, 1.6615067)
-light_energy = 0.238
-light_bake_mode = 1
-spot_range = 78.74547
-spot_angle = 71.405495
+script = ExtResource("20_o0kpf")
 
 [node name="DirectionalLight3D9" type="SpotLight3D" parent="Lighting" unique_id=408167044]
 transform = Transform3D(-0.104895346, -0.5296645, -0.8416962, 0.26619157, -0.8304362, 0.48940504, -0.95819557, -0.17271617, 0.22810116, 0, 3.4039185, 1.2975428)
 light_bake_mode = 1
 spot_range = 12.980154
+script = ExtResource("20_o0kpf")
+flicker_rate = 1.02
 
 [node name="DirectionalLight3D10" type="SpotLight3D" parent="Lighting" unique_id=1983434526]
 transform = Transform3D(-0.4853695, -0.69614196, 0.52896386, 0.09520814, 0.5593263, 0.82346195, -0.86910975, 0.45004502, -0.20520161, -1.8706768, 5.444889, 7.2975426)
+light_energy = 2.249
+light_bake_mode = 1
+spot_range = 12.980154
+script = ExtResource("20_o0kpf")
+flicker_rate = 1.02
+
+[node name="DirectionalLight3D13" type="SpotLight3D" parent="Lighting" unique_id=1363236461]
+transform = Transform3D(-0.48536953, -0.69614196, 0.52896386, 0.095208146, 0.5593263, 0.82346195, -0.8691098, 0.450045, -0.20520157, -1.8706768, 5.444889, -7.802295)
 light_energy = 2.249
 light_bake_mode = 1
 spot_range = 12.980154
@@ -2329,7 +2347,7 @@ light_bake_mode = 1
 spot_range = 2.2946332
 
 [node name="DirectionalLight3D12" type="SpotLight3D" parent="Lighting" unique_id=977019455]
-transform = Transform3D(-0.0792648, 0.73565483, -0.67270267, -0.005278531, 0.67450666, 0.7382498, 0.9968394, 0.062068105, -0.049581468, -12.288123, 8.121721, 5.9836497)
+transform = Transform3D(-0.07926476, 0.7356546, -0.6727026, -0.005278528, 0.6745064, 0.7382497, 0.9968389, 0.062068082, -0.04958146, -12.288123, 8.121721, 5.9836497)
 light_energy = 4.132
 light_volumetric_fog_energy = 2.354
 light_specular = 12.69
@@ -3006,6 +3024,6 @@ shape = SubResource("BoxShape3D_7nxc4")
 [editable path="Base/Closet/PaperBox/PickablePaper/GlowOutline"]
 [editable path="Base/CockpitDoor"]
 [editable path="Base/CockpitDoor/EscapePodRoomDoor"]
-[editable path="Base/ClosetDoor2"]
-[editable path="Base/ClosetDoor2/EscapePodRoomDoor"]
+[editable path="Base/ClosetDoor"]
+[editable path="Base/ClosetDoor/EscapePodRoomDoor"]
 [editable path="Capsule"]

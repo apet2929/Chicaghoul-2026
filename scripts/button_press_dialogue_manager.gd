@@ -3,11 +3,16 @@ extends DialogueManager
 func play():
 	super.play()
 	print("Button press manager playing!")
+	monitor_selected = true
+	
+@export var monitor_selected = false
 
 func cleanup():
+	monitor_selected = false
 	Globals.buttons_container.flight_controls_button.on_button_pressed.disconnect(self.on_flc_pressed)
 	Globals.passphrase_correct.disconnect(on_success)
 	Globals.passphrase_incorrect.disconnect(on_incorrect)
+	Globals.submit_button_pressed.disconnect(propogate_submit)
 
 func wait_for_tutorial_submit():
 	print("Waiting for tutorial submit!")
@@ -19,7 +24,8 @@ func wait_for_tutorial_submit():
 	self.pause()
 
 func propogate_submit():
-	Globals.main_monitor_ui_inst.tutorial_ui().submit()
+	if monitor_selected:
+		Globals.main_monitor_ui_inst.tutorial_ui().submit()
 
 func on_flc_pressed(button):
 	var button_container: UIButtons = Globals.buttons_container.flight_controls_button
